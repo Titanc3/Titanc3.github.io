@@ -1,7 +1,7 @@
 title: Titanc3
 description: Titanc3's homepage
 show_downloads: true
-google_analytics:
+google_analytics: G-4N3KQ6NGRD
 theme: jekyll-theme-hacker
 plugins:
 - jekyll-remote-theme # add this line to the plugins list if you already have one
