@@ -1,6 +1,6 @@
 title: Titanc3
 description: Titanc3's homepage
-show_downloads: false
+show_downloads: true
 google_analytics:
 theme: jekyll-theme-hacker
 plugins:
