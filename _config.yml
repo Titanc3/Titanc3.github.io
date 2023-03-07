@@ -1,3 +1,5 @@
+baseurl: ""
+url: "https://titancio.github.io"
 theme: jekyll-theme-hacker
 plugins:
 - jekyll-remote-theme
