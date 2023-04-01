@@ -1,4 +1,4 @@
-window.dataLayer = window.dataLayer || [];
+window.dataLayer = window.dataLayer || []; //totally not sketchy name
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 
