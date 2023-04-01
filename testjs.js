@@ -1,1 +1,2 @@
-alert("help")
+
+alert("hello")
