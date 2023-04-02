@@ -18,7 +18,7 @@ layout: /_config
     <header>
       <div class="container">
         <h1>Titanc3</h1>
-        <h2 id="pc">Period Checker</h2>
+        <h2>Period Checker</h2>
 
         <section id="Sites/Pages">
           <a href="https://github.com/Titanc3" class="btn btn-github"><span class="icon"></span>My GitHub</a>
@@ -27,6 +27,9 @@ layout: /_config
         </section>
       </div>
     </header>
+    <div>
+      <h2 id="num">1</h2>
+    </div>
   </body>
 </head>
 <script>
@@ -41,9 +44,10 @@ function getParameterByName(name, url = window.location.href) {
 const times = getParameterByName("times").split("|");
 for (let value of times) {
   switch (value[0]) {
-    case "0":
-      document.getElementById("pc").innerHTML="PP Checker";
   }
 }
+await new Promise(r => setTimeout(r, 2000));
+  document.getElementById("num").innerHTML=parseInt(document.getElementById("num").value)+1
+
 </script>
 </html>
