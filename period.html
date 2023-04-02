@@ -33,6 +33,9 @@ layout: /_config
   </body>
 </head>
 <script>
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
 function getParameterByName(name, url = window.location.href) {
     name = name.replace(/[\[\]]/g, '\\$&');
     var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
@@ -46,8 +49,8 @@ for (let value of times) {
   switch (value[0]) {
   }
 }
-await new Promise(r => setTimeout(r, 2000));
-  document.getElementById("num").innerHTML=document.getElementById("num").value+1
+sleep(2000)
+document.getElementById("num").innerHTML=document.getElementById("num").value+1
 
 </script>
 </html>
