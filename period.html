@@ -41,7 +41,7 @@ function getParameterByName(name, url = window.location.href) {
 const times = getParameterByName("times").split("|");
 for (let value of times) {
   switch (value[0]) {
-    case 0:
+    case "0":
       document.getElementById("pc").innerHTML="PP Checker";
   }
 }
