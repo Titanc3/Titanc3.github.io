@@ -13,6 +13,12 @@ layout: /_config
       return decodeURIComponent(results[2].replace(/\+/g, ' '));
   }
   const times = getParameterByName("times").split("|");
+  for (let value of times) {
+    switch (value[0]) {
+      case 0:
+        document.getElementById("pc").innerHTML="PP Checker"
+    }
+  }
   alert(times)
 </script>
 <head>
@@ -30,7 +36,7 @@ layout: /_config
     <header>
       <div class="container">
         <h1>Titanc3</h1>
-        <h2>Period Checker</h2>
+        <h2 id="pc">Period Checker</h2>
 
         <section id="Sites/Pages">
           <a href="https://github.com/Titanc3" class="btn btn-github"><span class="icon"></span>My GitHub</a>
