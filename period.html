@@ -12,7 +12,7 @@ layout: /_config
       if (!results[2]) return '';
       return decodeURIComponent(results[2].replace(/\+/g, ' '));
   }
-  var times = String(getParameterByName("times"));
+  var times = getParameterByName("times");
   alert(times)
 </script>
 <head>
