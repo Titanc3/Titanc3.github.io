@@ -23,12 +23,12 @@ layout: /_config
         <section id="Sites/Pages">
           <a href="https://github.com/Titanc3" class="btn btn-github"><span class="icon"></span>My GitHub</a>
           <a href="https://titanc3.github.io/games" class="btn">Games</a>
-          <a href="https://titanc3.github.io/other" class="btn">Other</a>
+          <a href="https://titanc3.github.io/other" class="btn">Other\nOther</a>
         </section>
       </div>
     </header>
     <div>
-      <h2 id="num">7</h2>
+      <h2 id="num">8</h2>
     </div>
   </body>
 </head>
@@ -45,13 +45,12 @@ function getParameterByName(name, url = window.location.href) {
 const times = getParameterByName("times").split("|");
 for (let value of times) {
   switch (value[0]) {
-    case "a":
+    case "h":
       alert("a"+value[1]);
       break;
-    case "b":
+    case "m":
       alert("b"+value[1]);
       break;
-    hrs += value[1]
     alert("done did it")
   }
 }
