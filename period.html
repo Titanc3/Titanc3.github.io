@@ -28,14 +28,12 @@ layout: /_config
       </div>
     </header>
     <div>
-      <h2 id="num">4</h2>
+      <h2 id="num">5</h2>
     </div>
   </body>
 </head>
 <script>
-function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-}
+var hrs = ""
 function getParameterByName(name, url = window.location.href) {
     name = name.replace(/[\[\]]/g, '\\$&');
     var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
@@ -48,7 +46,11 @@ const times = getParameterByName("times").split("|");
 for (let value of times) {
   switch (value[0]) {
     case "a":
-      alert(value[1]);
+      alert("a"+value[1]);
+    case "b":
+      alert("b"+value[1]);
+    hrs += value[1]
+    alert("done did it")
   }
 }
 
