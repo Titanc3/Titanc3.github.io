@@ -28,7 +28,7 @@ layout: /_config
       </div>
     </header>
     <div>
-      <h2 id="num">3</h2>
+      <h2 id="num">4</h2>
     </div>
   </body>
 </head>
@@ -47,6 +47,7 @@ function getParameterByName(name, url = window.location.href) {
 const times = getParameterByName("times").split("|");
 for (let value of times) {
   switch (value[0]) {
+    case "a":
       alert(value[1]);
   }
 }
