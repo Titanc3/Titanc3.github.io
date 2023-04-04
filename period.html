@@ -23,37 +23,37 @@ layout: /_config
         <section id="Sites/Pages">
           <a href="https://github.com/Titanc3" class="btn btn-github"><span class="icon"></span>My GitHub</a>
           <a href="https://titanc3.github.io/games" class="btn">Games</a>
-          <a href="https://titanc3.github.io/other" class="btn">Other\nOther</a>
+          <a href="https://titanc3.github.io/other" class="btn">Othe<br>r</a>
         </section>
       </div>
     </header>
     <div>
-      <h2 id="num">8</h2>
+      <p style="text-align:center"><a href="https://titanc3.github.io">Click to create a schedule</a></p>
+      <h2 style="text-align:center">1 School Schedule:</h2>
     </div>
   </body>
 </head>
 <script>
-var hrs = ""
+var inHours = true;
+const hrs = [], mins = [], symbols =  "∆ ∇ ∎ ≡ ≣ ⊏ ⊐ ⊑ ⊒ ⊕ ⊖ ⊗ ⊘ ⊙ ⊚ ⊛ ⊜ ⊝ ⊞ ⊟ ⊠ ⊡ ⊿ ⋄ ⋐ ⋑ ⋒ ⋓ ⍁ ⍂ ⎔ □ ▢ ▣ ▤ ▥ ▦ ▧ ▨ ▩ ▪ ▫ ▬ ▭ ▮ ▯ ▰ ▱ ▲ △ ▴ ▵ ▶ ▷ ▸ ▹ ▻ ▼ ▽ ▾ ▿ ◀ ◁ ◂ ◃ ◅ ◆ ◇ ◈ ◉ ◊ ○ ◌ ◍ ◎ ● ◐ ◑ ◒ ◓ ◔ ◕ ◖ ◗ ◧ ◨ ◩ ◪ ◫ ◬ ◭ ◮ ◯ ◰ ◱ ◲ ◳ ◴ ◵ ◶".split();
 function getParameterByName(name, url = window.location.href) {
     name = name.replace(/[\[\]]/g, '\\$&');
     var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
         results = regex.exec(url);
-    if (!results) return null;
+    if (!results) return null
     if (!results[2]) return '';
     return decodeURIComponent(results[2].replace(/\+/g, ' '));
 }
 const times = getParameterByName("times").split("|");
-for (let value of times) {
-  switch (value[0]) {
-    case "h":
-      alert("a"+value[1]);
-      break;
-    case "m":
-      alert("b"+value[1]);
-      break;
-    alert("done did it")
+if (times.length() == 2) {
+  for (let value of times) {
+    for (let char of value) {
+      if (inHours == true) {hrs.push(symbols.indexOf(char));}
+      else {mins.push(symbols.indexOf(char));}
+    }
+    inHours = false;
   }
 }
-
+else {alert("Your query string is fxcked.");}
 </script>
 </html>
