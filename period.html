@@ -23,37 +23,72 @@ layout: /_config
         <section id="Sites/Pages">
           <a href="https://github.com/Titanc3" class="btn btn-github"><span class="icon"></span>My GitHub</a>
           <a href="https://titanc3.github.io/games" class="btn">Games</a>
-          <a href="https://titanc3.github.io/other" class="btn">Othe<br>r</a>
+          <a href="https://titanc3.github.io/other" class="btn">Other</a>
         </section>
       </div>
     </header>
     <div>
-      <p style="text-align:center"><a href="https://titanc3.github.io">Click to create a schedule</a></p>
-      <h2 style="text-align:center">1 School Schedule:</h2>
+      <p style="text-align:center"><a href="https://titanc3.github.io/period" class="btn">Click to create a schedule</a></p>
+      <h2 style="text-align:center">School Schedule:</h2>
+      <h1 style="text-align:center" id="timeTill"></h1>
+      <h3 style="text-align:center" id="schedule"></h3>
     </div>
   </body>
 </head>
 <script>
-var inHours = true;
-const hrs = [], mins = [], symbols =  "∆ ∇ ∎ ≡ ≣ ⊏ ⊐ ⊑ ⊒ ⊕ ⊖ ⊗ ⊘ ⊙ ⊚ ⊛ ⊜ ⊝ ⊞ ⊟ ⊠ ⊡ ⊿ ⋄ ⋐ ⋑ ⋒ ⋓ ⍁ ⍂ ⎔ □ ▢ ▣ ▤ ▥ ▦ ▧ ▨ ▩ ▪ ▫ ▬ ▭ ▮ ▯ ▰ ▱ ▲ △ ▴ ▵ ▶ ▷ ▸ ▹ ▻ ▼ ▽ ▾ ▿ ◀ ◁ ◂ ◃ ◅ ◆ ◇ ◈ ◉ ◊ ○ ◌ ◍ ◎ ● ◐ ◑ ◒ ◓ ◔ ◕ ◖ ◗ ◧ ◨ ◩ ◪ ◫ ◬ ◭ ◮ ◯ ◰ ◱ ◲ ◳ ◴ ◵ ◶".split();
+let inHours = true, translation = 0;
+const totMins = [], symbols =  "∆ ∇ ∎ ≡ ≣ ⊏ ⊐ ⊑ ⊒ ⊕ ⊖ ⊗ ⊘ ⊙ ⊚ ⊛ ⊜ ⊝ ⊞ ⊟ ⊠ ⊡ ⊿ ⋄ ⋐ ⋑ ⋒ ⋓ ⍁ ⍂ ⎔ □ ▢ ▣ ▤ ▥ ▦ ▧ ▨ ▩ ▪ ▫ ▬ ▭ ▮ ▯ ▰ ▱ ▲ △ ▴ ▵ ▶ ▷ ▸ ▹ ▻ ▼ ▽ ▾ ▿ ◀ ◁ ◂ ◃ ◅ ◆ ◇ ◈ ◉ ◊ ○ ◌ ◍ ◎ ● ◐ ◑ ◒ ◓ ◔ ◕ ◖ ◗ ◧ ◨ ◩ ◪ ◫ ◬ ◭ ◮ ◯ ◰ ◱ ◲ ◳ ◴ ◵ ◶".split(" ");
+
 function getParameterByName(name, url = window.location.href) {
-    name = name.replace(/[\[\]]/g, '\\$&');
-    var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
-        results = regex.exec(url);
-    if (!results) return null
-    if (!results[2]) return '';
-    return decodeURIComponent(results[2].replace(/\+/g, ' '));
+  name = name.replace(/[\[\]]/g, '\\$&');
+  var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+      results = regex.exec(url);
+  if (!results) return null
+  if (!results[2]) return '';
+  return decodeURIComponent(results[2].replace(/\+/g, ' '));
 }
-const times = getParameterByName("times").split("|");
-if (times.length() == 2) {
+  
+function currentTime(adjustment) {
+  const d = new Date();
+  let minAdj = d.getUTCMinutes()+(adjustment-Math.floor(adjustment))*60;
+  let hrAdj = d.getUTCHours()+Math.floor(adjustment);
+  if (hrAdj > 23) {hrAdj -= 24;}
+  else if (hrAdj < 0) {hrAdj += 24;}
+  if (minAdj >= 60) {minAdj -= 60;}
+  else if (minAdj < 0) {minAdj += 60;}
+  return [hrAdj, minAdj];
+}
+
+function timeTillX(time, nearestHr, nearestMin) {
+  let totalNow = time[0]*60+time[1];
+  let totalThen = nearestHr*60+nearestMin;
+  while (totalNow > totalThen) {totalThen+=1440}
+  return [(Math.floor(totalThen)-Math.floor(totalNow))/60, (totalThen-Math.floor(totalThen))-(totalNow-Math.floor(totalNow))]
+}
+
+function mainFunc() {
+  let nearest = timeTillX(currentTime(translation), nearestHr, nearestMin)
+  document.getElementById("timeTill").innerHTML = nearest[0].toString()+" : "+nearest[1].toString()
+}
+  
+const times = getParameterByName("t").split("|");
+if (times.length() == 2 || times.length() == 3) {
   for (let value of times) {
-    for (let char of value) {
-      if (inHours == true) {hrs.push(symbols.indexOf(char));}
-      else {mins.push(symbols.indexOf(char));}
+    if (isNaN(value) == true) {
+      for (let char of value) {
+        if (inHours == true && char in symbols) {totMins.push(symbols.indexOf(char)*60);}
+        else if (char in symbols) {totMins.push(symbols.indexOf(char));}
+        else {alert("Character not viable symbol")}
+      }
+      inHours = false;
     }
-    inHours = false;
+    else {translation = parseFloat(value)}
   }
 }
-else {alert("Your query string is fxcked.");}
+else {alert("Your query string separation is fxcked.");}
+  for (let entry of totMins) {
+    
+  }
+
 </script>
 </html>
