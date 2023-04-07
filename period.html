@@ -61,7 +61,6 @@ function timedUpdate() {
     else if (mins2MinusTime > mins1MinusTime) {
       document.getElementById("timeTill").innerHTML = `${Math.floor(mins2MinusTime/60)} Hours ${Math.floor(mins2MinusTime)} Minutes<br>Till the end of ${till[2]}`;
     }
-  }
   else { document.getElementById("timeTill").innerHTML = `End of ${getParameterByName("title")}` }
 }
   
