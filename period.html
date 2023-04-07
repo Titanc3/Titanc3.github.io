@@ -38,10 +38,6 @@ layout: /_config
 <script>
 const fullList = []; // norm variables
 const symbols =  "∆ ∇ ∎ ≡ ≣ ⊏ ⊐ ⊑ ⊒ ⊕ ⊖ ⊗ ⊘ ⊙ ⊚ ⊛ ⊜ ⊝ ⊞ ⊟ ⊠ ⊡ ⊿ ⋄ ⋐ ⋑ ⋒ ⋓ ⍁ ⍂ ⎔ □ ▢ ▣ ▤ ▥ ▦ ▧ ▨ ▩ ▪ ▫ ▬ ▭ ▮ ▯ ▰ ▱ ▲ △ ▴ ▵ ▶ ▷ ▸ ▹ ▻ ▼ ▽ ▾ ▿ ◀ ◁ ◂ ◃ ◅ ◆ ◇ ◈ ◉ ◊ ○ ◌ ◍ ◎ ● ◐ ◑ ◒ ◓ ◔ ◕ ◖ ◗ ◧ ◨ ◩ ◪ ◫ ◬ ◭ ◮ ◯ ◰ ◱ ◲ ◳ ◴ ◵ ◶".split(" ");
-
-function short(array, hours, minutes, one, two, three, four) {
-  return ((array[one][two]*60)+array[three][four])-((hours*60)+minutes);
-}
   
 function timedUpdate() {
   let d = new Date();
@@ -54,12 +50,12 @@ function timedUpdate() {
       break;
     }
   }
-  let mins1MinusTime = short(till, hr, min, 0, 0, 0, 1);
-  let mins2MinusTime = short(till, hr, min, 1, 0, 1, 1)
-  if (Math.max(mins1MinusTime, short(till, hr, min, 1, 0, 1, 1)) == mins1MinusTime) {
+  let mins1MinusTime = ((till[0][0]*60)+till[0][1])-((hr*60)+min);
+  let mins2MinusTime = ((till[1][0]*60)+till[1][1])-((hr*60)+min);
+  if (mins1MinusTime > mins2MinusTime) {
     document.getElementById("timeTill").innerHTML = `${Math.floor(mins1MinusTime/60)} Hours ${Math.floor(mins1MinusTime)} Minutes<br>Till ${till[2]}`
   }
-  else if (Math.max(mins1MinusTime, mins2MinusTime) == mins2MinusTime) {
+  else if (mins2MinusTime > mins1MinusTime) {
     document.getElementById("timeTill").innerHTML = `${Math.floor(mins2MinusTime/60)} Hours ${Math.floor(mins2MinusTime)} Minutes<br>Till the end of ${till[2]}`
   }
 }
@@ -89,6 +85,6 @@ for (const miniList of fullList) { // displaying info loop
  // url example:   titanc3.github.io/period?m=∆≣|⊏⊐|⊙⊚|⊛⊞|⊟⊠|⊟⊛&t=-4&names=poop|zoop|sloop
 console.log("Hey! No snooping!");
 console.log(getParameterByName("ofejifkj"))
-setInterval(timedUpdate, 6000);
+timedUpdate()
 </script>
 </html>
