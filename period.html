@@ -29,16 +29,34 @@ layout: /_config
     </header>            <!--wavesssss-->
     <div class="container">
       <p style="text-align:center"><a href="https://titanc3.github.io/period" class="btn">Click to create a schedule</a></p>
-      <h2 style="text-align:center">School Schedule:</h2>
       <h1 style="text-align:center" id="timeTill"></h1>
+      <h2 style="text-align:center">School Schedule:</h2>
       <h3 style="text-align:left" id="schedule"></h3>
     </div>
   </body>
 </head>
 <script>
-const fullList = [];
+const fullList = []; // norm variables
 const symbols =  "∆ ∇ ∎ ≡ ≣ ⊏ ⊐ ⊑ ⊒ ⊕ ⊖ ⊗ ⊘ ⊙ ⊚ ⊛ ⊜ ⊝ ⊞ ⊟ ⊠ ⊡ ⊿ ⋄ ⋐ ⋑ ⋒ ⋓ ⍁ ⍂ ⎔ □ ▢ ▣ ▤ ▥ ▦ ▧ ▨ ▩ ▪ ▫ ▬ ▭ ▮ ▯ ▰ ▱ ▲ △ ▴ ▵ ▶ ▷ ▸ ▹ ▻ ▼ ▽ ▾ ▿ ◀ ◁ ◂ ◃ ◅ ◆ ◇ ◈ ◉ ◊ ○ ◌ ◍ ◎ ● ◐ ◑ ◒ ◓ ◔ ◕ ◖ ◗ ◧ ◨ ◩ ◪ ◫ ◬ ◭ ◮ ◯ ◰ ◱ ◲ ◳ ◴ ◵ ◶".split(" ");
 
+function timedUpdate() {
+  let d = new Date;
+  let hr = d.getHours;
+  let min = d.getMinutes;
+  let list = []
+  for (let item in fullList) {
+    if (item[1] > (hr*60)+min) {
+      list = item;
+      break;
+    }
+  }
+  let maximum = Math.max(list[0]-(hr*60)+min), list[1]-(hr*60)+min))
+  if (maximum == list[0]-(hr*60)+min)) {document.getElementById("timeTill").innerHTML = `Time till ${list[2]}<br>`}
+  else {document.getElementById("timeTill").innerHTML = `Time till the end of ${list[2]}<br>`}
+  document.getElementById("timeTill").innerHTML += `${Math.floor(maximum)} Hours ${Math.floor(maximum-Math.floor(maximum))} Minutes`
+  const myTimeout = setTimeout(timedUpdate, 5000);
+}
+  
 function getParameterByName(name, url = window.location.href) {
   name = name.replace(/[\[\]]/g, '\\$&');
   var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
@@ -65,7 +83,7 @@ for (const miniList of fullList) { // displaying info loop
   let hr2 = Math.floor(miniList[1]/60)
   document.getElementById("schedule").innerHTML += `<br>   ${miniList[2]}<br>${hr}:${Math.floor(((miniList[0]/60)-hr)*60)} - ${hr2}:${Math.floor(((miniList[1]/60)-hr2)*60)}<br>`; //   period_name
 }                                                                                                                                                          //start:time - end:time
-
+const myTimeout = setTimeout(timedUpdate, 5000);
  // url example:   titanc3.github.io/period?m=∆≣|⊏⊐|⊙⊚|⊛⊞|⊟⊠|⊟⊛&t=-4&names=poop|zoop|sloop
 
 </script>
