@@ -26,18 +26,18 @@ layout: /_config
           <a href="https://titanc3.github.io/other" class="btn">Other</a>
         </section>
       </div>
-    </header>
-    <div>
+    </header>            <!--wavesssss-->
+    <div class="container">
       <p style="text-align:center"><a href="https://titanc3.github.io/period" class="btn">Click to create a schedule</a></p>
       <h2 style="text-align:center">School Schedule:</h2>
       <h1 style="text-align:center" id="timeTill"></h1>
-      <h3 style="text-align:center" id="schedule"></h3>
+      <h3 style="text-align:left" id="schedule"></h3>
     </div>
   </body>
 </head>
 <script>
-let inHours = true, translation = 0;
-const totMins = [], symbols =  "∆ ∇ ∎ ≡ ≣ ⊏ ⊐ ⊑ ⊒ ⊕ ⊖ ⊗ ⊘ ⊙ ⊚ ⊛ ⊜ ⊝ ⊞ ⊟ ⊠ ⊡ ⊿ ⋄ ⋐ ⋑ ⋒ ⋓ ⍁ ⍂ ⎔ □ ▢ ▣ ▤ ▥ ▦ ▧ ▨ ▩ ▪ ▫ ▬ ▭ ▮ ▯ ▰ ▱ ▲ △ ▴ ▵ ▶ ▷ ▸ ▹ ▻ ▼ ▽ ▾ ▿ ◀ ◁ ◂ ◃ ◅ ◆ ◇ ◈ ◉ ◊ ○ ◌ ◍ ◎ ● ◐ ◑ ◒ ◓ ◔ ◕ ◖ ◗ ◧ ◨ ◩ ◪ ◫ ◬ ◭ ◮ ◯ ◰ ◱ ◲ ◳ ◴ ◵ ◶".split(" ");
+const fullList = [];
+const symbols =  "∆ ∇ ∎ ≡ ≣ ⊏ ⊐ ⊑ ⊒ ⊕ ⊖ ⊗ ⊘ ⊙ ⊚ ⊛ ⊜ ⊝ ⊞ ⊟ ⊠ ⊡ ⊿ ⋄ ⋐ ⋑ ⋒ ⋓ ⍁ ⍂ ⎔ □ ▢ ▣ ▤ ▥ ▦ ▧ ▨ ▩ ▪ ▫ ▬ ▭ ▮ ▯ ▰ ▱ ▲ △ ▴ ▵ ▶ ▷ ▸ ▹ ▻ ▼ ▽ ▾ ▿ ◀ ◁ ◂ ◃ ◅ ◆ ◇ ◈ ◉ ◊ ○ ◌ ◍ ◎ ● ◐ ◑ ◒ ◓ ◔ ◕ ◖ ◗ ◧ ◨ ◩ ◪ ◫ ◬ ◭ ◮ ◯ ◰ ◱ ◲ ◳ ◴ ◵ ◶".split(" ");
 
 function getParameterByName(name, url = window.location.href) {
   name = name.replace(/[\[\]]/g, '\\$&');
@@ -47,48 +47,26 @@ function getParameterByName(name, url = window.location.href) {
   if (!results[2]) return '';
   return decodeURIComponent(results[2].replace(/\+/g, ' '));
 }
-  
-function currentTime(adjustment) {
-  const d = new Date();
-  let minAdj = d.getUTCMinutes()+(adjustment-Math.floor(adjustment))*60;
-  let hrAdj = d.getUTCHours()+Math.floor(adjustment);
-  if (hrAdj > 23) {hrAdj -= 24;}
-  else if (hrAdj < 0) {hrAdj += 24;}
-  if (minAdj >= 60) {minAdj -= 60;}
-  else if (minAdj < 0) {minAdj += 60;}
-  return [hrAdj, minAdj];
-}
 
-function timeTillX(time, nearestHr, nearestMin) {
-  let totalNow = time[0]*60+time[1];
-  let totalThen = nearestHr*60+nearestMin;
-  while (totalNow > totalThen) {totalThen+=1440}
-  return [(Math.floor(totalThen)-Math.floor(totalNow))/60, (totalThen-Math.floor(totalThen))-(totalNow-Math.floor(totalNow))]
-}
-
-function mainFunc() {
-  let nearest = timeTillX(currentTime(translation), nearestHr, nearestMin)
-  document.getElementById("timeTill").innerHTML = nearest[0].toString()+" : "+nearest[1].toString()
+function decrypt(index, index2, transfer) {
+  return symbols.indexOf(timesInMinutes[index+transfer][index2]).toString()
 }
   
-const times = getParameterByName("t").split("|");
-if (times.length() == 2 || times.length() == 3) {
-  for (let value of times) {
-    if (isNaN(value) == true) {
-      for (let char of value) {
-        if (inHours == true && char in symbols) {totMins.push(symbols.indexOf(char)*60);}
-        else if (char in symbols) {totMins.push(symbols.indexOf(char));}
-        else {alert("Character not viable symbol")}
-      }
-      inHours = false;
-    }
-    else {translation = parseFloat(value)}
-  }
+let translation = parseInt(getParameterByName("t"));
+let timesInMinutes = getParameterByName("m").split("|"); // query variables
+let names = getParameterByName("m").split("|");
+  
+for (let i = 0; i < timesInMinutes.length(); i+=2) {
+  fullList.push([parseInt(decrypt(i, 0, 0)+decrypt(i, 1, 0)), parseInt(decrypt(i, 0, 1)+decrypt(i, 1, 1)), names[i/2]); // rip reading code, format: [start_of_period (minutes), end_of_period (minutes), period_name]
 }
-else {alert("Your query string separation is fxcked.");}
-  for (let entry of totMins) {
-    
-  }
+                
+for (const miniList of fullList) { // displaying info loop
+  let hr = Math.floor(miniList[0]/60)
+  let hr2 = Math.floor(miniList[1]/60)
+  document.getElementById("schedule").innerHTML += `<br>   ${miniList[2]}<br>${hr}:${((miniList[0]/60)-hr)*60} - ${hr2}:${((miniList[1]/60)-hr2)*60}<br>`; //   period_name
+}                                                                                                                                                          //start:time - end:time
+
+ // url example:   titanc3.github.io/period?m=∆≣|⊏⊐|⊙⊚|⊛⊞|⊟⊠|⊟⊛&t=-4&names=poop|zoop|sloop
 
 </script>
 </html>
