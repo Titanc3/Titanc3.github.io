@@ -55,7 +55,7 @@ function timedUpdate() {
     }
   }
   let mins1MinusTime = short(till, hr, min, 0, 0, 0, 1)
-  if (Math.max(mins1MinusTime, short(till, hr, min, 1, 0, 1, 1)) == mins1MinusTime) {
+  if (Math.max(mins1MinusTime, short(till, hr, min, 1, 0, 1, 1)) == Math.abs(mins1MinusTime)) {
     document.getElementById("timeTill").innerHTML = `${Math.floor(mins1MinusTime/60)} Hours ${Math.floor(mins1MinusTime)} Minutes<br>Till ${till[2]}`
   }
   else {
