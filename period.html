@@ -40,7 +40,7 @@ const fullList = []; // norm variables
 const symbols =  "∆ ∇ ∎ ≡ ≣ ⊏ ⊐ ⊑ ⊒ ⊕ ⊖ ⊗ ⊘ ⊙ ⊚ ⊛ ⊜ ⊝ ⊞ ⊟ ⊠ ⊡ ⊿ ⋄ ⋐ ⋑ ⋒ ⋓ ⍁ ⍂ ⎔ □ ▢ ▣ ▤ ▥ ▦ ▧ ▨ ▩ ▪ ▫ ▬ ▭ ▮ ▯ ▰ ▱ ▲ △ ▴ ▵ ▶ ▷ ▸ ▹ ▻ ▼ ▽ ▾ ▿ ◀ ◁ ◂ ◃ ◅ ◆ ◇ ◈ ◉ ◊ ○ ◌ ◍ ◎ ● ◐ ◑ ◒ ◓ ◔ ◕ ◖ ◗ ◧ ◨ ◩ ◪ ◫ ◬ ◭ ◮ ◯ ◰ ◱ ◲ ◳ ◴ ◵ ◶".split(" ");
 
 function short(array, hours, minutes, one, two, three, four) {
-  return ((array[one][two]*60)+array[three][four])-((hours*60)+minutes)
+  return ((array[one][two]*60)+array[three][four])-((hours*60)+minutes);
 }
   
 function timedUpdate() {
@@ -54,6 +54,7 @@ function timedUpdate() {
       till = item;
       break;
     }
+  alert(till)
   }
   if (Math.max(mins1MinusTime, short(till, hr, min, 1, 0, 1, 1)) == mins1MinusTime) {
     document.getElementById("timeTill").innerHTML = `${Math.floor(mins1MinusTime/60)} Hours ${Math.floor(mins1MinusTime)} Minutes<br>Till ${till[2]}`
