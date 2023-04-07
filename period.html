@@ -42,7 +42,7 @@ const symbols =  "∆ ∇ ∎ ≡ ≣ ⊏ ⊐ ⊑ ⊒ ⊕ ⊖ ⊗ ⊘ ⊙ ⊚ �
 function timedUpdate() {
   let d = new Date();
   let till =[], min = "", hr = "";
-  if isNaN(getParameterByName("t")) {
+  if (isNaN(getParameterByName("t"))) {
     let min = d.getMinutes();
     let hr = d.getHours();
   }
