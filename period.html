@@ -30,7 +30,7 @@ layout: /_config
     <div class="container">
       <p style="text-align:center"><a href="https://titanc3.github.io/period" class="btn">Click to create a schedule</a></p>
       <h1 style="text-align:center" id="timeTill"></h1>
-      <h2 style="text-align:center">School Schedule:</h2>
+      <h2 style="text-align:center" id="title"></h2>
       <h3 style="text-align:left" id="schedule"></h3>
     </div>
   </body>
@@ -41,9 +41,15 @@ const symbols =  "∆ ∇ ∎ ≡ ≣ ⊏ ⊐ ⊑ ⊒ ⊕ ⊖ ⊗ ⊘ ⊙ ⊚ �
   
 function timedUpdate() {
   let d = new Date();
-  let min = d.getMinutes();
-  let hr = d.getHours();
-  let till =[];
+  let till =[], min = "", hr = "";
+  if isNaN(getParameterByName("t")) {
+    let min = d.getMinutes();
+    let hr = d.getHours();
+  }
+  else {
+    let min = d.getUTCMinutes()+parseInt(getParameterByName("t"));
+    let hr = d.getUTCHours()+parseInt(getParameterByName("t"));
+  }
   for (item of fullList) {
     if ((item[1][0]*60)+item[1][1] > (hr*60)+min) {
       till = item;
@@ -52,12 +58,15 @@ function timedUpdate() {
   }
   let mins1MinusTime = ((till[0][0]*60)+till[0][1])-((hr*60)+min);
   let mins2MinusTime = ((till[1][0]*60)+till[1][1])-((hr*60)+min);
-  if (mins1MinusTime > mins2MinusTime) {
-    document.getElementById("timeTill").innerHTML = `${Math.floor(mins1MinusTime/60)} Hours ${Math.floor(mins1MinusTime)} Minutes<br>Till ${till[2]}`
+  if till != []) {
+    if (mins1MinusTime > mins2MinusTime) {
+      document.getElementById("timeTill").innerHTML = `${Math.floor(mins1MinusTime/60)} Hours ${Math.floor(mins1MinusTime)} Minutes<br>Till ${till[2]}`;
+    }
+    else if (mins2MinusTime > mins1MinusTime) {
+      document.getElementById("timeTill").innerHTML = `${Math.floor(mins2MinusTime/60)} Hours ${Math.floor(mins2MinusTime)} Minutes<br>Till the end of ${till[2]}`;
+    }
   }
-  else if (mins2MinusTime > mins1MinusTime) {
-    document.getElementById("timeTill").innerHTML = `${Math.floor(mins2MinusTime/60)} Hours ${Math.floor(mins2MinusTime)} Minutes<br>Till the end of ${till[2]}`
-  }
+  else { document.getElementById("timeTill").innerHTML = `End of ${getParameterByName("title")}` }
 }
   
 function getParameterByName(name, url = window.location.href) {
@@ -71,7 +80,6 @@ function getParameterByName(name, url = window.location.href) {
 
 function decrypt(index, index2) { return symbols.indexOf(timesInMinutes[index][index2]); }
   
-let translation = parseInt(getParameterByName("t"));
 let timesInMinutes = getParameterByName("m").split("|"); // query variables
 let names = getParameterByName("names").split("|");
   
@@ -81,10 +89,10 @@ for (let i = 0; i < timesInMinutes.length; i+=2) {
                 
 for (const miniList of fullList) { // displaying info loop
   document.getElementById("schedule").innerHTML += `<br>   ${miniList[2]}<br>${miniList[0][0]}:${miniList[0][1]} - ${miniList[1][0]}:${miniList[1][1]}<br>`; //   period_name
-}                                                                                                                                                                                  //start:time - end:time
+}                                                                                                                                                            //start:time - end:time
+document.getElementById("title").innerHTML = getParameterByName("title")+" Schedule"
  // url example:   titanc3.github.io/period?m=∆≣|⊏⊐|⊙⊚|⊛⊞|⊟⊠|⊟⊛&t=-4&names=poop|zoop|sloop
 console.log("Hey! No snooping!");
-console.log(getParameterByName("ofejifkj"))
 timedUpdate()
 </script>
 </html>
