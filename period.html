@@ -59,11 +59,11 @@ for (let i = 0; i < timesInMinutes.length; i+=2) {
 }
                 
 for (const miniList of fullList) { // displaying info loop
-  alert(miniList)
+  console.log(miniList)
   document.getElementById("schedule").innerHTML += `<br>   ${miniList[2]}<br>${miniList[0][0]}:${miniList[0][1]} - ${miniList[1][0]}:${miniList[1][1]}<br>`; //   period_name
 }                                                                                                                                                                                  //start:time - end:time
  // url example:   titanc3.github.io/period?m=∆≣|⊏⊐|⊙⊚|⊛⊞|⊟⊠|⊟⊛&t=-4&names=poop|zoop|sloop
-alert(fullList)
+console.log(fullList)
 
 </script>
 </html>
