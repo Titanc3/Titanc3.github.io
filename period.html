@@ -50,7 +50,7 @@ function timedUpdate() {
       break;
     }
   }
-  let maximum = Math.max(list[0]-(hr*60)+min), list[1]-(hr*60)+min))
+  let maximum = Math.max((list[0]-(hr*60)+min), (list[1]-(hr*60)+min))
   if (maximum == list[0]-(hr*60)+min)) {document.getElementById("timeTill").innerHTML = `Time till ${list[2]}<br>`}
   else {document.getElementById("timeTill").innerHTML = `Time till the end of ${list[2]}<br>`}
   document.getElementById("timeTill").innerHTML += `${Math.floor(maximum)} Hours ${Math.floor(maximum-Math.floor(maximum))} Minutes`
