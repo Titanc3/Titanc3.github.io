@@ -41,7 +41,7 @@ const symbols =  "∆ ∇ ∎ ≡ ≣ ⊏ ⊐ ⊑ ⊒ ⊕ ⊖ ⊗ ⊘ ⊙ ⊚ �
   
 function timedUpdate() {
   let d = new Date();
-  let till =[];
+  let till = 0;
   let min = d.getMinutes();
   let hr = d.getHours();
 
@@ -54,7 +54,7 @@ function timedUpdate() {
   }
   let mins1MinusTime = ((till[0][0]*60)+till[0][1])-((hr*60)+min);
   let mins2MinusTime = ((till[1][0]*60)+till[1][1])-((hr*60)+min);
-  if (till != []) {
+  if (till != "") {
     if (mins1MinusTime > mins2MinusTime) {
       document.getElementById("timeTill").innerHTML = `${Math.floor(mins1MinusTime/60)} Hours ${Math.floor(mins1MinusTime)} Minutes<br>Till ${till[2]}`;
     }
