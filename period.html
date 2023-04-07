@@ -42,13 +42,9 @@ const symbols =  "∆ ∇ ∎ ≡ ≣ ⊏ ⊐ ⊑ ⊒ ⊕ ⊖ ⊗ ⊘ ⊙ ⊚ �
 function timedUpdate() {
   let d = new Date();
   let till =[], min = "", hr = "";
-  if (isNaN(getParameterByName("t"))) {
-    let min = d.getMinutes();
-    let hr = d.getHours();
-  }
-  else {
-    let min = d.getUTCMinutes()+parseInt(getParameterByName("t"));
-    let hr = d.getUTCHours()+parseInt(getParameterByName("t"));
+  let min = d.getMinutes();
+  let hr = d.getHours();
+
   }
   for (item of fullList) {
     if ((item[1][0]*60)+item[1][1] > (hr*60)+min) {
