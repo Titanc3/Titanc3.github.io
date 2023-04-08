@@ -74,7 +74,6 @@ function getParameterByName(name, url = window.location.href) {
 
 function decrypt(index, index2) { return symbols.indexOf(timesInMinutes[index][index2]); }
   
-let translation = parseInt(getParameterByName("t"));
 let timesInMinutes = getParameterByName("m").split("|"); // query variables
 let names = getParameterByName("names").split("|");
   
@@ -87,6 +86,7 @@ for (const miniList of fullList) { // displaying info loop
 }                                                                                                                                                                                  //start:time - end:time
  // url example:   titanc3.github.io/period?m=∆≣|⊏⊐|⊙⊚|⊛⊞|⊟⊠|⊟⊛&t=-4&names=poop|zoop|sloop
 console.log("Hey! No snooping!");
-timedUpdate()
+setInterval(timedUpdate, 6000);
+document.getElementById("title").innerHTML = getParameterByName("title")
 </script>
 </html>
