@@ -54,7 +54,7 @@ function timedUpdate() {
       break;
     }
   }
-  
+  console.log(till)
   if (till == []) { document.getElementById("timeTill").innerHTML = "End of "+getParameterByName("title") }
       
   else if (short(till, hr, min, 0, 0, 0, 1) == Math.abs(short(till, hr, min, 0, 0, 0, 1))) {
