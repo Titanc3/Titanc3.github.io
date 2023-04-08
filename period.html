@@ -47,16 +47,15 @@ function timedUpdate() {
   let d = new Date();
   let min = d.getMinutes();
   let hr = d.getHours();
-  let till = [];
+  let till = 0;
   for (item of fullList) {
     if ((item[1][0]*60)+item[1][1] > (hr*60)+min) {
       till = item;
       break;
     }
   }
-  if (till == []) { 
+  if (till == 0) { 
     document.getElementById("timeTill").innerHTML = "End of "+getParameterByName("title"); 
-    console.log("done it");
   }
   else if (short(till, hr, min, 0, 0, 0, 1) == Math.abs(short(till, hr, min, 0, 0, 0, 1))) {
     document.getElementById("timeTill").innerHTML = `${Math.floor(short(till, hr, min, 0, 0, 0, 1)/60)} Hours ${Math.floor(short(till, hr, min, 0, 0, 0, 1))} Minutes<br>Till ${till[2]}`;
