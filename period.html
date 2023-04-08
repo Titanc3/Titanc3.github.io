@@ -30,7 +30,7 @@ layout: /_config
     <div class="container">
       <p style="text-align:center"><a href="https://titanc3.github.io/period" class="btn">Click to create a schedule</a></p>
       <h1 style="text-align:center" id="timeTill"></h1>
-      <h2 style="text-align:center">School Schedule:</h2>
+      <h2 style="text-align:center" id="title">School Schedule:</h2>
       <h3 style="text-align:left" id="schedule"></h3>
     </div>
   </body>
@@ -88,6 +88,6 @@ for (const miniList of fullList) { // displaying info loop
  // url example:   titanc3.github.io/period?m=∆≣|⊏⊐|⊙⊚|⊛⊞|⊟⊠|⊟⊛&t=-4&names=poop|zoop|sloop
 console.log("Hey! No snooping!");
 setInterval(timedUpdate, 6000);
-document.getElementById("title").innerHTML = getParameterByName("title")+" Schedule"
+document.getElementById("title").innerHTML = getParameterByName("title")+" Schedule";
 </script>
 </html>
