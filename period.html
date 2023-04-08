@@ -56,12 +56,13 @@ function timedUpdate() {
   }
   let mins1MinusTime = short(till, hr, min, 0, 0, 0, 1)
   let mins2MinusTime = short(till, hr, min, 1, 0, 1, 1)
-  if (mins1MinusTime < mins2MinusTime) {
+  if (mins1MinusTime == Math.abs(mins1MinusTime)) {
     document.getElementById("timeTill").innerHTML = `${Math.floor(mins1MinusTime/60)} Hours ${Math.floor(mins1MinusTime)} Minutes<br>Till ${till[2]}`
   }
-  else {
+  else if (mins2MinusTime == Math.abs(mins2MinusTime)) {
     document.getElementById("timeTill").innerHTML = `${Math.floor(mins2MinusTime/60)} Hours ${Math.floor(mins2MinusTime)} Minutes<br>Till the end of ${till[2]}`
   }
+  else { document.getElementById("timeTill").innerHTML = "End of "+getParameterByName("title") }
 }
   
 function getParameterByName(name, url = window.location.href) {
