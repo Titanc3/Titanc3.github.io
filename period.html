@@ -69,7 +69,7 @@ function timedUpdate() {
       else { let newHour = `${miniList[0][0]+1} AM` }
       if (miniList[1][0] > 11) { let newHour = `${miniList[1][0]-11} PM` }
       else { let newHour2 = `${miniList[1][0]+1} AM` }
-      document.getElementById("schedule").innerHTML += `<br>   ${miniList[2]}<br>${newHour1}:${miniList[0][1]} - ${newHour2}:${miniList[1][1]}<br>`;
+      document.getElementById("schedule").innerHTML += `<br>   ${miniList[2]}<br>${newHour}:${miniList[0][1]} - ${newHour2}:${miniList[1][1]}<br>`;
     }
   }
 }
