@@ -63,7 +63,7 @@ function timedUpdate() {
     document.getElementById("timeTill").innerHTML = `${Math.floor(short(till, hr, min, 1, 0, 1, 1)/60)} Hours ${Math.floor(short(till, hr, min, 1, 0, 1, 1))} Minutes<br>Till the end of ${till[2]}`;
   }
   document.getElementById("schedule").innerHTML = ""
-  if (document.querySelector('.time:checked').value == 12) {
+  if (document.querySelector('.time:checked') != null) {
     for (const miniList of fullList) { // displaying info loop
       if (miniList[0][0] > 11) { newHour = `${miniList[0][0]-11} PM`.split(" ") }
       else { newHour = `${miniList[0][0]+1} AM`.split(" ") }
