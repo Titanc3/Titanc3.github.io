@@ -76,7 +76,7 @@ function getParameterByName(name, url = window.location.href) {
 
 function decrypt(index, index2) { return symbols.indexOf(timesInMinutes[index][index2]); }
 
-if (getParameterByName("m") != null && getParameterByName("names") != null) {
+if (getParameterByName("m") != null && getParameterByName("names") != null && getParameterByName("title") != null) {
   timesInMinutes = getParameterByName("m").split("|"); // query variables
   names = getParameterByName("names").split("|");
   
