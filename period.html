@@ -62,7 +62,7 @@ function timedUpdate() {
   else if (short(till, hr, min, 1, 0, 1, 1) == Math.abs(short(till, hr, min, 1, 0, 1, 1))) {
     document.getElementById("timeTill").innerHTML = `${Math.floor(short(till, hr, min, 1, 0, 1, 1)/60)} Hours ${Math.floor(short(till, hr, min, 1, 0, 1, 1))} Minutes<br>Till the end of ${till[2]}`;
   }
-  console.log(document.querySelector('.messageCheckbox:checked').value);
+  console.log(document.querySelector('.time:checked').value);
 }
   
 function getParameterByName(name, url = window.location.href) {
