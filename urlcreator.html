@@ -53,7 +53,7 @@ layout: /_config
             }
           }
           document.getElementById("submitButton").innerHTML = "Click to open your URL"
-          console.log(url)
+          document.getElementById("submitButton").setAttribute('href',url.toString());
         }
         </script>
       </form>
