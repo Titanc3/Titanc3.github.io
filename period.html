@@ -76,8 +76,8 @@ function getParameterByName(name, url = window.location.href) {
 
 function decrypt(index, index2) { return symbols.indexOf(timesInMinutes[index][index2]); }
 
-if (getParameterByName("m") != null) { let timesInMinutes = getParameterByName("m").split("|"); } // query variables
-if (getParameterByName("names") != null) { let names = getParameterByName("names").split("|"); } 
+if (getParameterByName("m") != null) { timesInMinutes = getParameterByName("m").split("|"); } // query variables
+if (getParameterByName("names") != null) { names = getParameterByName("names").split("|"); } 
   
 for (let i = 0; i < timesInMinutes.length; i+=2) {
   fullList.push([[decrypt(i, 0), decrypt(i, 1)], [decrypt(i+1, 0), decrypt(i+1, 1)], names[i/2]]); //xtra rip reading code, format: [[hr, min](start), [hr, min](stop), name]
