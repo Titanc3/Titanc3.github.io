@@ -62,7 +62,16 @@ function timedUpdate() {
   else if (short(till, hr, min, 1, 0, 1, 1) == Math.abs(short(till, hr, min, 1, 0, 1, 1))) {
     document.getElementById("timeTill").innerHTML = `${Math.floor(short(till, hr, min, 1, 0, 1, 1)/60)} Hours ${Math.floor(short(till, hr, min, 1, 0, 1, 1))} Minutes<br>Till the end of ${till[2]}`;
   }
-  console.log(document.querySelector('.time:checked').value);
+  if (document.querySelector('.time:checked').value == 12) {
+    document.getElementById("schedule").innerHTML = ""
+    for (const miniList of fullList) { // displaying info loop
+      if (miniList[0][0] > 11) { let newHour = `${miniList[0][0]-11} PM` }
+      else { let newHour = `${miniList[0][0]+1} AM` }
+      if (miniList[1][0] > 11) { let newHour = `${miniList[1][0]-11} PM` }
+      else { let newHour2 = `${miniList[1][0]+1} AM` }
+      document.getElementById("schedule").innerHTML += `<br>   ${miniList[2]}<br>${newHour1}:${miniList[0][1]} - ${newHour2}:${miniList[1][1]}<br>`;
+    }
+  }
 }
   
 function getParameterByName(name, url = window.location.href) {
@@ -85,8 +94,8 @@ if (getParameterByName("m") != null && getParameterByName("names") != null && ge
   }
   
   for (const miniList of fullList) { // displaying info loop
-    document.getElementById("schedule").innerHTML += `<br>   ${miniList[2]}<br>${miniList[0][0]}:${miniList[0][1]} - ${miniList[1][0]}:${miniList[1][1]}<br>`; //   period_name
-  }  // url example:   titanc3.github.io/period?m=∆≣|⊏⊐|⊙⊚|⊛⊞|⊟⊠|⊟⊛&t=-4&names=poop|zoop|sloop
+    document.getElementById("schedule").innerHTML += `<br>   ${miniList[2]}<br>${miniList[0][0]}:${miniList[0][1]} - ${miniList[1][0]}:${miniList[1][1]}<br>`;
+  }  // url example:   titanc3.github.io/period?m=∆≣|⊏⊐|⊙⊚|⊛⊞|⊟⊠|⊟⊛&names=poop|zoop|sloop&title=scholo
   
   console.log("Hey! No snooping!");
   document.getElementById("title").innerHTML = getParameterByName("title")+" Schedule";
