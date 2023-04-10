@@ -52,7 +52,8 @@ layout: /_config
               else { url += "|" + symbols[parseInt(startList[0])] + symbols[parseInt(startList[1])] + "|" + symbols[parseInt(endList[0])] + symbols[parseInt(endList[1])] }
             }
           }
-          console.log(url)
+          document.getElementById("submitButton").innerHTML = "Click to open your URL"
+          document.getElementById("submitButton").setAttribute("href", url)
         }
         </script>
       </form>
