@@ -65,10 +65,10 @@ function timedUpdate() {
   if (document.querySelector('.time:checked').value == 12) {
     document.getElementById("schedule").innerHTML = ""
     for (const miniList of fullList) { // displaying info loop
-      if (miniList[0][0] > 11) { let newHour = `${miniList[0][0]-11} PM` }
-      else { let newHour = `${miniList[0][0]+1} AM` }
-      if (miniList[1][0] > 11) { let newHour = `${miniList[1][0]-11} PM` }
-      else { let newHour2 = `${miniList[1][0]+1} AM` }
+      if (miniList[0][0] > 11) { newHour = `${miniList[0][0]-11} PM` }
+      else { newHour = `${miniList[0][0]+1} AM` }
+      if (miniList[1][0] > 11) { newHour2 = `${miniList[1][0]-11} PM` }
+      else { newHour2 = `${miniList[1][0]+1} AM` }
       document.getElementById("schedule").innerHTML += `<br>   ${miniList[2]}<br>${newHour}:${miniList[0][1]} - ${newHour2}:${miniList[1][1]}<br>`;
     }
   }
