@@ -52,6 +52,7 @@ layout: /_config
               else { url += "|" + symbols[parseInt(startList[0])] + symbols[parseInt(startList[1])] + "|" + symbols[parseInt(endList[0])] + symbols[parseInt(endList[1])] }
             }
           }
+          console.log(url)
           let link = document.createElement("a")
           link.setAttribute("href" , url)
           document.getElementById("submitButton").replaceChild(link, document.getElementById("submitButton"))
