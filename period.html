@@ -65,10 +65,10 @@ function timedUpdate() {
   document.getElementById("schedule").innerHTML = ""
   if (document.querySelector('.time:checked') != null) {
     for (const miniList of fullList) { // displaying info loop
-      if (miniList[0][0] > 11) { newHour = `${miniList[0][0]-11} PM`.split(" ") }
-      else { newHour = `${miniList[0][0]+1} AM`.split(" ") }
-      if (miniList[1][0] > 11) { newHour2 = `${miniList[1][0]-11} PM`.split(" ") }
-      else { newHour2 = `${miniList[1][0]+1} AM`.split(" ") }
+      if (miniList[0][0] > 11) { newHour = `${miniList[0][0]-12} PM`.split(" ") }
+      else { newHour = `${miniList[0][0]} AM`.split(" ") }
+      if (miniList[1][0] > 11) { newHour2 = `${miniList[1][0]-12} PM`.split(" ") }
+      else { newHour2 = `${miniList[1][0]} AM`.split(" ") }
       document.getElementById("schedule").innerHTML += `<br>   ${miniList[2]}<br>${newHour[0]}:${miniList[0][1]} ${newHour[1]} - ${newHour2[0]}:${miniList[1][1]} ${newHour2[1]}<br>`;
     }
   }
