@@ -27,7 +27,7 @@ layout: /_config
       </div>
     </header>            <!--wavesssss-->
     <div class="container">
-      <p style="text-align:center"><a href="https://titanc3.github.io/urlcreator" class="btn">Click to create a schedule</a> <input type="checkbox" id="timeSet" name="timeSet" value="12"> <label for="timeSet" style="font-family=:Helvetica"> 12hr Clock</label></p>
+      <p style="text-align:center"><a href="https://titanc3.github.io/urlcreator" class="btn">Click to create a schedule</a> <input class="time" type="checkbox" name="timeSet" value="12"> <label for="timeSet"> 12hr Clock</label></p>
       <h1 style="text-align:center" id="timeTill"></h1>
       <h2 style="text-align:center" id="title"></h2>
       <h3 style="text-align:left" id="schedule"></h3>
@@ -62,6 +62,7 @@ function timedUpdate() {
   else if (short(till, hr, min, 1, 0, 1, 1) == Math.abs(short(till, hr, min, 1, 0, 1, 1))) {
     document.getElementById("timeTill").innerHTML = `${Math.floor(short(till, hr, min, 1, 0, 1, 1)/60)} Hours ${Math.floor(short(till, hr, min, 1, 0, 1, 1))} Minutes<br>Till the end of ${till[2]}`;
   }
+  console.log(document.querySelector('.messageCheckbox:checked').value);
 }
   
 function getParameterByName(name, url = window.location.href) {
@@ -74,9 +75,9 @@ function getParameterByName(name, url = window.location.href) {
 }
 
 function decrypt(index, index2) { return symbols.indexOf(timesInMinutes[index][index2]); }
-  
-let timesInMinutes = getParameterByName("m").split("|"); // query variables
-let names = getParameterByName("names").split("|");
+
+if (getParameterByName("m") != null) { let timesInMinutes = getParameterByName("m"); } // query variables
+if (getParameterByName("names") != null) { let names = getParameterByName("names"); } 
   
 for (let i = 0; i < timesInMinutes.length; i+=2) {
   fullList.push([[decrypt(i, 0), decrypt(i, 1)], [decrypt(i+1, 0), decrypt(i+1, 1)], names[i/2]]); //xtra rip reading code, format: [[hr, min](start), [hr, min](stop), name]
