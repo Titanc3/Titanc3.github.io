@@ -29,12 +29,34 @@ layout: /_config
     </header>
     <div class="container">
       <form>
-        <p><input type="text" id="title" name="title" value="School"> Schedule</p><br>
-        <p><input type="text" id="names" name="names"> Type the names of each period separated by a space (name1 name2 ...)</p>
+        <p><input type="text" id="title" name="title" value="School" required> Schedule</p><br>
+        <p><input type="text" id="names" name="names" required> Type the names of each period separated by a space (name1 name2 ...)</p>
         <p>(use millitary time in the form of 0-23)</p>
-        <p><input type="text" id="startTime" name="startTime"> Type the starting time of each period separated by a space (0:24 13:31 ...)</p>
-        <p><input type="text" id="startTime" name="endTime"> Type the end time of each period separated by a space (2:24 15:31 ...)</p>
-        <a id="submit" class="btn">Submit<a>
+        <p><input type="text" id="startTime" name="startTime" required> Type the starting time of each period separated by a space (0:24 13:31 ...)</p>
+        <p><input type="text" id="endTime" name="endTime" required> Type the end time of each period separated by a space (2:24 15:31 ...)</p>
+        <input id="submitButton" type="submit" class="btn" value="Submit" onclick="submit()">
+        <script>
+        function submit() {
+          let symbols = "∆ ∇ ∎ ≡ ≣ ⊏ ⊐ ⊑ ⊒ ⊕ ⊖ ⊗ ⊘ ⊙ ⊚ ⊛ ⊜ ⊝ ⊞ ⊟ ⊠ ⊡ ⊿ ⋄ ⋐ ⋑ ⋒ ⋓ ⍁ ⍂ ⎔ □ ▢ ▣ ▤ ▥ ▦ ▧ ▨ ▩ ▪ ▫ ▬ ▭ ▮ ▯ ▰ ▱ ▲ △ ▴ ▵ ▶ ▷ ▸ ▹ ▻ ▼ ▽ ▾ ▿ ◀ ◁ ◂ ◃ ◅ ◆ ◇ ◈ ◉ ◊ ○ ◌ ◍ ◎ ● ◐ ◑ ◒ ◓ ◔ ◕ ◖ ◗ ◧ ◨ ◩ ◪ ◫ ◬ ◭ ◮ ◯ ◰ ◱ ◲ ◳ ◴ ◵ ◶".split(" ")
+          let names = document.getElementById("names").split(" ")
+          let startTime = document.getElementById("startTime").split(" ")
+          let endTime = document.getElementById("endTime").split(" ")
+          let url = `titanc3.github.io/period?title=${document.getElementById("title")}&names=${names.join("|")}&m=`
+          
+          if (startTime.length != endTime.length) {alert("Your start times and end times don't match")}
+          else {
+            for (let i = 0; i < startTime.length; i++) {
+              let startList = startTime[i].split(":")
+              let endList = endTime[i].split(":")
+              if i == 0 { url += symbols[parseInt(startList[0])] + symbols[parseInt(startList[1])] + "|" + symbols[parseInt(endList[0])] + symbols[parseInt(endList[1])] }
+              else { url += "|" + symbols[parseInt(startList[0])] + symbols[parseInt(startList[1])] + "|" + symbols[parseInt(endList[0])] + symbols[parseInt(endList[1])] }
+            }
+          }
+          let link = document.createElement("a")
+          link.setAttribute("href" , url)
+          document.getElementById("submitButton").replaceChild(link, document.getElementById("submitButton"))
+        }
+        </script>
       </form>
     </div>
   </body>
