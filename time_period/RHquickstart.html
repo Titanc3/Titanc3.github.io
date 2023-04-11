@@ -36,7 +36,7 @@ layout: /_config
         <p><input type="text" id="endTime" name="endTime"> Type the end time of each period separated by a space (2:24 15:31 ...)</p>
         <a id="submitButton" class="btn" onclick="abc(a)">Submit</a>
         <script>
-        function abc(logs) { console.log(logs) }
+        function abc(alrt) { alert(typeof(alrt)) }
         function submit() {
           let symbols = "∆ ∇ ∎ ≡ ≣ ⊏ ⊐ ⊑ ⊒ ⊕ ⊖ ⊗ ⊘ ⊙ ⊚ ⊛ ⊜ ⊝ ⊞ ⊟ ⊠ ⊡ ⊿ ⋄ ⋐ ⋑ ⋒ ⋓ ⍁ ⍂ ⎔ □ ▢ ▣ ▤ ▥ ▦ ▧ ▨ ▩ ▪ ▫ ▬ ▭ ▮ ▯ ▰ ▱ ▲ △ ▴ ▵ ▶ ▷ ▸ ▹ ▻ ▼ ▽ ▾ ▿ ◀ ◁ ◂ ◃ ◅ ◆ ◇ ◈ ◉ ◊ ○ ◌ ◍ ◎ ● ◐ ◑ ◒ ◓ ◔ ◕ ◖ ◗ ◧ ◨ ◩ ◪ ◫ ◬ ◭ ◮ ◯ ◰ ◱ ◲ ◳ ◴ ◵ ◶".split(" ")
           let names = document.getElementById("names").value.split(" ")
