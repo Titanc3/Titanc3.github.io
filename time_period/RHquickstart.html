@@ -34,8 +34,9 @@ layout: /_config
         <p>(use millitary time in the form of 0-23)</p>
         <p><input type="text" id="startTime" name="startTime"> Type the starting time of each period separated by a space (0:24 13:31 ...)</p>
         <p><input type="text" id="endTime" name="endTime"> Type the end time of each period separated by a space (2:24 15:31 ...)</p>
-        <a id="submitButton" class="btn" onclick="submit()">Submit</a>
+        <a id="submitButton" class="btn" onclick="abc(a)">Submit</a>
         <script>
+        function abc(logs) { console.log(logs) }
         function submit() {
           let symbols = "∆ ∇ ∎ ≡ ≣ ⊏ ⊐ ⊑ ⊒ ⊕ ⊖ ⊗ ⊘ ⊙ ⊚ ⊛ ⊜ ⊝ ⊞ ⊟ ⊠ ⊡ ⊿ ⋄ ⋐ ⋑ ⋒ ⋓ ⍁ ⍂ ⎔ □ ▢ ▣ ▤ ▥ ▦ ▧ ▨ ▩ ▪ ▫ ▬ ▭ ▮ ▯ ▰ ▱ ▲ △ ▴ ▵ ▶ ▷ ▸ ▹ ▻ ▼ ▽ ▾ ▿ ◀ ◁ ◂ ◃ ◅ ◆ ◇ ◈ ◉ ◊ ○ ◌ ◍ ◎ ● ◐ ◑ ◒ ◓ ◔ ◕ ◖ ◗ ◧ ◨ ◩ ◪ ◫ ◬ ◭ ◮ ◯ ◰ ◱ ◲ ◳ ◴ ◵ ◶".split(" ")
           let names = document.getElementById("names").value.split(" ")
