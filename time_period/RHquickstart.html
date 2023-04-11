@@ -1,0 +1,62 @@
+---
+layout: /_config
+---
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Titanc3</title>
+  <link rel="icon" type="image/x-icon" href="https://github.com/Titanc3/Titanc3.github.io/blob/main/_includes/triangle.jpg?raw=true">
+  <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
+  <meta charset='utf-8'>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4N3KQ6NGRD"></script>
+<script src=https://github.com/Titanc3/Titanc3.github.io/blob/main/TrackingScript.js></script>
+<head>
+  <body>
+    <header>
+      <div class="container">
+        <h1>Titanc3</h1>
+        <h2>URL Creator</h2>
+
+        <section id="Sites/Pages">
+          <a href="https://github.com/Titanc3" class="btn btn-github"><span class="icon"></span>My GitHub</a>
+          <a href="https://titanc3.github.io/games" class="btn">Games</a>
+          <a href="https://titanc3.github.io/other" class="btn">Other</a>
+        </section>
+      </div>
+    </header>
+    <div class="container">
+      <form>
+        <p><input type="text" id="title" name="title" value="School"> Schedule</p><br>
+        <p><input type="text" id="names" name="names"> Type the names of each period separated by a space (name1 name2 ...)</p>
+        <p>(use millitary time in the form of 0-23)</p>
+        <p><input type="text" id="startTime" name="startTime"> Type the starting time of each period separated by a space (0:24 13:31 ...)</p>
+        <p><input type="text" id="endTime" name="endTime"> Type the end time of each period separated by a space (2:24 15:31 ...)</p>
+        <a id="submitButton" class="btn" onclick="submit()">Submit</a>
+        <script>
+        function submit() {
+          let symbols = "∆ ∇ ∎ ≡ ≣ ⊏ ⊐ ⊑ ⊒ ⊕ ⊖ ⊗ ⊘ ⊙ ⊚ ⊛ ⊜ ⊝ ⊞ ⊟ ⊠ ⊡ ⊿ ⋄ ⋐ ⋑ ⋒ ⋓ ⍁ ⍂ ⎔ □ ▢ ▣ ▤ ▥ ▦ ▧ ▨ ▩ ▪ ▫ ▬ ▭ ▮ ▯ ▰ ▱ ▲ △ ▴ ▵ ▶ ▷ ▸ ▹ ▻ ▼ ▽ ▾ ▿ ◀ ◁ ◂ ◃ ◅ ◆ ◇ ◈ ◉ ◊ ○ ◌ ◍ ◎ ● ◐ ◑ ◒ ◓ ◔ ◕ ◖ ◗ ◧ ◨ ◩ ◪ ◫ ◬ ◭ ◮ ◯ ◰ ◱ ◲ ◳ ◴ ◵ ◶".split(" ")
+          let names = document.getElementById("names").value.split(" ")
+          let startTime = document.getElementById("startTime").value.split(" ")
+          let endTime = document.getElementById("endTime").value.split(" ")
+          let url = `titanc3.github.io/period?title=${document.getElementById("title").value}&names=${names.join("|")}&m=`
+          
+          if (startTime.length != endTime.length) {alert("Your start times and end times don't match")}
+          else {
+            for (let i = 0; i < startTime.length; i++) {
+              let startList = startTime[i].split(":")
+              let endList = endTime[i].split(":")
+              if (i == 0) { url += symbols[parseInt(startList[0])] + symbols[parseInt(startList[1])] + "|" + symbols[parseInt(endList[0])] + symbols[parseInt(endList[1])] }
+              else { url += "|" + symbols[parseInt(startList[0])] + symbols[parseInt(startList[1])] + "|" + symbols[parseInt(endList[0])] + symbols[parseInt(endList[1])] }
+            }
+          }
+          document.getElementById("submitButton").innerHTML = url
+        }
+        </script>
+      </form>
+    </div>
+  </body>
+</head>
+</html>
