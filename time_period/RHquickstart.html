@@ -30,25 +30,39 @@ layout: /_config
     <div class="container">
       <form>
         <p>School Schedule</p><br>
-        <p><input type="radio" name="lunch" id="lunch1" value="1"> I have Lunch 1</p><br>
-        <p><input type="radio" name="lunch" id="lunch2" value="2"> I have Lunch 2</p><br>
-        <p><input type="radio" name="lunch" id="lunch3" value="3"> I have Lunch 3</p><br>
-        <input type="radio" id="html" name="fav_language" value="HTML">
-        <label for="html">HTML</label><br>
-        <input type="radio" id="html" name="fav_language" value="HTML">
-        <label for="html">HTML</label><br>
+        <p><input type="radio" name="lunch" id="lunch1" value="1"> I have Lunch 1</p>
+        <p><input type="radio" name="lunch" id="lunch2" value="2"> I have Lunch 2</p>
+        <p><input type="radio" name="lunch" id="lunch3" value="3"> I have Lunch 3</p>
         <p><input type="text" id="names" name="names"> Type the names of each period separated by a space (name1 name2 ...)</p>
         <a id="submitButton" class="btn" onclick="submit()">Submit</a>
         <script>
         function submit() {
+          let Start1 = "7:25 8:20 9:10 10:00";
+          let End1 = "12:10 12:59 13:48";
+          let Start2 = "8:16 9:06 9:56";
+          let End2 = "12:55 13:44 14:33";
           let symbols = "∆ ∇ ∎ ≡ ≣ ⊏ ⊐ ⊑ ⊒ ⊕ ⊖ ⊗ ⊘ ⊙ ⊚ ⊛ ⊜ ⊝ ⊞ ⊟ ⊠ ⊡ ⊿ ⋄ ⋐ ⋑ ⋒ ⋓ ⍁ ⍂ ⎔ □ ▢ ▣ ▤ ▥ ▦ ▧ ▨ ▩ ▪ ▫ ▬ ▭ ▮ ▯ ▰ ▱ ▲ △ ▴ ▵ ▶ ▷ ▸ ▹ ▻ ▼ ▽ ▾ ▿ ◀ ◁ ◂ ◃ ◅ ◆ ◇ ◈ ◉ ◊ ○ ◌ ◍ ◎ ● ◐ ◑ ◒ ◓ ◔ ◕ ◖ ◗ ◧ ◨ ◩ ◪ ◫ ◬ ◭ ◮ ◯ ◰ ◱ ◲ ◳ ◴ ◵ ◶".split(" ")
-          let names = document.getElementById("names").value.split(" ")
-          if getElementById("lunch1") 
-          let startTime = document.getElementById("startTime").value.split(" ")
-          let endTime = document.getElementById("endTime").value.split(" ")
-          let url = `titanc3.github.io/period?title=${document.getElementById("title").value}&names=${names.join("|")}&m=`
+          if (getElementById("lunch1") != null) {
+          let startTime = Start1 + " 10:32 11:21 " + End1
+          let endTime = Start2 + " 10:30 11:17 12:06 " + End2
+          }
+          else if (getElementById("lunch1") != null) {
+          let startTime = Start1 + " 10:49 11:21 " + End1
+          let endTime = Start2 + " 10:45 11:19 12:06 " + End2
+          }
+          else if (getElementById("lunch1") != null) {
+          let startTime = Start1 + " 10:49 11:38 " + End1
+          let endTime = Start2 + " 10:45 11:34 12:08 " + End2
+          }
+          else {let lunchcheck = 1}
+          if (document.getElementById("names") != null) {
+            names = document.getElementById("names").value.replace(" ", "|")
+            }
           
-          if (startTime.length != endTime.length) {alert("Your start times and end times don't match")}
+          let url = `titanc3.github.io/period?title=School&names=${names}&m=`
+          
+          if (names == null || names.split("|").length != 8) { alert("You need to have 8 names") }
+          else if (NaN(lunchcheck)) { alert("You need to select a lunch") }
           else {
             for (let i = 0; i < startTime.length; i++) {
               let startList = startTime[i].split(":")
