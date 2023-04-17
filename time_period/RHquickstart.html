@@ -4,7 +4,7 @@ layout: /_config
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Titanc3</title>
+  <title>Titan</title>
   <link rel="icon" type="image/x-icon" href="https://github.com/Titanc3/Titanc3.github.io/blob/main/_includes/triangle.jpg?raw=true">
   <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
   <meta charset='utf-8'>
@@ -43,14 +43,17 @@ layout: /_config
           let End2 = "12:55 13:44 14:33";
           let symbols = "∆ ∇ ∎ ≡ ≣ ⊏ ⊐ ⊑ ⊒ ⊕ ⊖ ⊗ ⊘ ⊙ ⊚ ⊛ ⊜ ⊝ ⊞ ⊟ ⊠ ⊡ ⊿ ⋄ ⋐ ⋑ ⋒ ⋓ ⍁ ⍂ ⎔ □ ▢ ▣ ▤ ▥ ▦ ▧ ▨ ▩ ▪ ▫ ▬ ▭ ▮ ▯ ▰ ▱ ▲ △ ▴ ▵ ▶ ▷ ▸ ▹ ▻ ▼ ▽ ▾ ▿ ◀ ◁ ◂ ◃ ◅ ◆ ◇ ◈ ◉ ◊ ○ ◌ ◍ ◎ ● ◐ ◑ ◒ ◓ ◔ ◕ ◖ ◗ ◧ ◨ ◩ ◪ ◫ ◬ ◭ ◮ ◯ ◰ ◱ ◲ ◳ ◴ ◵ ◶".split(" ");
           if (document.getElementById("lunch1") != null) {
+            alert("1")
             let startTime = (Start1 + " 10:32 11:21 " + End1).split(" ");
             let endTime = (Start2 + " 10:30 11:17 12:06 " + End2).split(" ");
           }
           else if (document.getElementById("lunch2") != null) {
+            alert("2")
             let startTime = (Start1 + " 10:49 11:21 " + End1).split(" ");
             let endTime = (Start2 + " 10:45 11:19 12:06 " + End2).split(" ");
           }
           else if (document.getElementById("lunch3") != null) {
+            alert("3")
             let startTime = (Start1 + " 10:49 11:38 " + End1).split(" ");
             let endTime = (Start2 + " 10:45 11:34 12:08 " + End2).split(" ");
           }
