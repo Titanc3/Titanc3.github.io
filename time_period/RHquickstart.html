@@ -43,37 +43,30 @@ layout: /_config
           let End2 = "12:55 13:44 14:33";
           let symbols = "∆ ∇ ∎ ≡ ≣ ⊏ ⊐ ⊑ ⊒ ⊕ ⊖ ⊗ ⊘ ⊙ ⊚ ⊛ ⊜ ⊝ ⊞ ⊟ ⊠ ⊡ ⊿ ⋄ ⋐ ⋑ ⋒ ⋓ ⍁ ⍂ ⎔ □ ▢ ▣ ▤ ▥ ▦ ▧ ▨ ▩ ▪ ▫ ▬ ▭ ▮ ▯ ▰ ▱ ▲ △ ▴ ▵ ▶ ▷ ▸ ▹ ▻ ▼ ▽ ▾ ▿ ◀ ◁ ◂ ◃ ◅ ◆ ◇ ◈ ◉ ◊ ○ ◌ ◍ ◎ ● ◐ ◑ ◒ ◓ ◔ ◕ ◖ ◗ ◧ ◨ ◩ ◪ ◫ ◬ ◭ ◮ ◯ ◰ ◱ ◲ ◳ ◴ ◵ ◶".split(" ");
           if (getElementById("lunch1") != null) {
-            let startTime = Start1 + " 10:32 11:21 " + End1;
-            let endTime = Start2 + " 10:30 11:17 12:06 " + End2;
+            let startTime = (Start1 + " 10:32 11:21 " + End1).split(" ");
+            let endTime = (Start2 + " 10:30 11:17 12:06 " + End2).split(" ");
           }
           else if (getElementById("lunch1") != null) {
-            let startTime = Start1 + " 10:49 11:21 " + End1;
-            let endTime = Start2 + " 10:45 11:19 12:06 " + End2;
+            let startTime = (Start1 + " 10:49 11:21 " + End1).split(" ");
+            let endTime = (Start2 + " 10:45 11:19 12:06 " + End2).split(" ");
           }
           else if (getElementById("lunch1") != null) {
-            let startTime = Start1 + " 10:49 11:38 " + End1;
-            let endTime = Start2 + " 10:45 11:34 12:08 " + End2;
+            let startTime = (Start1 + " 10:49 11:38 " + End1).split(" ");
+            let endTime = (Start2 + " 10:45 11:34 12:08 " + End2).split(" ");
           }
-          else {let lunchcheck = 1;}
-          
-          if (document.getElementById("names") != null) {
-            names = document.getElementById("names").value.replace(" ", "|");
-            }
-          
-          let url = `titanc3.github.io/period?title=School&names=${names}&m=`;
-          
-          if (names == null || names.split("|").length != 9) { alert("You need to have 9 names"); }
-          else if (NaN(lunchcheck)) { alert("You need to select a lunch"); }
+          let names = document.getElementById("names").value.split(" ")
+          let url = `titanc3.github.io/period?title=${document.getElementById("title").value}&names=${names.join("|")}&m=`
+
+          if (startTime.length != endTime.length) {alert("Your start times and end times don't match")}
           else {
             for (let i = 0; i < startTime.length; i++) {
-              let startList = startTime[i].split(":");
-              let endList = endTime[i].split(":");
-              if (i == 0) { url += symbols[parseInt(startList[0])] + symbols[parseInt(startList[1])] + "|" + symbols[parseInt(endList[0])] + symbols[parseInt(endList[1])]; }
-              else { url += "|" + symbols[parseInt(startList[0])] + symbols[parseInt(startList[1])] + "|" + symbols[parseInt(endList[0])] + symbols[parseInt(endList[1])]; }
+              let startList = startTime[i].split(":")
+              let endList = endTime[i].split(":")
+              if (i == 0) { url += symbols[parseInt(startList[0])] + symbols[parseInt(startList[1])] + "|" + symbols[parseInt(endList[0])] + symbols[parseInt(endList[1])] }
+              else { url += "|" + symbols[parseInt(startList[0])] + symbols[parseInt(startList[1])] + "|" + symbols[parseInt(endList[0])] + symbols[parseInt(endList[1])] }
             }
           }
           document.getElementById("submitButton").innerHTML = url
-        }
         </script>
       </form>
     </div>
