@@ -44,22 +44,25 @@ layout: /_config
           let End2 = "12:55 13:44 14:33";
           let startTime = "", endTime = "";
           let symbols = "∆ ∇ ∎ ≡ ≣ ⊏ ⊐ ⊑ ⊒ ⊕ ⊖ ⊗ ⊘ ⊙ ⊚ ⊛ ⊜ ⊝ ⊞ ⊟ ⊠ ⊡ ⊿ ⋄ ⋐ ⋑ ⋒ ⋓ ⍁ ⍂ ⎔ □ ▢ ▣ ▤ ▥ ▦ ▧ ▨ ▩ ▪ ▫ ▬ ▭ ▮ ▯ ▰ ▱ ▲ △ ▴ ▵ ▶ ▷ ▸ ▹ ▻ ▼ ▽ ▾ ▿ ◀ ◁ ◂ ◃ ◅ ◆ ◇ ◈ ◉ ◊ ○ ◌ ◍ ◎ ● ◐ ◑ ◒ ◓ ◔ ◕ ◖ ◗ ◧ ◨ ◩ ◪ ◫ ◬ ◭ ◮ ◯ ◰ ◱ ◲ ◳ ◴ ◵ ◶".split(" ");
-          if (lunch == "1") {
-            alert("1")
-            let startTime = (Start1 + " 10:32 11:21 " + End1).split(" ");
-            let endTime = (Start2 + " 10:30 11:17 12:06 " + End2).split(" ");
+          if (NaN(lunch)) { alert("Please select an option"); }
+          else if (lunch == "1") {
+            var startTime = (Start1 + " 10:32 11:21 " + End1).split(" ");
+            var endTime = (Start2 + " 10:30 11:17 12:06 " + End2).split(" ");
+            alert(startTime);
+            alert(endTime);
           }
           else if (lunch == "2") {
-            alert("2")
-            let startTime = (Start1 + " 10:49 11:21 " + End1).split(" ");
-            let endTime = (Start2 + " 10:45 11:19 12:06 " + End2).split(" ");
+            var startTime = (Start1 + " 10:49 11:21 " + End1).split(" ");
+            var endTime = (Start2 + " 10:45 11:19 12:06 " + End2).split(" ");
+            alert(startTime);
+            alert(endTime);
           }
           else if (lunch == "3") {
-            alert("3")
-            let startTime = (Start1 + " 10:49 11:38 " + End1).split(" ");
-            let endTime = (Start2 + " 10:45 11:34 12:08 " + End2).split(" ");
+            var startTime = (Start1 + " 10:49 11:38 " + End1).split(" ");
+            var endTime = (Start2 + " 10:45 11:34 12:08 " + End2).split(" ");
+            alert(startTime);
+            alert(endTime);
           }
-          else { alert("Please select a lunch"); }
           
           let names = document.getElementById("names").value.split(" ");
           let url = `titanc3.github.io/period?title=School&names=${names.join("|")}&m=`;
