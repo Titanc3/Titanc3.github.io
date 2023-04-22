@@ -67,8 +67,8 @@ function timedUpdate() {
     for (const miniList of fullList) { // displaying info loop
       let a = miniList[0][1];
       let b = miniList[1][1];
-      if (a.length == 1) { a="0"+a.toString() }
-      if (b.length == 1) { b="0"+b.toString() }
+      if (a.toString().length == 1) { a="0"+a.toString() }
+      if (b.toString().length == 1) { b="0"+b.toString() }
       if (miniList[0][0] > 12) { newHour = `${miniList[0][0]-12} PM`.split(" ") }
       else { newHour = `${miniList[0][0]} AM`.split(" ") }
       if (miniList[1][0] > 12) { newHour2 = `${miniList[1][0]-12} PM`.split(" ") }
@@ -80,8 +80,8 @@ function timedUpdate() {
     for (const miniList of fullList) { // displaying info loop
     let a = miniList[0][1];
     let b = miniList[1][1];
-    if (a.length == 1) { a="0"+a.toString() }
-    if (b.length == 1) { b="0"+b.toString() }
+    if (a.toString().length == 1) { a="0"+a.toString() }
+    if (b.toString().length == 1) { b="0"+b.toString() }
     document.getElementById("schedule").innerHTML += `<br>   ${miniList[2]}<br>${miniList[0][0]}:${a} - ${miniList[1][0]}:${b}<br>`;
     }
   }
@@ -109,8 +109,8 @@ if (getParameterByName("m") != null && getParameterByName("names") != null && ge
   for (const miniList of fullList) { // displaying info loop
     let a = miniList[0][1];
     let b = miniList[1][1];
-    if (a.length == 1) { a="0"+a.toString() }
-    if (b.length == 1) { b="0"+b.toString() }
+    if (a.toString().length == 1) { a="0"+a.toString() }
+    if (b.toString().length == 1) { b="0"+b.toString() }
     document.getElementById("schedule").innerHTML += `<br>   ${miniList[2]}<br>${miniList[0][0]}:${a} - ${miniList[1][0]}:${b}<br>`;
   }  // url example:   titanc3.github.io/period?m=∆≣|⊏⊐|⊙⊚|⊛⊞|⊟⊠|⊟⊛&names=poop|zoop|sloop&title=scholo
   
