@@ -38,26 +38,26 @@ layout: /_config
         <script>
         alert("def")
         function submit() {
-          alert(document.getElementById("lunch1"));
-          alert(document.getElementById("lunch2"));
-          alert(document.getElementById("lunch3"));
+          alert(document.getElementById("lunch1").value);
+          alert(document.getElementById("lunch2").value);
+          alert(document.getElementById("lunch3").value);
           let Start1 = "7:25 8:20 9:10 10:00";
           let End1 = "12:10 12:59 13:48";
           let Start2 = "8:16 9:06 9:56";
           let End2 = "12:55 13:44 14:33";
           let startTime = "", endTime = "";
           let symbols = "∆ ∇ ∎ ≡ ≣ ⊏ ⊐ ⊑ ⊒ ⊕ ⊖ ⊗ ⊘ ⊙ ⊚ ⊛ ⊜ ⊝ ⊞ ⊟ ⊠ ⊡ ⊿ ⋄ ⋐ ⋑ ⋒ ⋓ ⍁ ⍂ ⎔ □ ▢ ▣ ▤ ▥ ▦ ▧ ▨ ▩ ▪ ▫ ▬ ▭ ▮ ▯ ▰ ▱ ▲ △ ▴ ▵ ▶ ▷ ▸ ▹ ▻ ▼ ▽ ▾ ▿ ◀ ◁ ◂ ◃ ◅ ◆ ◇ ◈ ◉ ◊ ○ ◌ ◍ ◎ ● ◐ ◑ ◒ ◓ ◔ ◕ ◖ ◗ ◧ ◨ ◩ ◪ ◫ ◬ ◭ ◮ ◯ ◰ ◱ ◲ ◳ ◴ ◵ ◶".split(" ");
-          if (document.getElementById("lunch1") != null) {
+          if (document.getElementById("lunch1").value != null) {
             alert("1")
             let startTime = (Start1 + " 10:32 11:21 " + End1).split(" ");
             let endTime = (Start2 + " 10:30 11:17 12:06 " + End2).split(" ");
           }
-          else if (document.getElementById("lunch2") != null) {
+          else if (document.getElementById("lunch2").value != null) {
             alert("2")
             let startTime = (Start1 + " 10:49 11:21 " + End1).split(" ");
             let endTime = (Start2 + " 10:45 11:19 12:06 " + End2).split(" ");
           }
-          else if (document.getElementById("lunch3") != null) {
+          else if (document.getElementById("lunch3").value != null) {
             alert("3")
             let startTime = (Start1 + " 10:49 11:38 " + End1).split(" ");
             let endTime = (Start2 + " 10:45 11:34 12:08 " + End2).split(" ");
