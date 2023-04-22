@@ -99,6 +99,8 @@ if (getParameterByName("m") != null && getParameterByName("names") != null && ge
   }
   
   for (const miniList of fullList) { // displaying info loop
+    if (miniList[0][1].length == 1) {miniList[0][1] = "0"+miniList[0][1].toString()}
+    if (miniList[1][1].length == 1) {miniList[1][1] = "0"+miniList[1][1].toString()}
     document.getElementById("schedule").innerHTML += `<br>   ${miniList[2]}<br>${miniList[0][0]}:${miniList[0][1]} - ${miniList[1][0]}:${miniList[1][1]}<br>`;
   }  // url example:   titanc3.github.io/period?m=∆≣|⊏⊐|⊙⊚|⊛⊞|⊟⊠|⊟⊛&names=poop|zoop|sloop&title=scholo
   
