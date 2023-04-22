@@ -48,20 +48,14 @@ layout: /_config
           else if (lunch == "1") {
             startTime = (Start1 + " 10:32 11:21 " + End1).split(" ");
             endTime = (Start2 + " 10:30 11:17 12:06 " + End2).split(" ");
-            alert(startTime);
-            alert(endTime);
           }
           else if (lunch == "2") {
             startTime = (Start1 + " 10:49 11:21 " + End1).split(" ");
             endTime = (Start2 + " 10:45 11:19 12:06 " + End2).split(" ");
-            alert(startTime);
-            alert(endTime);
           }
           else if (lunch == "3") {
             startTime = (Start1 + " 10:49 11:38 " + End1).split(" ");
             endTime = (Start2 + " 10:45 11:34 12:08 " + End2).split(" ");
-            alert(startTime);
-            alert(endTime);
           }
           
           let names = document.getElementById("names").value.split(" ");
@@ -73,6 +67,7 @@ layout: /_config
             if (i == 0) { url += symbols[parseInt(startList[0])] + symbols[parseInt(startList[1])] + "|" + symbols[parseInt(endList[0])] + symbols[parseInt(endList[1])]; }
             else { url += "|" + symbols[parseInt(startList[0])] + symbols[parseInt(startList[1])] + "|" + symbols[parseInt(endList[0])] + symbols[parseInt(endList[1])]; }
           }
+          document.getElementById("submitButton").innerHTML = url
           alert("Your personalized URL is "+url)
         }
         </script>
