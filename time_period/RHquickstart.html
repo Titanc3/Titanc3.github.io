@@ -37,9 +37,13 @@ layout: /_config
         <a id="submitButton" class="btn" onclick="submit()">Submit</a>
         <script>
         alert("def")
-        function lunchval(value) { var lunch = value; }
+        function lunchval(value) { 
+          var lunch = value;
+          alert(value);
+          alert(lunch);
+        }
         function submit() {
-          alert(lunch)
+          console.log(lunch);
           let Start1 = "7:25 8:20 9:10 10:00";
           let End1 = "12:10 12:59 13:48";
           let Start2 = "8:16 9:06 9:56";
