@@ -35,27 +35,7 @@ layout: /_config
         <p><input type="text" id="startTime" name="startTime"> Type the starting time of each period separated by a space (0:24 13:31 ...)</p>
         <p><input type="text" id="endTime" name="endTime"> Type the end time of each period separated by a space (2:24 15:31 ...)</p>
         <a id="submitButton" class="btn" onclick="submit()">Submit</a>
-        <script>
-        function submit() {
-          let symbols = "∆ ∇ ∎ ≡ ≣ ⊏ ⊐ ⊑ ⊒ ⊕ ⊖ ⊗ ⊘ ⊙ ⊚ ⊛ ⊜ ⊝ ⊞ ⊟ ⊠ ⊡ ⊿ ⋄ ⋐ ⋑ ⋒ ⋓ ⍁ ⍂ ⎔ □ ▢ ▣ ▤ ▥ ▦ ▧ ▨ ▩ ▪ ▫ ▬ ▭ ▮ ▯ ▰ ▱ ▲ △ ▴ ▵ ▶ ▷ ▸ ▹ ▻ ▼ ▽ ▾ ▿ ◀ ◁ ◂ ◃ ◅ ◆ ◇ ◈ ◉ ◊ ○ ◌ ◍ ◎ ● ◐ ◑ ◒ ◓ ◔ ◕ ◖ ◗ ◧ ◨ ◩ ◪ ◫ ◬ ◭ ◮ ◯ ◰ ◱ ◲ ◳ ◴ ◵ ◶".split(" ");
-          let names = document.getElementById("names").value.split(" ");
-          let startTime = document.getElementById("startTime").value.split(" ");
-          let endTime = document.getElementById("endTime").value.split(" ");
-          let url = `titanc3.github.io/time_period/period?title=${document.getElementById("title").value}&names=${names.join("|")}&m=`;
-          
-          if (startTime.length != endTime.length) {alert("Your start times and end times don't match");}
-          else {
-            for (let i = 0; i < startTime.length; i++) {
-              let startList = startTime[i].split(":");
-              let endList = endTime[i].split(":");
-              if (i == 0) { url += symbols[parseInt(startList[0])] + symbols[parseInt(startList[1])] + "|" + symbols[parseInt(endList[0])] + symbols[parseInt(endList[1])]; }
-              else { url += "|" + symbols[parseInt(startList[0])] + symbols[parseInt(startList[1])] + "|" + symbols[parseInt(endList[0])] + symbols[parseInt(endList[1])]; }
-            }
-          }
-          document.getElementById("submitButton").innerHTML = url;
-          alert("Your personalized URL is "+url);
-        }
-        </script>
+        <script src="https://github.com/Titanc3/Titanc3.github.io/blob/main/time_period/CustomCreator.js"></script>
       </form>
     </div>
   </body>
