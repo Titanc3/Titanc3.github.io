@@ -10,6 +10,32 @@ layout: /_config
   <meta charset='utf-8'>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <style>
+  #overlay {
+  position: fixed; /* Sit on top of the page content */
+  display: none; /* Hidden by default */
+  width: 100%; /* Full width (cover the whole page) */
+  height: 100%; /* Full height (cover the whole page) */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+  z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+  cursor: pointer; /* Add a pointer on hover */
+}
+  #text{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 50px;
+  color: white;
+  transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+}
+  </style>
+  
 </head>
   
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-4N3KQ6NGRD"></script>
@@ -19,9 +45,15 @@ layout: /_config
   <body>
     <header>
       <div class="container">
-        <h1>Titanc3</h1>
+        <h1 onclick="on()">Titanc3</h1>
         <h2>Titanc3's Homepage</h2>
-
+        
+        <script>
+          function on() {
+            document.getElementById("overlay").style.display = "block";
+          }
+        </script>
+        
         <section id="Sites/Pages">
           <a href="https://github.com/Titanc3" class="btn btn-github"><span class="icon"></span>My GitHub</a>
           <a href="https://titanc3.github.io/games" class="btn">Games</a>
