@@ -50,13 +50,6 @@ layout: /_config
       <div class="container">
         <h1 onclick="on()">Titanc3</h1>
         <h2>Titanc3's Homepage</h2>
-        
-        <script>
-          function on() {
-            document.getElementById("overlay").style.display = "block";
-          }
-        </script>
-        
         <section id="Sites/Pages">
           <a href="https://github.com/Titanc3" class="btn btn-github"><span class="icon"></span>My GitHub</a>
           <a href="https://titanc3.github.io/games" class="btn">Games</a>
@@ -82,4 +75,13 @@ layout: /_config
     </div>
   </body>
 </head>
+  
+<script>
+function on() {
+    document.getElementById("overlay").style.display = "block";
+}
+function off() {
+    document.getElementById("overlay").style.display = "none";
+}
+</script>
 </html>
