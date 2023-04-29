@@ -1,6 +1,6 @@
 function on() {
     document.getElementById("overlay").style.display = "block";
 }
-function off() { // potato
+function off() {
     document.getElementById("overlay").style.display = "none";
 }
