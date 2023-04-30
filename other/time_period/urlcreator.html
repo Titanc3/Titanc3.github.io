@@ -58,7 +58,7 @@ layout: /_config
             let names = document.getElementById("names").value.split(" ");
             let startTime = document.getElementById("startTime").value.split(" ");
             let endTime = document.getElementById("endTime").value.split(" ");
-            let url = `titanc3.github.io/time_period/period?title=${document.getElementById("title").value}&names=${names.join("|")}&m=`;
+            let url = `titanc3.github.io/other/time_period/period?title=${document.getElementById("title").value}&names=${names.join("|")}&m=`;
 
             if (startTime.length != endTime.length) { alert("Your start times and end times don't match"); }
             else {
