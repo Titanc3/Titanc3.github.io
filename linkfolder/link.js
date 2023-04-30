@@ -1,6 +1,3 @@
-function on() {
-    document.getElementById("overlay").style.display = "block";
-}
-function off() {
-    document.getElementById("overlay").style.display = "none";
-}
+document.getElementById("Facebook").setAttribute("href", window.location.href);
+document.getElementById("Twitter").setAttribute("href", window.location.href);
+document.getElementById("Email").setAttribute("href", window.location.href);
