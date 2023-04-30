@@ -11,6 +11,6 @@ function link() {
   textarea.select();
   document.execCommand('copy');
   document.body.removeChild(textarea);
-  alert("Copied")
+  alert("Copied");
 }
 
