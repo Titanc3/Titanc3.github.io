@@ -6,7 +6,7 @@ document.getElementById("Email").setAttribute("href", "mailto:?subject=Interesti
 document.getElementById("Discord").setAttribute("href", "https://discord.com");
 function link() {
   let textarea = document.createElement('textarea');
-  textarea.value = 'Hello, world!';
+  textarea.value = url;
   document.body.appendChild(textarea);
   textarea.select();
   document.execCommand('copy');
