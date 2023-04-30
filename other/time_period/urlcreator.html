@@ -51,7 +51,7 @@ layout: /_config
         <p>(use millitary time in the form of 0-23)</p>
         <p><input type="text" id="startTime" name="startTime"> Type the starting time of each period separated by a space (0:24 13:31 ...)</p>
         <p><input type="text" id="endTime" name="endTime"> Type the end time of each period separated by a space (2:24 15:31 ...)</p>
-        <a id="submitButton" class="btn" onclick="submit()">Submit</a>
+        <a id="submitButton" class="btn" onclick="submit()" href="#">Submit</a>
         <script>
           function submit() {
             let symbols = "∆ ∇ ∎ ≡ ≣ ⊏ ⊐ ⊑ ⊒ ⊕ ⊖ ⊗ ⊘ ⊙ ⊚ ⊛ ⊜ ⊝ ⊞ ⊟ ⊠ ⊡ ⊿ ⋄ ⋐ ⋑ ⋒ ⋓ ⍁ ⍂ ⎔ □ ▢ ▣ ▤ ▥ ▦ ▧ ▨ ▩ ▪ ▫ ▬ ▭ ▮ ▯ ▰ ▱ ▲ △ ▴ ▵ ▶ ▷ ▸ ▹ ▻ ▼ ▽ ▾ ▿ ◀ ◁ ◂ ◃ ◅ ◆ ◇ ◈ ◉ ◊ ○ ◌ ◍ ◎ ● ◐ ◑ ◒ ◓ ◔ ◕ ◖ ◗ ◧ ◨ ◩ ◪ ◫ ◬ ◭ ◮ ◯ ◰ ◱ ◲ ◳ ◴ ◵ ◶".split(" ");
@@ -68,8 +68,8 @@ layout: /_config
                 if (i == 0) { url += symbols[parseInt(startList[0])] + symbols[parseInt(startList[1])] + "|" + symbols[parseInt(endList[0])] + symbols[parseInt(endList[1])]; }
                 else { url += "|" + symbols[parseInt(startList[0])] + symbols[parseInt(startList[1])] + "|" + symbols[parseInt(endList[0])] + symbols[parseInt(endList[1])]; }
               }
-            document.getElementById("submitButton").innerHTML = url;
-            alert("Your personalized URL is "+url);
+            document.getElementById("submitButton").innerHTML = "Click to view your personalized page";
+            document.getElementById("submitButton").setAttribute("href", url)
             }
           }
         </script>
