@@ -50,12 +50,12 @@ layout: /_config
   </div>
   <p style="text-align:center;">
   <input type="str" placeholder="[Insert JS Code]" id="code" style="background-color: rgba(0,0,0,0.5);width:720px;padding: 0px;border-radius: 5px;color: white;display: inline-block;vertical-align: middle;height: 28px;box-sizing: border-box;padding: 0 10px;">
-  <input type="button" value="Enter" onclick="check" style="background-color: rgba(0,0,0,0.5);width:80px;padding: 0px;border-radius: 5px;color: white;display: inline-block;vertical-align: middle;height: 28px;box-sizing: border-box;padding: 0 10px;">
-  </p>
+  <input type="button" value="Enter" onclick="check()" style="background-color: rgba(0,0,0,0.5);width:80px;padding: 0px;border-radius: 5px;color: white;display: inline-block;vertical-align: middle;height: 28px;box-sizing: border-box;padding: 0 10px;">
   <script>
     function check() {
-      alert("a")
+      document.getElementById("console").innerHTML += document.getElementById("code").value+"<br>"+"> "+eval(document.getElementById("code").value)+"<br>"
     }
   </script>
+  </p>
 </body>
 </html>
