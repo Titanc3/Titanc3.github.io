@@ -54,7 +54,7 @@ layout: /_config
   <script>
     function check() {
       if (document.getElementById("console").innerHTML.split("<br>").length/2 == 7) { document.getElementById("console").innerHTML = document.getElementById("console").innerHTML.split("<br>").splice(0, 2).join("<br>"); }
-      console.innerHTML += document.getElementById("code").value+"<br>"+"> "+eval(document.getElementById("code").value)+"<br>";
+      document.getElementById("console").innerHTML += document.getElementById("code").value+"<br>"+"> "+eval(document.getElementById("code").value)+"<br>";
     }
   </script>
   </p>
