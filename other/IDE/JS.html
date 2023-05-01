@@ -53,10 +53,8 @@ layout: /_config
   <input type="button" value="Enter" onclick="check()" style="background-color: rgba(0,0,0,0.5);width:80px;padding: 0px;border-radius: 5px;color: white;display: inline-block;vertical-align: middle;height: 28px;box-sizing: border-box;padding: 0 10px;">
   <script>
     function check() {
-      let console = document.getElementById("console");
-      let code = document.getElementById("code");
-      if (console.innerHTML.split("<br>").length/2 == 7) { console.innerHTML = console.innerHTML.split("<br>").splice(0, 2).join("<br>"); }
-      console.innerHTML += code.value+"<br>"+"> "+eval(code.value)+"<br>";
+      if (document.getElementById("console").innerHTML.split("<br>").length/2 == 7) { document.getElementById("console").innerHTML = document.getElementById("console").innerHTML.split("<br>").splice(0, 2).join("<br>"); }
+      console.innerHTML += document.getElementById("code").value+"<br>"+"> "+eval(document.getElementById("code").value)+"<br>";
     }
   </script>
   </p>
