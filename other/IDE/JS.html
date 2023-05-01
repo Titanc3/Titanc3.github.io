@@ -46,7 +46,7 @@ layout: /_config
   </header>
   <h2 style="text-align:center">JavaScript IDE</h2>
   <div class="container" style="height:400px;width:800px;border:1px solid #ccc;overflow:auto;background-color: rgba(0,0,0,0.5);border-radius: 10px;">
-    <p id="console"><p><br>
+    <p id="console" style="color: white;"><p><br>
   </div>
   <p style="text-align:center;">
   <input type="str" placeholder="[Insert JS Code]" id="code" style="background-color: rgba(0,0,0,0.5);width:720px;padding: 0px;border-radius: 5px;color: white;display: inline-block;vertical-align: middle;height: 28px;box-sizing: border-box;padding: 0 10px;">
@@ -54,7 +54,7 @@ layout: /_config
   </p>
   <script>
     function check() {
-      document.getElementById("console").innerHTML += document.getElementById("code").value+"<br>"+"> "+eval(document.getElementById("code").value)+"<br>"
+      alert("a")
     }
   </script>
 </body>
