@@ -54,7 +54,7 @@ layout: /_config
   <script>
     function check() {
       alert(document.getElementById("console").innerHTML.split("<br>").length)
-      if (document.getElementById("console").innerHTML.split("<br>").length/2 == 7) { alert("bcde") }
+      if (document.getElementById("console").innerHTML.split("<br>").length/2 > 6) { alert("bcde") }
       document.getElementById("console").innerHTML += document.getElementById("code").value+"<br>"+"> "+eval(document.getElementById("code").value)+"<br>";
     }
   </script>
