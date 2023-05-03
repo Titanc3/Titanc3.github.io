@@ -1,38 +1,68 @@
+---
+layout: /_config
+---
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-    <script src="https://kit.fontawesome.com/704ff50790.js" crossorigin="anonymous"></script>
+  <title>Titanc3</title>
+  <link rel="icon" type="image/x-icon" href="https://github.com/Titanc3/Titanc3.github.io/blob/main/_includes/triangle.jpg?raw=true">
+  <link rel="stylesheet" type="text/css" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
+  <meta charset='utf-8'>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="https://titanc3.github.io/linkfolder/link.css"> 
 </head>
 
-<body>
-    <div class="main_box">
-        <input type="checkbox" id="share_button">
-        <label for="share_button">
-            <span class="sharebtn">
-                <i class="far fa-share-square"></i>
-            </span>
-        </label>
+<div id="overlay" onclick="document.getElementById('overlay').style.display = 'none';">
+  <div id="icons">
+    <br><br><br><a id="Facebook" href="#" target="_blank"><img src="https://github.com/Titanc3/Titanc3.github.io/blob/main/_includes/social/Facebook.png?raw=true"></a>
+    <a id="Pinterest" href="#" target="_blank"><img src="https://github.com/Titanc3/Titanc3.github.io/blob/main/_includes/social/Pinterest.png?raw=true"></a>
+    <a id="Twitter" href="#" target="_blank"><img src="https://github.com/Titanc3/Titanc3.github.io/blob/main/_includes/social/Twitter.png?raw=true"></a>
+    <a id="Discord" href="#" target="_blank"><img src="https://github.com/Titanc3/Titanc3.github.io/blob/main/_includes/social/Discord.png?raw=true"></a>
+  </div>
+  <div id="icons">
+    <a id="Email" href="#" target="_blank"><img src="https://github.com/Titanc3/Titanc3.github.io/blob/main/_includes/social/Email.png?raw=true"></a>
+    <a href="sms:"><img src="https://github.com/Titanc3/Titanc3.github.io/blob/main/_includes/social/Msg.png?raw=true"></a>
+    <a onclick="link()" href="#"><img src="https://github.com/Titanc3/Titanc3.github.io/blob/main/_includes/social/Link.png?raw=true"></a>
+  </div>
+</div>
 
-        <div class="sm_list">
-            <a href="#" class="facebook">
-                <i class="fab fa-facebook-f"></i>
-            </a>
-            <a href="#" class="instagram">
-                <i class="fab fa-instagram"></i>
-            </a>
-            <a href="#" class="linkedin">
-                <i class="fab fa-linkedin-in"></i>
-            </a>
-            <a href="#" class="discord">
-                <i class="fab fa-discord"></i>
-            </a>
-            <a href="#" class="whatsapp">
-                <i class="fab fa-whatsapp"></i>
-            </a>
-            <a href="#" class="slack">
-                <i class="fab fa-slack"></i>
-            </a>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4N3KQ6NGRD"></script>
+<script src="TrackingScript.js"></script>
+<script src="https://titanc3.github.io/linkfolder/link.js"></script>
+  
+<body>
+  <header>
+    <div class="container">
+      <h1 >Titanc3</h1>
+      <h2>Titanc3's Homepage</h2>
+      <section id="Sites/Pages">
+        <a href="https://github.com/Titanc3" class="btn btn-github"><span class="icon"></span>My GitHub</a>
+        <a href="https://titanc3.github.io/games" class="btn">Games</a>
+        <a href="https://titanc3.github.io/other" class="btn">Other</a>
+        <a class="btn" onclick="document.getElementById('overlay').style.display = 'block';">🔗</a>
+      </section>
+    </div>
+  </header>
+  <div class="container">
+    <h2 style="text-align:center">Titanc3:</h2>
+    <p style="text-align:center">Recent Github developer, started learning python early 2021, currently learning how to program in java, js, and c#.
+       Likes programming on Raspberry Pis. (Thonny is mid :p)</p>
+
+    <h2 style="text-align:center">Updates</h2>
+    <p style="text-align:center">URL creation simplified, prepare for new games!</p>
+
+    <h2 style="text-align:center">Helpful Quick Links</h2>
+    <p style="text-align:center"><a href="https://titanc3.github.io/games" class="btn">Games</a> If you haven't seen the links at the top of the page<br><br>
+    <a href="https://titanc3.github.io/other/time_period/urlcreatorpage" class="btn">URL Creator</a> A way for students to view their schedule and the time till their school periods<br><br>
+    <a href="https://titanc3.github.io/other/Q_A" class="btn">Q&A</a> Quickly notify the dev of any problems or helpful changes</p>
+
+    <h2 style="text-align:center">Notable Repositories:</h2>
+    <p style="text-align:center"><a href="https://github.com/Titanc3/Titanc3.github.io" target="_blank" class="btn">Titanc3.github.io</a> This website and all of its code<br><br>
+    <a href="https://github.com/Titanc3/RaspiGUI" target="_blank" class="btn">RaspiGUI</a> A Raspberry Pi interactive interface</p>
+  </div>
+</body>
+</html>
         </div>
     </div>
 </body>
