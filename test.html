@@ -78,8 +78,8 @@ layout: /_config
       }
     }
     let tillEnd = 0;
-    if ((fullList[fullList.length()-1][1][0]*60)+fullList[fullList.length()-1][1][1] > (hr*60)+min) {
-      tillEnd = fullList[fullList.length()-1];
+    if ((fullList[fullList.length-1][1][0]*60)+fullList[fullList.length-1][1][1] > (hr*60)+min) {
+      tillEnd = fullList[fullList.length-1];
     }
     if (till == 0) { 
       document.getElementById("timeTillNext").innerHTML = "End of "+getParameterByName("title"); 
@@ -104,8 +104,8 @@ layout: /_config
       for (const miniList of fullList) { // displaying info loop
         let a = miniList[0][1];
         let b = miniList[1][1];
-        if (a.toString().length() == 1) { a="0"+a.toString() }
-        if (b.toString().length() == 1) { b="0"+b.toString() }
+        if (a.toString().length == 1) { a="0"+a.toString() }
+        if (b.toString().length == 1) { b="0"+b.toString() }
         if (miniList[0][0] > 12) { newHour = `${miniList[0][0]-12} PM`.split(" ") }
         else { newHour = `${miniList[0][0]} AM`.split(" ") }
         if (miniList[1][0] > 12) { newHour2 = `${miniList[1][0]-12} PM`.split(" ") }
@@ -117,8 +117,8 @@ layout: /_config
       for (const miniList of fullList) { // displaying info loop
       let a = miniList[0][1];
       let b = miniList[1][1];
-      if (a.toString().length() == 1) { a="0"+a.toString() }
-      if (b.toString().length() == 1) { b="0"+b.toString() }
+      if (a.toString().length == 1) { a="0"+a.toString() }
+      if (b.toString().length == 1) { b="0"+b.toString() }
       document.getElementById("schedule").innerHTML += `<br>   ${miniList[2]}<br>${miniList[0][0]}:${a} - ${miniList[1][0]}:${b}<br>`;
       }
     }
@@ -139,15 +139,15 @@ layout: /_config
     timesInMinutes = getParameterByName("m").split("|"); // query variables
     names = getParameterByName("names").split("|");
 
-    for (let i = 0; i < timesInMinutes.length(); i+=2) {
+    for (let i = 0; i < timesInMinutes.length; i+=2) {
       fullList.push([[decrypt(i, 0), decrypt(i, 1)], [decrypt(i+1, 0), decrypt(i+1, 1)], names[i/2]]); //xtra rip reading code, format: [[hr, min](start), [hr, min](stop), name]
     }
 
     for (const miniList of fullList) { // displaying info loop
       let a = miniList[0][1];
       let b = miniList[1][1];
-      if (a.toString().length() == 1) { a="0"+a.toString() }
-      if (b.toString().length() == 1) { b="0"+b.toString() }
+      if (a.toString().length == 1) { a="0"+a.toString() }
+      if (b.toString().length == 1) { b="0"+b.toString() }
       document.getElementById("schedule").innerHTML += `<br>   ${miniList[2]}<br>${miniList[0][0]}:${a} - ${miniList[1][0]}:${b}<br>`;
     }  // url example:   titanc3.github.io/period?m=∆≣|⊏⊐|⊙⊚|⊛⊞|⊟⊠|⊟⊛&names=poop|zoop|sloop&title=scholo
 
