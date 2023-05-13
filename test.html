@@ -94,11 +94,11 @@ layout: /_config
       document.getElementById("line2").innerHTML = "Till the end of "+till[2]
     }
     if (short(till, hr, min, 0, 0, 0, 1) == Math.abs(short(till, hr, min, 0, 0, 0, 1))) {
-      document.getElementById("line1").innerHTML += `${Math.floor(short(tillEnd, hr, min, 0, 0, 0, 1)/60)} Hours ${Math.round(((short(tillEnd, hr, min, 0, 0, 0, 1)/60)-Math.floor(short(tillEnd, hr, min, 0, 0, 0, 1)/60))*60)} Minutes<br>Till ${getParameterByName("title")}`;
+      document.getElementById("line1").innerHTML += `${Math.floor(short(tillEnd, hr, min, 0, 0, 0, 1)/60)} Hours ${Math.round(((short(tillEnd, hr, min, 0, 0, 0, 1)/60)-Math.floor(short(tillEnd, hr, min, 0, 0, 0, 1)/60))*60)} Minutes`;
       document.getElementById("line2").innerHTML += "Till "+getParameterByName("title")
     }
     else if (short(till, hr, min, 1, 0, 1, 1) == Math.abs(short(till, hr, min, 1, 0, 1, 1))) {
-      document.getElementById("line1").innerHTML += `${Math.floor(short(tillEnd, hr, min, 1, 0, 1, 1)/60)} Hours ${Math.round(((short(tillEnd, hr, min, 1, 0, 1, 1)/60)-Math.floor(short(tillEnd, hr, min, 1, 0, 1, 1)/60))*60)} Minutes<br>Till the end of ${getParameterByName("title")}`;
+      document.getElementById("line1").innerHTML += `${Math.floor(short(tillEnd, hr, min, 1, 0, 1, 1)/60)} Hours ${Math.round(((short(tillEnd, hr, min, 1, 0, 1, 1)/60)-Math.floor(short(tillEnd, hr, min, 1, 0, 1, 1)/60))*60)} Minutes`;
       document.getElementById("line2").innerHTML += "Till the end of "+getParameterByName("title")
     }
     document.getElementById("schedule").innerHTML = ""
