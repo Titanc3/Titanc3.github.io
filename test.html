@@ -127,15 +127,6 @@ layout: /_config
       document.getElementById("schedule").innerHTML += `<br>   ${miniList[2]}<br>${miniList[0][0]}:${a} - ${miniList[1][0]}:${b}<br>`;
       }
     }
-    else {
-      for (const miniList of fullList) { // displaying info loop
-      let a = miniList[0][1];
-      let b = miniList[1][1];
-      if (a.toString().length == 1) { a="0"+a.toString() }
-      if (b.toString().length == 1) { b="0"+b.toString() }
-      document.getElementById("schedule").innerHTML += `<br>   ${miniList[2]}<br>${miniList[0][0]}:${a} - ${miniList[1][0]}:${b}<br>`;
-      }
-    }
   }
 
   function getParameterByName(name, url = window.location.href) {
@@ -167,7 +158,7 @@ layout: /_config
 
     console.log("Hey! No snooping!");
     document.getElementById("title").innerHTML = getParameterByName("title")+" Schedule";
-    setInterval(timedUpdate, 500);
+    setInterval(timedUpdate, 2000);
   }
 </script>
 </html>
