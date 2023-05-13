@@ -82,8 +82,10 @@ layout: /_config
       tillEnd = fullList[fullList.length-1];
     }
     if (till == 0) { 
-      document.getElementById("line1").innerHTML = "End of "+getParameterByName("title"); 
-      document.getElementById("line1").innerHTML = "";
+      document.getElementById("line1L").innerHTML = "End of"; 
+      document.getElementById("line2L").innerHTML = getParameterByName("title");
+      document.getElementById("line1R").innerHTML = "End of"; 
+      document.getElementById("line2R").innerHTML = getParameterByName("title");
     }
     else if (short(till, hr, min, 0, 0, 0, 1) == Math.abs(short(till, hr, min, 0, 0, 0, 1))) {
       document.getElementById("line1L").innerHTML = `${Math.floor(short(till, hr, min, 0, 0, 0, 1)/60)} Hours ${Math.round(((short(till, hr, min, 0, 0, 0, 1)/60)-Math.floor(short(till, hr, min, 0, 0, 0, 1)/60))*60)} Minutes  `;
@@ -95,11 +97,11 @@ layout: /_config
     }
     if (short(till, hr, min, 0, 0, 0, 1) == Math.abs(short(till, hr, min, 0, 0, 0, 1))) {
       document.getElementById("line1R").innerHTML = `${Math.floor(short(tillEnd, hr, min, 0, 0, 0, 1)/60)} Hours ${Math.round(((short(tillEnd, hr, min, 0, 0, 0, 1)/60)-Math.floor(short(tillEnd, hr, min, 0, 0, 0, 1)/60))*60)} Minutes`;
-      document.getElementById("line2R").innerHTML = "     Till "+getParameterByName("title")
+      document.getElementById("line2R").innerHTML = "Till "+getParameterByName("title")
     }
     else if (short(till, hr, min, 1, 0, 1, 1) == Math.abs(short(till, hr, min, 1, 0, 1, 1))) {
       document.getElementById("line1R").innerHTML = `${Math.floor(short(tillEnd, hr, min, 1, 0, 1, 1)/60)} Hours ${Math.round(((short(tillEnd, hr, min, 1, 0, 1, 1)/60)-Math.floor(short(tillEnd, hr, min, 1, 0, 1, 1)/60))*60)} Minutes`;
-      document.getElementById("line2R").innerHTML = "     Till the end of "+getParameterByName("title")
+      document.getElementById("line2R").innerHTML = "Till the end of "+getParameterByName("title")
     }
     document.getElementById("schedule").innerHTML = ""
     if (document.querySelector('.time:checked') != null) {
