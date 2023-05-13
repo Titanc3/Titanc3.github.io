@@ -80,6 +80,7 @@ layout: /_config
     let tillEnd = 0;
     if ((fullList[fullList.length-1][1][0]*60)+fullList[fullList.length-1][1][1] > (hr*60)+min) {
       tillEnd = fullList[fullList.length-1];
+      tillEnd[0] = fullList[0][0]
     }
     if (till == 0) { 
       document.getElementById("line1L").innerHTML = "End of"; 
