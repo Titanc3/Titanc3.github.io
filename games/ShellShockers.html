@@ -18,5 +18,7 @@
     if (!results[2]) return '';
     return decodeURIComponent(results[2].replace(/\+/g, ' '));
   }
-  document.getElementById("game").src=getParameterByName("game")
+  let game_url = getParameterByName("game");
+  if (game_url != "") {document.getElementById("game").src=game_url;}
+  else {alert("No game has been chosen, returning to game hub"); document.getElementById("game").src="https://titanc3.github.io";}
 </script>
