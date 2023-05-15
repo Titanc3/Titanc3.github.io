@@ -1,7 +1,7 @@
 ---
 layout: /_config
 ---
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html>
 <head>
   <title>Titanc3</title>
@@ -12,8 +12,8 @@ layout: /_config
   <meta charset='utf-8'>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="A schedule tracker for students or workers">
-  <meta name="keywords" content="Students, Schedule, Time">
+  <meta name="description" content="The game hub">
+  <meta name="keywords" content="Students, Games, Entertainment">
   <meta name="language" content="en">
 </head>
 
@@ -40,124 +40,26 @@ layout: /_config
     <header>
       <div class="container">
         <a href="https://titanc3.github.io" style="text-decoration: none;"><h1>Titanc3</h1></a>
-        <h2>Test Webpage</h2>
+        <h2>Games</h2>
         <section id="Sites/Pages">
           <a href="https://github.com/Titanc3" class="btn btn-github"><span class="icon"></span>My GitHub</a>
-          <a href="https://titanc3.github.io/games" class="btn">Games</a>
+          <a href="https://titanc3.github.io" class="btn">Home</a>
           <a href="https://titanc3.github.io/other" class="btn">Other</a>
           <a class="btn" onclick="document.getElementById('overlay').style.display = 'block';">🔗</a>
         </section>
       </div>
     </header>
-    <div class="container">
-      <p style="text-align:center"><a href="https://titanc3.github.io/other/time_period/urlcreatorpage" class="btn">Click to create a schedule</a> <input class="time" type="checkbox" name="timeSet" value="12"> <label for="timeSet"> 12hr Clock</label></p> 
-      <h2 style="text-align:center" id="title"></h2>
-      <div style="text-align:center;"><h1 id="line1L" style="display:inline;"></h1><h1 style="display:inline;"> | </h1><h1 id="line1R" style="display:inline;"></h1></div><br>
-      <div style="text-align:center;"><h1 id="line2L" style="display:inline;"></h1><h1 style="display:inline;"> | </h1><h1 id="line2R" style="display:inline;"></h1></div><br>
-      <h3 style="text-align:left" id="schedule"></h3>
+      <div class="container">
+        <h2 style="text-align:center">Titanc3's Games</h2>
+        <p><a href="https://titanc3.github.io/Unity/CrappyBird/crappybird.html" class="btn">Crappy Bird</a> Flappy Bird but worse.</p>
+        <p><a href="https://titanc3.github.io/Unity/KrappyKart/krappykart.html" class="btn">Krappy Kart</a> Go-karting but hard, GL. (No mobile/tablet support😓)(New!)</p>
+        <h2 style="text-align:center">CrazyGames</h2>
+        <p><a href="https://titanc3.github.io/games/GameLoader?game=https://www.crazygames.com/embed/shellshockersio" class="btn">Shell Shockers</a> Yk the one, the only, SHELLSHOCKERS.</p>
+        <p><a href="https://titanc3.github.io/games/GameLoader?game=https://www.crazygames.com/embed/cubes-2048-io" class="btn">Cubes 2048</a> It's a lot more fun than you think</p>
+        <p><a href="https://titanc3.github.io/games/GameLoader?game=https://www.crazygames.com/embed/rocket-bot-royale" class="btn">Rocket Bot Royale</a> Rlly fun & competetive🔥🔥🔥</p>
+      </div>
     </div>
   </body>
 </head>
-<script>
-  const fullList = [];
-  const symbols =  "∆ ∇ ∎ ≡ ≣ ⊏ ⊐ ⊑ ⊒ ⊕ ⊖ ⊗ ⊘ ⊙ ⊚ ⊛ ⊜ ⊝ ⊞ ⊟ ⊠ ⊡ ⊿ ⋄ ⋐ ⋑ ⋒ ⋓ ⍁ ⍂ ⎔ □ ▢ ▣ ▤ ▥ ▦ ▧ ▨ ▩ ▪ ▫ ▬ ▭ ▮ ▯ ▰ ▱ ▲ △ ▴ ▵ ▶ ▷ ▸ ▹ ▻ ▼ ▽ ▾ ▿ ◀ ◁ ◂ ◃ ◅ ◆ ◇ ◈ ◉ ◊ ○ ◌ ◍ ◎ ● ◐ ◑ ◒ ◓ ◔ ◕ ◖ ◗ ◧ ◨ ◩ ◪ ◫ ◬ ◭ ◮ ◯ ◰ ◱ ◲ ◳ ◴ ◵ ◶".split(" ");
-
-  function short(array, hours, minutes, one, two, three, four) {
-    return ((array[one][two]*60)+array[three][four])-((hours*60)+minutes);
-  }
-
-  function timedUpdate() {
-    let d = new Date();
-    let min = d.getMinutes();
-    let hr = d.getHours();
-    let till = 0;
-    for (item of fullList) {
-      if ((item[1][0]*60)+item[1][1] > (hr*60)+min) {
-        till = item;
-        break;
-      }
-    }
-    let tillEnd = 0;
-    if ((fullList[fullList.length-1][1][0]*60)+fullList[fullList.length-1][1][1] > (hr*60)+min) {
-      tillEnd = [fullList[0][0],fullList[fullList.length-1][1],fullList[fullList.length-1][2]];
-    }
-    if (till == 0) { 
-      document.getElementById("line1L").innerHTML = "End of"; 
-      document.getElementById("line2L").innerHTML = getParameterByName("title");
-      document.getElementById("line1R").innerHTML = "End of"; 
-      document.getElementById("line2R").innerHTML = getParameterByName("title");
-    }
-    else if (short(till, hr, min, 0, 0, 0, 1) == Math.abs(short(till, hr, min, 0, 0, 0, 1))) {
-      document.getElementById("line1L").innerHTML = `${Math.floor(short(till, hr, min, 0, 0, 0, 1)/60)} Hours ${Math.round(((short(till, hr, min, 0, 0, 0, 1)/60)-Math.floor(short(till, hr, min, 0, 0, 0, 1)/60))*60)} Minutes  `;
-      document.getElementById("line2L").innerHTML = "Till "+till[2]
-    }
-    else if (short(till, hr, min, 1, 0, 1, 1) == Math.abs(short(till, hr, min, 1, 0, 1, 1))) {
-      document.getElementById("line1L").innerHTML = `${Math.floor(short(till, hr, min, 1, 0, 1, 1)/60)} Hours ${Math.round(((short(till, hr, min, 1, 0, 1, 1)/60)-Math.floor(short(till, hr, min, 1, 0, 1, 1)/60))*60)} Minutes  `;
-      document.getElementById("line2L").innerHTML = "Till the end of "+till[2]
-    }
-    if (short(till, hr, min, 0, 0, 0, 1) == Math.abs(short(till, hr, min, 0, 0, 0, 1))) {
-      document.getElementById("line1R").innerHTML = `${Math.floor(short(tillEnd, hr, min, 0, 0, 0, 1)/60)} Hours ${Math.round(((short(tillEnd, hr, min, 0, 0, 0, 1)/60)-Math.floor(short(tillEnd, hr, min, 0, 0, 0, 1)/60))*60)} Minutes`;
-      document.getElementById("line2R").innerHTML = "Till "+getParameterByName("title")
-    }
-    else if (short(till, hr, min, 1, 0, 1, 1) == Math.abs(short(till, hr, min, 1, 0, 1, 1))) {
-      document.getElementById("line1R").innerHTML = `${Math.floor(short(tillEnd, hr, min, 1, 0, 1, 1)/60)} Hours ${Math.round(((short(tillEnd, hr, min, 1, 0, 1, 1)/60)-Math.floor(short(tillEnd, hr, min, 1, 0, 1, 1)/60))*60)} Minutes`;
-      document.getElementById("line2R").innerHTML = "Till the end of "+getParameterByName("title")
-    }
-    document.getElementById("schedule").innerHTML = ""
-    if (document.querySelector('.time:checked') != null) {
-      for (const miniList of fullList) { // displaying info loop
-        let a = miniList[0][1];
-        let b = miniList[1][1];
-        if (a.toString().length == 1) { a="0"+a.toString() }
-        if (b.toString().length == 1) { b="0"+b.toString() }
-        if (miniList[0][0] > 12) { newHour = `${miniList[0][0]-12} PM`.split(" ") }
-        else { newHour = `${miniList[0][0]} AM`.split(" ") }
-        if (miniList[1][0] > 12) { newHour2 = `${miniList[1][0]-12} PM`.split(" ") }
-        else { newHour2 = `${miniList[1][0]} AM`.split(" ") }
-        document.getElementById("schedule").innerHTML += `<br>   ${miniList[2]}<br>${newHour[0]}:${a} ${newHour[1]} - ${newHour2[0]}:${b} ${newHour2[1]}<br>`;
-      }
-    }
-    else {
-      for (const miniList of fullList) { // displaying info loop
-      let a = miniList[0][1];
-      let b = miniList[1][1];
-      if (a.toString().length == 1) { a="0"+a.toString() }
-      if (b.toString().length == 1) { b="0"+b.toString() }
-      document.getElementById("schedule").innerHTML += `<br>   ${miniList[2]}<br>${miniList[0][0]}:${a} - ${miniList[1][0]}:${b}<br>`;
-      }
-    }
-  }
-
-  function getParameterByName(name, url = window.location.href) {
-    name = name.replace(/[\[\]]/g, '\\$&');
-    var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
-        results = regex.exec(url);
-    if (!results) return null;
-    if (!results[2]) return '';
-    return decodeURIComponent(results[2].replace(/\+/g, ' '));
-  }
-
-  function decrypt(index, index2) { return symbols.indexOf(timesInMinutes[index][index2]); }
-
-  if (getParameterByName("m") != null && getParameterByName("names") != null && getParameterByName("title") != null) {
-    timesInMinutes = getParameterByName("m").split("|"); // query variables
-    names = getParameterByName("names").split("|");
-
-    for (let i = 0; i < timesInMinutes.length; i+=2) {
-      fullList.push([[decrypt(i, 0), decrypt(i, 1)], [decrypt(i+1, 0), decrypt(i+1, 1)], names[i/2]]); //xtra rip reading code, format: [[hr, min](start), [hr, min](stop), name]
-    }
-
-    for (const miniList of fullList) { // displaying info loop
-      let a = miniList[0][1];
-      let b = miniList[1][1];
-      if (a.toString().length == 1) { a="0"+a.toString() }
-      if (b.toString().length == 1) { b="0"+b.toString() }
-      document.getElementById("schedule").innerHTML += `<br>   ${miniList[2]}<br>${miniList[0][0]}:${a} - ${miniList[1][0]}:${b}<br>`;
-    }  // url example:   titanc3.github.io/period?m=∆≣|⊏⊐|⊙⊚|⊛⊞|⊟⊠|⊟⊛&names=poop|zoop|sloop&title=scholo
-
-    console.log("Hey! No snooping!");
-    document.getElementById("title").innerHTML = getParameterByName("title")+" Schedule";
-    setInterval(timedUpdate, 2000);
-  }
-</script>
 </html>
+
