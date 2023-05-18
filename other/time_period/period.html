@@ -95,11 +95,11 @@ layout: /_config
       document.getElementById("line1L").innerHTML = `${Math.floor(short(till, hr, min, 1, 0, 1, 1)/60)} Hours ${Math.round(((short(till, hr, min, 1, 0, 1, 1)/60)-Math.floor(short(till, hr, min, 1, 0, 1, 1)/60))*60)} Minutes  `;
       document.getElementById("line2L").innerHTML = "Till the end of "+till[2]
     }
-    if (short(tillEnd, hr, min, 0, 0, 0, 1) == Math.abs(short(till, hr, min, 0, 0, 0, 1))) {
+    if (short(tillEnd, hr, min, 0, 0, 0, 1) == Math.abs(short(tillEnd, hr, min, 0, 0, 0, 1))) {
       document.getElementById("line1R").innerHTML = `${Math.floor(short(tillEnd, hr, min, 0, 0, 0, 1)/60)} Hours ${Math.round(((short(tillEnd, hr, min, 0, 0, 0, 1)/60)-Math.floor(short(tillEnd, hr, min, 0, 0, 0, 1)/60))*60)} Minutes`;
       document.getElementById("line2R").innerHTML = "Till "+getParameterByName("title")
     }
-    else if (short(tillEnd, hr, min, 1, 0, 1, 1) == Math.abs(short(till, hr, min, 1, 0, 1, 1))) {
+    else if (short(tillEnd, hr, min, 1, 0, 1, 1) == Math.abs(short(tillEnd, hr, min, 1, 0, 1, 1))) {
       document.getElementById("line1R").innerHTML = `${Math.floor(short(tillEnd, hr, min, 1, 0, 1, 1)/60)} Hours ${Math.round(((short(tillEnd, hr, min, 1, 0, 1, 1)/60)-Math.floor(short(tillEnd, hr, min, 1, 0, 1, 1)/60))*60)} Minutes`;
       document.getElementById("line2R").innerHTML = "Till the end of "+getParameterByName("title")
     }
@@ -158,5 +158,8 @@ layout: /_config
     console.log("Hey! No snooping!");
     document.getElementById("title").innerHTML = getParameterByName("title")+" Schedule";
     setInterval(timedUpdate, 200);
+  }
 </script>
 </html>
+</html>
+
