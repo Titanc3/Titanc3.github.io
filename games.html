@@ -31,15 +31,6 @@ layout: /_config
   z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
   cursor: pointer; /* Add a pointer on hover */
 }
-#video{
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  font-size: 50px;
-  color: white;
-  transform: translate(-50%,-50%);
-  -ms-transform: translate(-50%,-50%);
-}
 </style>
 
 <div id="overlay" onclick="document.getElementById('overlay').style.display = 'none';">
@@ -57,8 +48,8 @@ layout: /_config
 </div>
 
 <div id="videoOverlay" onclick="document.getElementById('videoOverlay').style.display = 'none';">
-  <div id="video">
-    <video width="960" height="720" controls>
+  <div id="icons">
+    <video width="960" height="680" controls>
       <source src="https://titanc3.github.io/CrazyGames%20Unblocked.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
