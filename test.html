@@ -67,9 +67,9 @@ layout: /_config
   }
 
   function timedUpdate() {
-    let d = new Date();
-    let min = d.getMinutes();
-    let hr = d.getHours();
+    let now = new Date().getTime(); // 3 letters of month, ie. Mar Jan, Jun
+    let date = getParameterByName("date").split("|")
+    let titleEndDate = new Date(`${date[0]} ${date[1]}, ${now.getFullYear()} ${fullList[fullList.length-1][1].join(":")+":00"}`).getTime();
     let till = 0;
     for (item of fullList) {
       if ((item[1][0]*60)+item[1][1] > (hr*60)+min) {
