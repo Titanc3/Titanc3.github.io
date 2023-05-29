@@ -59,101 +59,34 @@ layout: /_config
   </body>
 </head>
 <script>
-  const fullList = [];
-  const symbols =  "∆ ∇ ∎ ≡ ≣ ⊏ ⊐ ⊑ ⊒ ⊕ ⊖ ⊗ ⊘ ⊙ ⊚ ⊛ ⊜ ⊝ ⊞ ⊟ ⊠ ⊡ ⊿ ⋄ ⋐ ⋑ ⋒ ⋓ ⍁ ⍂ ⎔ □ ▢ ▣ ▤ ▥ ▦ ▧ ▨ ▩ ▪ ▫ ▬ ▭ ▮ ▯ ▰ ▱ ▲ △ ▴ ▵ ▶ ▷ ▸ ▹ ▻ ▼ ▽ ▾ ▿ ◀ ◁ ◂ ◃ ◅ ◆ ◇ ◈ ◉ ◊ ○ ◌ ◍ ◎ ● ◐ ◑ ◒ ◓ ◔ ◕ ◖ ◗ ◧ ◨ ◩ ◪ ◫ ◬ ◭ ◮ ◯ ◰ ◱ ◲ ◳ ◴ ◵ ◶".split(" ");
+// Set the date we're counting down to
+var countDownDate = new Date("Jan 5, 2024 15:37:25").getTime();
 
-  function short(array, hours, minutes, one, two, three, four) {
-    return ((array[one][two]*60)+array[three][four])-((hours*60)+minutes);
+// Update the count down every 1 second
+var x = setInterval(function() {
+
+  // Get today's date and time
+  var now = new Date().getTime();
+
+  // Find the distance between now and the count down date
+  var distance = countDownDate - now;
+
+  // Time calculations for days, hours, minutes and seconds
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  // Display the result in the element with id="demo"
+  document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+  + minutes + "m " + seconds + "s ";
+
+  // If the count down is finished, write some text
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("demo").innerHTML = "EXPIRED";
   }
-
-  function timedUpdate() {
-    let now = new Date().getTime(); // 3 letters of month, ie. Mar Jan, Jun
-    let date = getParameterByName("date").split("|")
-    let titleEndDate = new Date(`${date[0]} ${date[1]}, ${now.getFullYear()} ${fullList[fullList.length-1][1].join(":")+":00"}`).getTime();
-    let till = 0;
-    for (item of fullList) {
-      if ((item[1][0]*60)+item[1][1] > (hr*60)+min) {
-        till = item;
-        break;
-      }
-    }
-    let tillEnd = 0;
-    if ((fullList[fullList.length-1][1][0]*60)+fullList[fullList.length-1][1][1] > (hr*60)+min) {
-      tillEnd = [fullList[0][0],fullList[fullList.length-1][1],fullList[fullList.length-1][2]];
-    }
-    if (till == 0) { 
-      document.getElementById("line1L").innerHTML = "End of"; 
-      document.getElementById("line2L").innerHTML = getParameterByName("title");
-      document.getElementById("line1R").innerHTML = "End of"; 
-      document.getElementById("line2R").innerHTML = getParameterByName("title");
-    }
-    else if (short(till, hr, min, 0, 0, 0, 1) == Math.abs(short(till, hr, min, 0, 0, 0, 1))) {
-      document.getElementById("line1L").innerHTML = `${Math.floor(short(till, hr, min, 0, 0, 0, 1)/60)} Hours ${Math.round(((short(till, hr, min, 0, 0, 0, 1)/60)-Math.floor(short(till, hr, min, 0, 0, 0, 1)/60))*60)} Minutes  `;
-      document.getElementById("line2L").innerHTML = "Till "+till[2]
-    }
-    else if (short(till, hr, min, 1, 0, 1, 1) == Math.abs(short(till, hr, min, 1, 0, 1, 1))) {
-      document.getElementById("line1L").innerHTML = `${Math.floor(short(till, hr, min, 1, 0, 1, 1)/60)} Hours ${Math.round(((short(till, hr, min, 1, 0, 1, 1)/60)-Math.floor(short(till, hr, min, 1, 0, 1, 1)/60))*60)} Minutes  `;
-      document.getElementById("line2L").innerHTML = "Till the end of "+till[2]
-    }
-    if (tillEnd == 0) {}
-    else if (short(tillEnd, hr, min, 0, 0, 0, 1) == Math.abs(short(tillEnd, hr, min, 0, 0, 0, 1))) {
-      document.getElementById("line1R").innerHTML = `${Math.floor(short(tillEnd, hr, min, 0, 0, 0, 1)/60)} Hours ${Math.round(((short(tillEnd, hr, min, 0, 0, 0, 1)/60)-Math.floor(short(tillEnd, hr, min, 0, 0, 0, 1)/60))*60)} Minutes`;
-      document.getElementById("line2R").innerHTML = "Till "+getParameterByName("title")
-    }
-    else if (short(tillEnd, hr, min, 1, 0, 1, 1) == Math.abs(short(tillEnd, hr, min, 1, 0, 1, 1))) {
-      document.getElementById("line1R").innerHTML = `${Math.floor(short(tillEnd, hr, min, 1, 0, 1, 1)/60)} Hours ${Math.round(((short(tillEnd, hr, min, 1, 0, 1, 1)/60)-Math.floor(short(tillEnd, hr, min, 1, 0, 1, 1)/60))*60)} Minutes`;
-      document.getElementById("line2R").innerHTML = "Till the end of "+getParameterByName("title")
-    }
-    document.getElementById("schedule").innerHTML = ""
-    if (document.querySelector('.time:checked') != null) {
-      for (const miniList of fullList) { // displaying info loop
-        let a = miniList[0][1];
-        let b = miniList[1][1];
-        if (a.toString().length == 1) { a="0"+a.toString() }
-        if (b.toString().length == 1) { b="0"+b.toString() }
-        if (miniList[0][0] > 12) { newHour = `${miniList[0][0]-12} PM`.split(" ") }
-        else { newHour = `${miniList[0][0]} AM`.split(" ") }
-        if (miniList[1][0] > 12) { newHour2 = `${miniList[1][0]-12} PM`.split(" ") }
-        else { newHour2 = `${miniList[1][0]} AM`.split(" ") }
-        document.getElementById("schedule").innerHTML += `<br>   ${miniList[2]}<br>${newHour[0]}:${a} ${newHour[1]} - ${newHour2[0]}:${b} ${newHour2[1]}<br>`;
-      }
-    }
-    else {
-      for (const miniList of fullList) { // displaying info loop
-      let a = miniList[0][1];
-      let b = miniList[1][1];
-      if (a.toString().length == 1) { a="0"+a.toString() }
-      if (b.toString().length == 1) { b="0"+b.toString() }
-      document.getElementById("schedule").innerHTML += `<br>   ${miniList[2]}<br>${miniList[0][0]}:${a} - ${miniList[1][0]}:${b}<br>`;
-      }
-    }
-  }
-
-  function getParameterByName(name, url = window.location.href) {
-    name = name.replace(/[\[\]]/g, '\\$&');
-    var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
-        results = regex.exec(url);
-    if (!results) return null;
-    if (!results[2]) return '';
-    return decodeURIComponent(results[2].replace(/\+/g, ' '));
-  }
-
-  function decrypt(index, index2) { return symbols.indexOf(timesInMinutes[index][index2]); }
-
-  if (getParameterByName("m") != null && getParameterByName("names") != null && getParameterByName("title") != null) {
-    timesInMinutes = getParameterByName("m").split("|"); // query variables
-    names = getParameterByName("names").split("|");
-
-    for (let i = 0; i < timesInMinutes.length; i+=2) {
-      fullList.push([[decrypt(i, 0), decrypt(i, 1)], [decrypt(i+1, 0), decrypt(i+1, 1)], names[i/2]]); //xtra rip reading code, format: [[hr, min](start), [hr, min](stop), name]
-    }
-
-// url example:   titanc3.github.io/period?m=∆≣|⊏⊐|⊙⊚|⊛⊞|⊟⊠|⊟⊛&names=poop|zoop|sloop&title=scholo
-
-    console.log("Hey! No snooping!");
-    document.getElementById("title").innerHTML = getParameterByName("title")+" Schedule";
-    setInterval(timedUpdate, 200);
-  }
+}, 1000);
 </script>
 </html>
 
