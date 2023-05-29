@@ -59,6 +59,18 @@ layout: /_config
   </body>
 </head>
 <script>
+function getParameterByName(name, url = window.location.href) {
+  name = name.replace(/[\[\]]/g, '\\$&');
+  var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+      results = regex.exec(url);
+  if (!results) return null;
+  if (!results[2]) return '';
+  return decodeURIComponent(results[2].replace(/\+/g, ' '));
+}
+
+let title = getParameterByName("title");
+getElementById("title").innerHTML = title;
+  
 // Set the date we're counting down to
 var countDownDate = new Date("Jan 5, 2024 15:37:25").getTime();
 
@@ -84,7 +96,7 @@ var x = setInterval(function() {
   // If the count down is finished, write some text
   if (distance < 0) {
     clearInterval(x);
-    document.getElementById("demo").innerHTML = "End of ";
+    document.getElementById("demo").innerHTML = "End of "+title;
   }
 }, 1000);
 </script>
