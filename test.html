@@ -68,7 +68,7 @@ function getParameterByName(name, url = window.location.href) {
   return decodeURIComponent(results[2].replace(/\+/g, ' '));
 }
 
-let title = getParameterByName("title");
+let title = getParameterByName("title")+" Schedule";
 document.getElementById("title").innerHTML = title;
   
 // Set the date we're counting down to
