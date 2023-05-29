@@ -69,7 +69,7 @@ function getParameterByName(name, url = window.location.href) {
 }
 
 let title = getParameterByName("title");
-getElementById("title").innerHTML = title;
+document.getElementById("title").innerHTML = title;
   
 // Set the date we're counting down to
 var countDownDate = new Date("Jan 5, 2024 15:37:25").getTime();
