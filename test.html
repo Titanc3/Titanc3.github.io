@@ -50,9 +50,11 @@ layout: /_config
       </div>
     </header>
     <div class="container">
-      <p style="text-align:center"><a href="https://titanc3.github.io/other/time_period/urlcreatorpage" class="btn">Click to create a schedule</a> <input class="time" type="checkbox" name="timeSet" value="12"> <label for="timeSet"> 12hr Clock</label></p> 
+      <p style="text-align:center"><a href="https://titanc3.github.io/other/time_period/urlcreatorpage" id="creationButton" class="btn">Click to create a schedule</a> <input class="time" type="checkbox" name="timeSet" value="12"> <label for="timeSet"> 12hr Clock</label></p> 
       <h1 id="title" style="text-align:center;"></h1>
+      <h3 id="schoolTitle" style="text-align:center;"></h3>
       <h2 id="tillSchool" style="text-align:center;"></h2>
+      <h3 id="periodTitle" style="text-align:center;"></h3>
       <h2 id="tillPeriod" style="text-align:center;"></h2>
       <h3 style="text-align:left;font-size:20px;" id="schedule"></h3>
     </div>
@@ -68,6 +70,7 @@ function getParameterByName(name, url = window.location.href) {
   return decodeURIComponent(results[2].replace(/\+/g, ' '));
 }
 
+const symbols =  "∆ ∇ ∎ ≡ ≣ ⊏ ⊐ ⊑ ⊒ ⊕ ⊖ ⊗ ⊘ ⊙ ⊚ ⊛ ⊜ ⊝ ⊞ ⊟ ⊠ ⊡ ⊿ ⋄ ⋐ ⋑ ⋒ ⋓ ⍁ ⍂ ⎔ □ ▢ ▣ ▤ ▥ ▦ ▧ ▨ ▩ ▪ ▫ ▬ ▭ ▮ ▯ ▰ ▱ ▲ △ ▴ ▵ ▶ ▷ ▸ ▹ ▻ ▼ ▽ ▾ ▿ ◀ ◁ ◂ ◃ ◅ ◆ ◇ ◈ ◉ ◊ ○ ◌ ◍ ◎ ● ◐ ◑ ◒ ◓ ◔ ◕ ◖ ◗ ◧ ◨ ◩ ◪ ◫ ◬ ◭ ◮ ◯ ◰ ◱ ◲ ◳ ◴ ◵ ◶".split(" ");
 const month = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
 let title = getParameterByName("title")+" Schedule";
 document.getElementById("title").innerHTML = title;
@@ -77,11 +80,23 @@ for (let i = 0; i <= 1; i++) {
   var now = new Date()
   
   if (i == 0) {  // i == 0 == school
-    var countDownDate = new Date(`${month[getParameterByName("month")]} ${getParameterByName("date")}, ${now.getFullYear()} 15:37:25`).getTime(); // example: ?month=3&date=14&...
+    
+    let setMonth = getParameterByName("month");
+    let setDate = getParameterByName("date"); // set time till school
+    
+    if (getParameterByName("month") == null || getParameterByName("date") == null) { // check if parameters are there
+      let setMonth = now.getMonth(); // set preset variables
+      let setDate = now.getDate();
+      alert("Alert: your schedule data is not updated, you can update your schedule or continue using the schedule without extra features."); // alert the user
+    }
+    document.getElementById("creationButton").innerHTML = "Update schedule data";
+    document.getElementById("creationButton").href += window.location.search; // link to update schedule with pre-filled info
+    
+    var countDownDate = new Date(`${month[setMonth]} ${setDate}, ${now.getFullYear()} 15:37:25`).getTime(); // get time of specific date for end of school, url example: ?month=3&date=14&...
   }
   
   else {  // i == 1 == timePeriod
-    var countDownDate = new Date(`${month[now.getMonth()]} ${now.getDate()}, ${now.getFullYear()} 15:37:25`).getTime();
+    var countDownDate = new Date(`${month[now.getMonth()]} ${now.getDate()}, ${now.getFullYear()} 15:37:25`).getTime(); // get time of specific date for time period, no extra url data required
   }
   
   // Update the count down every 1 second
@@ -99,9 +114,15 @@ for (let i = 0; i <= 1; i++) {
     var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-    if (i == 0) { document.getElementById("tillSchool").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s "; } // 0 = school
+    if (i == 0) { // 0 = school
+      document.getElementById("schoolTitle").innerHTML = "Till the end of "+title.toLowerCase();; 
+      document.getElementById("tillSchool").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s "; 
+    }
 
-    else { document.getElementById("tillPeriod").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s "; } // 1 = timePeriod
+    else { // 1 = timePeriod
+      document.getElementById("periodTitle").innerHTML = "Till the end of "+title.toLowerCase();; 
+      document.getElementById("tillPeriod").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s "; 
+    }
 }
     // If the count down is finished, write some text
     if (distance < 0) {
@@ -109,7 +130,7 @@ for (let i = 0; i <= 1; i++) {
     
       if (i == 0) { document.getElementById("tillSchool").innerHTML = "End of "+title; } // 0 = school
     
-      else { document.getElementById("tillPeriod").innerHTML = "End of thing" } // 1 = timePeriod
+      else { document.getElementById("tillPeriod").innerHTML = "End of thing"; } // 1 = timePeriod
     }
 }, 1000);
 </script>
