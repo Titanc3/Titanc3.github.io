@@ -79,24 +79,13 @@ for (let i = 0; i <= 1; i++) {
   // Set the date we're counting down to
   var now = new Date()
   
+  let timeList = getParameterByName("m").split("|")
+  
   if (i == 0) {  // i == 0 == school
-    
-    let setMonth = getParameterByName("month");
-    let setDate = getParameterByName("date"); // set time till school
-    
-    if (getParameterByName("month") == null || getParameterByName("date") == null) { // check if parameters are there
-      let setMonth = now.getMonth(); // set preset variables
-      let setDate = now.getDate();
-      alert("Alert: your schedule data is not updated, you can update your schedule or continue using the schedule without extra features."); // alert the user
-    }
-    document.getElementById("creationButton").innerHTML = "Update schedule data";
-    document.getElementById("creationButton").href += window.location.search; // link to update schedule with pre-filled info
-    
-    var countDownDate = new Date(`${month[setMonth]} ${setDate}, ${now.getFullYear()} 15:37:25`).getTime(); // get time of specific date for end of school, url example: ?month=3&date=14&...
-  }
+    var countDownDate = new Date(`${month[now.getMonth()]} ${now.getDate()}, ${now.getFullYear()} ${symbols.indexOf(timeList[timelist.length-1][0])}:${timeList[timelist.length-1][1]}:00`).getTime(); // get time of specific date for end of school [0]=hr [1]=min
   
   else {  // i == 1 == timePeriod
-    var countDownDate = new Date(`${month[now.getMonth()]} ${now.getDate()}, ${now.getFullYear()} 15:37:25`).getTime(); // get time of specific date for time period, no extra url data required
+    var countDownDate = new Date(`${month[now.getMonth()]} ${now.getDate()}, ${now.getFullYear()} 15:37:00`).getTime(); // get time of specific date for time period, no extra url data required
   }
   
   // Update the count down every 1 second
