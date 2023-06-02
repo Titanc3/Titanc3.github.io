@@ -83,7 +83,7 @@ for (let i = 0; i <= 1; i++) {
   
   if (i == 0) {  // i == 0 == school
     var countDownDate = new Date(`${month[now.getMonth()]} ${now.getDate()}, ${now.getFullYear()} ${symbols.indexOf(timeList[timelist.length-1][0])}:${timeList[timelist.length-1][1]}:00`).getTime(); // get time of specific date for end of school [0]=hr [1]=min
-  
+  }
   else {  // i == 1 == timePeriod
     var countDownDate = new Date(`${month[now.getMonth()]} ${now.getDate()}, ${now.getFullYear()} 15:37:00`).getTime(); // get time of specific date for time period, no extra url data required
   }
