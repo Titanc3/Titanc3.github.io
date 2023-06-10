@@ -17,6 +17,31 @@ layout: /_config
   <meta name="language" content="en">
 </head>
 
+<style>
+  #videoOverlay {
+  position: fixed; /* Sit on top of the page content */
+  display: none; /* Hidden by default */
+  width: 100%; /* Full width (cover the whole page) */
+  height: 100%; /* Full height (cover the whole page) */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+  z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+  cursor: pointer; /* Add a pointer on hover */
+}
+</style>  
+  
+<div id="videoOverlay" onclick="document.getElementById('videoOverlay').style.display = 'none';">
+  <div id="icons">
+    <video width="960" height="580" controls>
+      <source src="https://titanc3.github.io/other/General_Time.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+</div>  
+  
 <div id="overlay" onclick="document.getElementById('overlay').style.display = 'none';">
   <div id="icons">
     <br><br><br><a id="Facebook" href="#" target="_blank"><img src="https://raw.githubusercontent.com/Titanc3/Titanc3.github.io/main/_includes/social/Facebook.png"></a>
@@ -56,7 +81,7 @@ layout: /_config
         <p><a>Use millitary time in the form of 0-23:0-60</a></p>
         <p><input type="text" id="startTime" name="startTime"> Type the starting time of each period separated by a space (0:24 13:31 ...)</p>
         <p><input type="text" id="endTime" name="endTime"> Type the end time of each period separated by a space (2:24 15:31 ...)</p>
-        <a id="submitButton" class="btn" onclick="submit()" href="#">Submit</a>
+        <a onclick="document.getElementById('videoOverlay').style.display = 'block';" class="btn">Help</a><a id="submitButton" class="btn" onclick="submit()" href="#">Submit</a>
         <script>
           function submit() {
             let symbols = "∆ ∇ ∎ ≡ ≣ ⊏ ⊐ ⊑ ⊒ ⊕ ⊖ ⊗ ⊘ ⊙ ⊚ ⊛ ⊜ ⊝ ⊞ ⊟ ⊠ ⊡ ⊿ ⋄ ⋐ ⋑ ⋒ ⋓ ⍁ ⍂ ⎔ □ ▢ ▣ ▤ ▥ ▦ ▧ ▨ ▩ ▪ ▫ ▬ ▭ ▮ ▯ ▰ ▱ ▲ △ ▴ ▵ ▶ ▷ ▸ ▹ ▻ ▼ ▽ ▾ ▿ ◀ ◁ ◂ ◃ ◅ ◆ ◇ ◈ ◉ ◊ ○ ◌ ◍ ◎ ● ◐ ◑ ◒ ◓ ◔ ◕ ◖ ◗ ◧ ◨ ◩ ◪ ◫ ◬ ◭ ◮ ◯ ◰ ◱ ◲ ◳ ◴ ◵ ◶".split(" ");
