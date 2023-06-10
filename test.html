@@ -91,11 +91,11 @@ if (ReadCookie("tutorial") == null) {
   }
 }
 
-if ("titanc3.github.io"+ReadCookie("tutorial") == window.location.href) {
+if ("https://titanc3.github.io"+ReadCookie("tutorial") == window.location.href) {
   alert("Welcome to the tutorial\nTitanc3 is a website created for students, created by a student\nThis is the homepage\nThe next button will be highlighted in yellow")
   document.getElementById("tutorialNextLink").style.border = "2px solid yellow";
 }
-else { alert("titanc3.github.io"+ReadCookie("tutorial")+"|"+window.location.href); window.location.href="titanc3.github.io"+ReadCookie("tutorial"); }
+else {window.location.href="https://titanc3.github.io"+ReadCookie("tutorial"); }
   
 </script>
 </html>
