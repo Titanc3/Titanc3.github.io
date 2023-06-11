@@ -78,6 +78,7 @@ window.onload = function() {
   else if ("https://titanc3.github.io"+ReadCookie("tutorial") == window.location.href) {
     alert("This is the Other page\nThis usually has interesting nerd/school things\nIn the next few clicks you will find a cool schedule feature :);
     document.getElementById("tutorialNextLink").style.border = "2px solid yellow";
+    document.cookie = `tutorial=/other/time_period/period; expires=Thu, 26 Jan ${d.getFullYear()+1} 12:00:00 UTC; path=/`;
   }
   else { window.location.href="https://titanc3.github.io"+ReadCookie("tutorial"); }
 }
