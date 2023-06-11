@@ -20,7 +20,7 @@ function tutorialCookie(message, urlPath) {
     document.getElementById("tutorialNextLink").style.border = "2px solid yellow"; 
     document.cookie = `tutorial=${urlPath}; expires=Thu, 26 Jan ${d.getFullYear()+1} 12:00:00 UTC; path=/`; 
   } 
-  else {
+  else if (ReadCookie("tutorial") != null) {
     if (confirm("Can you finish the tutorial before browsing around?") == true) { window.location.href="https://titanc3.github.io"+ReadCookie("tutorial"); }
     else { document.cookie = `tutorial=finished; expires=Thu, 26 Jan ${d.getFullYear()+1} 12:00:00 UTC; path=/`; }
   }
