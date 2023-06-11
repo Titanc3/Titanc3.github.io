@@ -68,7 +68,7 @@ layout: /_config
         <h2>URL Creator</h2>
         <section id="Sites/Pages">
           <a href="https://github.com/Titanc3" class="btn btn-github"><span class="icon"></span>My GitHub</a>
-          <a href="https://titanc3.github.io/games" class="btn">Games</a>
+          <a href="https://titanc3.github.io/games" class="btn" id="tutorialNextLink">Games</a>
           <a href="https://titanc3.github.io/other" class="btn">Other</a>
           <a class="btn" onclick="document.getElementById('overlay').style.display = 'block';">🔗</a>
         </section>
@@ -107,4 +107,8 @@ layout: /_config
     </div>
   </body>
 </head>
+  
+<script src="https://titanc3.github.io/other/tutorial.js"></script>
+<script> window.onload = tutorialCookie("This is where you create the url\nThe other url \"RH Quickstart\" is for RHCSD students\nClick the help button to see a demo of the url creator (I totally type that fast, 100%)", "/games"); </script>
+  
 </html>
