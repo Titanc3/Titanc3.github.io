@@ -10,7 +10,7 @@ function ReadCookie(cookieKey) {
    } 
   return null 
 } 
-function tutorialCookie(message) { 
+function tutorialCookie(message, urlPath) { 
   let d = new Date;
   
   if (ReadCookie("tutorial") == "finished") { document.cookie = `tutorial=finished; expires=Thu, 26 Jan ${d.getFullYear()+1} 12:00:00 UTC; path=/`; } 
@@ -18,7 +18,7 @@ function tutorialCookie(message) {
   else if ("https://titanc3.github.io"+ReadCookie("tutorial") == window.location.href) { 
     alert(`${message}`); 
     document.getElementById("tutorialNextLink").style.border = "2px solid yellow"; 
-    document.cookie = `tutorial=/other/time_period/period; expires=Thu, 26 Jan ${d.getFullYear()+1} 12:00:00 UTC; path=/`; 
+    document.cookie = `tutorial=${urlPath}; expires=Thu, 26 Jan ${d.getFullYear()+1} 12:00:00 UTC; path=/`; 
   } 
   else {
     if (confirm("Can you finish the tutorial before browsing around?") == true) { window.location.href="https://titanc3.github.io"+ReadCookie("tutorial"); }
