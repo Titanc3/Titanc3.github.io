@@ -83,7 +83,7 @@ function ReadCookie(cookieKey) {
   
 if (ReadCookie("tutorial") == null) {
   let d = new Date();
-  if (confirm("This seems to be your first time on Titanc3\nWant to do the tutorial? (You can retry this in settings, ~3 mins)") == false) {
+  if (confirm("This seems to be your first time on Titanc3\nWant to do the tutorial? (You can retry this in settings, ~3 mins) ") == false) {
     document.cookie = `tutorial=finished; expires=Thu, 26 Jan ${d.getFullYear()+1} 12:00:00 UTC; path=/`;
   }
   else {
@@ -95,7 +95,7 @@ if ("https://titanc3.github.io"+ReadCookie("tutorial") == window.location.href) 
   alert("Welcome to the tutorial\nTitanc3 is a website created for students, created by a student\nThis is the homepage\nThe next button will be highlighted in yellow")
   document.getElementById("tutorialNextLink").style.border = "2px solid yellow";
 }
-else {alert("https://titanc3.github.io"+ReadCookie("tutorial")); alert(window.location.href); window.location.href="https://titanc3.github.io"+ReadCookie("tutorial"); }
+else if (ReadCookie("tutorial") != "finished") { window.location.href="https://titanc3.github.io"+ReadCookie("tutorial"); }
   
 </script>
 </html>
