@@ -90,12 +90,14 @@ window.onload = function() {
       document.cookie = `tutorial=/test; expires=Thu, 26 Jan ${d.getFullYear()+1} 12:00:00 UTC; path=/`;
     }
   }
-
-  if ("https://titanc3.github.io"+ReadCookie("tutorial") == window.location.href) {
-    alert("Welcome to the tutorial\nTitanc3 is a website created for students, created by a student\nThis is the homepage\nThe next button will be highlighted in yellow");
+  
+  if (ReadCookie("tutorial") == "finished") { document.cookie = `tutorial=finished; expires=Thu, 26 Jan ${d.getFullYear()+1} 12:00:00 UTC; path=/`; }
+  
+  else if ("https://titanc3.github.io"+ReadCookie("tutorial") == window.location.href) {
+    alert("Welcome to the tutorial\nTitanc3 is a website created for students, created by a student\nThis is the homepage\nThe next buttons will be highlighted in yellow");
     document.getElementById("tutorialNextLink").style.border = "2px solid yellow";
   }
-  else if (ReadCookie("tutorial") != "finished") { window.location.href="https://titanc3.github.io"+ReadCookie("tutorial"); }
+  else { window.location.href="https://titanc3.github.io"+ReadCookie("tutorial"); }
 }
 </script>
 </html>
