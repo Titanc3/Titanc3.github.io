@@ -68,41 +68,46 @@ layout: /_config
   </div>
 </body>
 <script>
-window.onload = function() {
+document.addEventListener("DOMContentLoaded", function() {
   function ReadCookie(cookieKey) {
-     var allcookies = document.cookie.split("; ")
-     // split str into list str="key=value; key=value; ..." list="key=value", "key=value", ...
+    var allcookies = document.cookie.split("; ");
+    // split str into list str="key=value; key=value; ..." list="key=value", "key=value", ...
 
-     for (let i = 0; i < allcookies.length; i++) {
-        let pair = allcookies[i].split("=");
-        if (pair[0] == cookieKey) {
-          return pair[1]; //pair[0] = key | pair[1] = value
-        }
-     }
-    return null
+    for (let i = 0; i < allcookies.length; i++) {
+      let pair = allcookies[i].split("=");
+      if (pair[0] == cookieKey) {
+        return pair[1]; //pair[0] = key | pair[1] = value
+      }
+    }
+    return null;
   }
+
   let d = new Date();
 
   if (ReadCookie("tutorial") == null) {
     if (confirm("This seems to be your first time on Titanc3\nWant to do the tutorial? (You can retry this in settings, ~3 mins) ") == false) {
       document.cookie = `tutorial=finished; expires=Thu, 26 Jan ${d.getFullYear()+1} 12:00:00 UTC; path=/`;
-    }
-    else {
+    } else {
       document.cookie = `tutorial=/test; expires=Thu, 26 Jan ${d.getFullYear()+1} 12:00:00 UTC; path=/`;
     }
   }
 
-  if (ReadCookie("tutorial") == "finished") { document.cookie = `tutorial=finished; expires=Thu, 26 Jan ${d.getFullYear()+1} 12:00:00 UTC; path=/`; }
-
-  else if ("https://titanc3.github.io"+ReadCookie("tutorial") == window.location.href) {
+  if (ReadCookie("tutorial") == "finished") {
+    document.cookie = `tutorial=finished; expires=Thu, 26 Jan ${d.getFullYear()+1} 12:00:00 UTC; path=/`;
+  } else if ("https://titanc3.github.io" + ReadCookie("tutorial") == window.location.href) {
     alert("Welcome to the tutorial\nTitanc3 is a website created for students, created by a student\nThis is the homepage\nThe next buttons will be highlighted in yellow");
-    document.getElementById("tutorialNextLink").style.border = "2px solid yellow";
-    document.cookie = `tutorial=/other; expires=Thu, 26 Jan ${d.getFullYear()+1} 12:00:00 UTC; path=/`; 
+    let tutorialNextLink = document.getElementById("tutorialNextLink");
+    if (tutorialNextLink) {
+      tutorialNextLink.style.border = "2px solid yellow";
+    }
+    document.cookie = `tutorial=/other; expires=Thu, 26 Jan ${d.getFullYear()+1} 12:00:00 UTC; path=/`;
+  } else {
+    if (confirm("Can you finish the tutorial before browsing around?") == true) {
+      window.location.href = "https://titanc3.github.io" + ReadCookie("tutorial");
+    } else {
+      document.cookie = `tutorial=finished; expires=Thu, 26 Jan ${d.getFullYear()+1} 12:00:00 UTC; path=/`;
+    }
   }
-  else {
-    if (confirm("Can you finish the tutorial before browsing around?") == true) { window.location.href="https://titanc3.github.io"+ReadCookie("tutorial"); }
-    else { document.cookie = `tutorial=finished; expires=Thu, 26 Jan ${d.getFullYear()+1} 12:00:00 UTC; path=/`; }
-  }
-};
+});
 </script>
 </html>
