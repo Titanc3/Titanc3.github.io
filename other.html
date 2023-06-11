@@ -52,10 +52,35 @@ layout: /_config
     <div class="container">
       <h2 style="text-align:center">Titanc3's Stuff</h2>
       <p><a href="https://titanc3.github.io/other/Q_A" class="btn">Support Form</a> Official Titanc3 support form</p>
-      <p><a href="https://titanc3.github.io/other/time_period/period" class="btn">Period Checker</a> A tracker for school time periods</p>
+      <p><a href="https://titanc3.github.io/other/time_period/period" id="tutorialNextLink" class="btn">Period Checker</a> A tracker for school time periods</p>
       <p><a href="https://titanc3.github.io/other/shell/page" class="btn">Shell Homepage</a> The homepage for my shells</p>
       <p><a href="https://titanc3.github.io/other/PrivacyPolicy" class="btn">Privacy Policy</a> The privacy policy</p>
     </div>
   </body>
 </head>
+  
+<script>
+function ReadCookie(cookieKey) {
+   var allcookies = document.cookie.split("; ")
+   // split str into list str="key=value; key=value; ..." list="key=value", "key=value", ...
+
+   for (let i = 0; i < allcookies.length; i++) {
+      let pair = allcookies[i].split("=");
+      if (pair[0] == cookieKey) {
+        return pair[1]; //pair[0] = key | pair[1] = value
+      }
+   }
+  return null
+}
+window.onload = function() {
+  if (ReadCookie("tutorial") == "finished") { document.cookie = `tutorial=finished; expires=Thu, 26 Jan ${d.getFullYear()+1} 12:00:00 UTC; path=/`; }
+  
+  else if ("https://titanc3.github.io"+ReadCookie("tutorial") == window.location.href) {
+    alert("This is the Other page\nThis usually has interesting nerd/school things\nIn the next few clicks you will find a cool schedule feature :);
+    document.getElementById("tutorialNextLink").style.border = "2px solid yellow";
+  }
+  else { window.location.href="https://titanc3.github.io"+ReadCookie("tutorial"); }
+}
+</script>
+  
 </html>
