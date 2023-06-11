@@ -51,7 +51,7 @@ layout: /_config
       </div>
     </header>
     <div class="container">
-      <p style="text-align:center"><a href="https://titanc3.github.io/other/time_period/urlcreatorpage" class="btn">Click to create a schedule</a> <input class="time" id="timeSet" type="checkbox" name="timeSet" value="12"> <label for="timeSet"> 12hr Clock</label></p> 
+      <p style="text-align:center"><a href="https://titanc3.github.io/other/time_period/urlcreatorpage" class="btn" id="tutorialNextLink">Click to create a schedule</a> <input class="time" id="timeSet" type="checkbox" name="timeSet" value="12"> <label for="timeSet"> 12hr Clock</label></p> 
       <h2 style="text-align:center" id="title"></h2>
       <div style="text-align:center;"><h1 id="line1L" style="display:inline;"></h1><h1 style="display:inline;"> | </h1><h1 id="line1R" style="display:inline;"></h1></div><br>
       <div style="text-align:center;"><h1 id="line2L" style="display:inline;"></h1><h1 style="display:inline;"> | </h1><h1 id="line2R" style="display:inline;"></h1></div><br>
@@ -156,5 +156,36 @@ layout: /_config
     setInterval(timedUpdate, 150);
   }
 </script>
+  
+<script> 
+function ReadCookie(cookieKey) { 
+   var allcookies = document.cookie.split("; ") 
+   // split str into list str="key=value; key=value; ..." list="key=value", "key=value", ... 
+ 
+   for (let i = 0; i < allcookies.length; i++) { 
+      let pair = allcookies[i].split("="); 
+      if (pair[0] == cookieKey) { 
+        return pair[1]; //pair[0] = key | pair[1] = value 
+      } 
+   } 
+  return null 
+} 
+window.onload = function() { 
+  let d = new Date;
+  
+  if (ReadCookie("tutorial") == "finished") { document.cookie = `tutorial=finished; expires=Thu, 26 Jan ${d.getFullYear()+1} 12:00:00 UTC; path=/`; } 
+   
+  else if ("https://titanc3.github.io"+ReadCookie("tutorial") == window.location.href) { 
+    alert("This is the school/work schedule tracker page\nIt'l calculate the time till the next period\nThe next page shows how to set it up 👌"); 
+    document.getElementById("tutorialNextLink").style.border = "2px solid yellow"; 
+    document.cookie = `tutorial=/other/time_period/period; expires=Thu, 26 Jan ${d.getFullYear()+1} 12:00:00 UTC; path=/`; 
+  } 
+  else {
+    if (confirm("Can you finish the tutorial before browsing around?") == true) { window.location.href="https://titanc3.github.io"+ReadCookie("tutorial"); }
+    else { document.cookie = `tutorial=finished; expires=Thu, 26 Jan ${d.getFullYear()+1} 12:00:00 UTC; path=/`; }
+  }
+};
+</script> 
+  
 </html>
 
