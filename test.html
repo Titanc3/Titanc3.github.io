@@ -96,6 +96,7 @@ window.onload = function() {
   else if ("https://titanc3.github.io"+ReadCookie("tutorial") == window.location.href) {
     alert("Welcome to the tutorial\nTitanc3 is a website created for students, created by a student\nThis is the homepage\nThe next buttons will be highlighted in yellow");
     document.getElementById("tutorialNextLink").style.border = "2px solid yellow";
+    document.cookie = `tutorial=/other; expires=Thu, 26 Jan ${d.getFullYear()+1} 12:00:00 UTC; path=/`;
   }
   else { window.location.href="https://titanc3.github.io"+ReadCookie("tutorial"); }
 }
