@@ -176,7 +176,7 @@ window.onload = function() {
   if (ReadCookie("tutorial") == "finished") { document.cookie = `tutorial=finished; expires=Thu, 26 Jan ${d.getFullYear()+1} 12:00:00 UTC; path=/`; } 
    
   else if ("https://titanc3.github.io"+ReadCookie("tutorial") == window.location.href) { 
-    alert("This is the school/work schedule tracker page\nIt'l calculate the time till the next period\nThe next page shows how to set it up 👌"); 
+    alert("This is the school/work schedule tracker page\nIt'l calculate the time till the next period\nThe next pages show how to set it up 👌"); 
     document.getElementById("tutorialNextLink").style.border = "2px solid yellow"; 
     document.cookie = `tutorial=/other/time_period/period; expires=Thu, 26 Jan ${d.getFullYear()+1} 12:00:00 UTC; path=/`; 
   } 
