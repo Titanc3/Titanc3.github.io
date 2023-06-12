@@ -73,7 +73,7 @@ layout: /_config
     
     let d = new Date();
     
-    if (ReadCookie("tutorial") != null && ReadCookie("tutorial") != "finished") {alert("tutorial == true1"); document.getElementById("tutorial").checked = true}
+    if (ReadCookie("tutorial") != null || ReadCookie("tutorial") != "finished") {alert("tutorial == true1"); document.getElementById("tutorial").checked = true}
 
     function timedUpdate() {
       if (document.getElementById("tutorial").checked == true && ReadCookie("tutorial") == null || document.getElementById("tutorial").checked == true && ReadCookie("tutorial") != "finished") {
