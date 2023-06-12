@@ -52,7 +52,40 @@ layout: /_config
   </header>
   <div class="container">
     <h2 style="text-align:center">Settings:</h2>
-    <p style="text-align:center">...</p>
+    <input id="tutorial" type="checkbox" name="tutorial" value="12"> <label for="tutorial"> Tutorial</label>
   </div>
 </body>
+  
+<script>
+  window.onload = function() {
+    function ReadCookie(cookieKey) {
+      var allcookies = document.cookie.split("; ")
+      // split str into list str="key=value; key=value; ..." list="key=value", "key=value", ...
+
+      for (let i = 0; i < allcookies.length; i++) {
+        let pair = allcookies[i].split("=");
+          if (pair[0] == cookieKey) {
+            return pair[1]; //pair[0] = key | pair[1] = value
+          }
+      }
+      return null
+    }
+    
+    let d = new Date();
+    
+    if (ReadCookie("tutorial") != null && ReadCookie("tutorial") != "finished") {document.getElementById("tutorial").checked = true}
+
+    function timedUpdate() {
+      if (document.getElementById("tutorial").checked == true && ReadCookie("tutorial") == null || document.getElementById("tutorial").checked == true && ReadCookie("tutorial") != "finished") {
+        document.cookie = `tutorial=/; expires=Thu, 26 Jan ${d.getFullYear()+1} 12:00:00 UTC; path=/`;
+      }
+      else if (document.getElementById("tutorial").checked == false && ReadCookie("tutorial") != null || document.getElementById("tutorial").checked == false && ReadCookie("tutorial") != "finished") {
+        document.cookie = `tutorial=finished; expires=Thu, 26 Jan ${d.getFullYear()+1} 12:00:00 UTC; path=/`;
+      }
+    }
+      
+    setInterval(timedUpdate, 500);
+  };
+</script>
+  
 </html> 
