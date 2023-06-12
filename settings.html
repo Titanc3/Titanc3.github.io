@@ -77,11 +77,9 @@ layout: /_config
 
     function timedUpdate() {
       if (document.getElementById("tutorial").checked == true && ReadCookie("tutorial") == null || document.getElementById("tutorial").checked == true && ReadCookie("tutorial") != "finished") {
-        alert("tutorial == true");
         document.cookie = `tutorial=/; expires=Thu, 26 Jan ${d.getFullYear()+1} 12:00:00 UTC; path=/`;
       }
       else if (document.getElementById("tutorial").checked == false && ReadCookie("tutorial") != null || document.getElementById("tutorial").checked == false && ReadCookie("tutorial") != "finished") {
-        alert("tutorial == false");
         document.cookie = `tutorial=finished; expires=Thu, 26 Jan ${d.getFullYear()+1} 12:00:00 UTC; path=/`;
       }
     }
