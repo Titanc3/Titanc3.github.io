@@ -97,13 +97,13 @@ window.onload = function() {
 
     if (ReadCookie("tutorial") == "finished") { document.cookie = `tutorial=finished; expires=Thu, 26 Jan ${d.getFullYear()+1} 12:00:00 UTC; path=/`; }
 
-    else if ("https://titanc3.github.io"+ReadCookie("tutorial") == window.location.href+"/") {
+    else if ("https://titanc3.github.io"+ReadCookie("tutorial") == window.location.href) {
       alert("Welcome to the tutorial\nTitanc3 is a website created for students, created by a student\nThis is the homepage\nThe next buttons will be highlighted in yellow");
       document.getElementById("tutorialNextLink").style.border = "2px solid yellow";
       document.cookie = `tutorial=/other; expires=Thu, 26 Jan ${d.getFullYear()+1} 12:00:00 UTC; path=/`; 
     }
     else {
-      if (confirm("Can you finish the tutorial before browsing around?") == true) {alert("https://titanc3.github.io"+ReadCookie("tutorial")+"|"+window.location.href+"/"); window.location.href="https://titanc3.github.io"+ReadCookie("tutorial"); }
+      if (confirm("Can you finish the tutorial before browsing around?") == true) { window.location.href="https://titanc3.github.io"+ReadCookie("tutorial"); }
       else { document.cookie = `tutorial=finished; expires=Thu, 26 Jan ${d.getFullYear()+1} 12:00:00 UTC; path=/`; }
     }
   }
