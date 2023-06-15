@@ -45,7 +45,7 @@
       <div id="unity-footer">
         <div id="unity-webgl-logo"></div>
         <div id="unity-fullscreen-button" onclick="fullscreen()"></div>
-        <div id="build-title">Game Loader</div>
+        <div id="unity-build-title">Game Loader</div>
       </div>
     </div>
     <script>
@@ -132,7 +132,7 @@
   let game_name = window.location.href.split("/")[window.location.href.split("/").length-1];
   if (game_url != "") {document.getElementById("game-frame").src = game_url;}
   else {alert("No game has been chosen, returning to game hub"); window.location.href = "https://titanc3.github.io/games";}
-  document.getElementById("build-title").innerHTML = game_name;
+  document.getElementById("unity-build-title").innerHTML = game_name;
   document.getElementById("game-title").innerHTML = game_name;
 </script>
 </html>
