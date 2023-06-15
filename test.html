@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Game Loader</title>
+  <title id="game-title">Game Loader</title>
   <link rel="stylesheet" href="https://titanc3.github.io/Unity/Assets/style.css">
   <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/Titanc3/Titanc3.github.io/main/_includes/triangle.jpg">
   <link rel="stylesheet" type="text/css" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
@@ -45,7 +45,7 @@
       <div id="unity-footer">
         <div id="unity-webgl-logo"></div>
         <div id="unity-fullscreen-button" onclick="fullscreen()"></div>
-        <div id="unity-build-title">Crappy Bird</div>
+        <div id="build-title">Game Loader</div>
       </div>
     </div>
     <script>
@@ -115,7 +115,10 @@
     } else if (iframe.msRequestFullscreen) { // IE/Edge
       iframe.msRequestFullscreen();
     }
-    }
+  }
+  function capitalizeFirstCharacter(str) {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  }
   function getParameterByName(name, url = window.location.href) {
     name = name.replace(/[\[\]]/g, '\\$&');
     var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
@@ -126,8 +129,10 @@
   }
  
   let game_url = getParameterByName("game");
+  let game_name = capitalizeFirstCharacter(window.location.href.split("/")[window.location.href.split("/").length-1]);
   if (game_url != "") {document.getElementById("game-frame").src = game_url;}
   else {alert("No game has been chosen, returning to game hub"); window.location.href = "https://titanc3.github.io/games";}
-  document.getElementById("unity-build-title").innerHTML = window.location.href.split("/")[window.location.href.split("/").length-1]
+  document.getElementById("build-title").innerHTML = game_name;
+  document.getElementById("game-title").innerHTML = game_name;
 </script>
 </html>
