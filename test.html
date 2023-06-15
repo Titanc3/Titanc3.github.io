@@ -129,7 +129,7 @@
   }
  
   let game_url = getParameterByName("game");
-  let game_name = window.location.href.split("/")[window.location.href.split("/").length-1];
+  let game_name = capitalizeFirstCharacter(window.location.href.split("/")[window.location.href.split("/").length-1]);
   if (game_url != "") {document.getElementById("game-frame").src = game_url;}
   else {alert("No game has been chosen, returning to game hub"); window.location.href = "https://titanc3.github.io/games";}
   document.getElementById("unity-build-title").innerHTML = game_name;
