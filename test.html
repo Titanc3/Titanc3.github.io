@@ -34,7 +34,7 @@
       <a href="#" class="btn" onclick="document.getElementById('overlay').style.display = 'block';">🔗</a>
     </section>
     <div id="unity-container" class="unity-desktop">
-      <iframe id="unity-canvas" src="#" style="width: 960px; height: 600px;" frameborder="0" allow="gamepad *;"></iframe>
+      <iframe id="game-frame" src="#" style="width: 960px; height: 600px;" frameborder="0" allow="gamepad *;"></iframe>
       <div id="unity-loading-bar">
         <div id="unity-logo"></div>
         <div id="unity-progress-bar-empty">
@@ -44,13 +44,13 @@
       <div id="unity-warning"> </div>
       <div id="unity-footer">
         <div id="unity-webgl-logo"></div>
-        <div id="unity-fullscreen-button"></div>
+        <div id="unity-fullscreen-button" onclick="fullscreen()"></div>
         <div id="unity-build-title">Crappy Bird</div>
       </div>
     </div>
     <script>
       var container = document.querySelector("#unity-container");
-      var canvas = document.querySelector("#unity-canvas");
+      var canvas = document.querySelector("#game-frame");
       var fullscreenButton = document.querySelector("#unity-fullscreen-button");
 
       // Shows a temporary message banner/ribbon for a few seconds, or
@@ -104,6 +104,18 @@
     </script>
   </body>
 <script>
+  function fullscreen() {
+    var iframe = document.getElementById('game-frame');
+    if (iframe.requestFullscreen) {
+      iframe.requestFullscreen();
+    } else if (iframe.mozRequestFullScreen) { // Firefox
+      iframe.mozRequestFullScreen();
+    } else if (iframe.webkitRequestFullscreen) { // Chrome, Safari, Opera
+      iframe.webkitRequestFullscreen();
+    } else if (iframe.msRequestFullscreen) { // IE/Edge
+      iframe.msRequestFullscreen();
+    }
+    }
   function getParameterByName(name, url = window.location.href) {
     name = name.replace(/[\[\]]/g, '\\$&');
     var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
@@ -113,7 +125,7 @@
     return decodeURIComponent(results[2].replace(/\+/g, ' '));
   }
   let game_url = getParameterByName("game");
-  if (game_url != "") {document.getElementById("unity-canvas").src = game_url;}
+  if (game_url != "") {document.getElementById("game-frame").src = game_url;}
   else {alert("No game has been chosen, returning to game hub"); window.location.href = "https://titanc3.github.io/games";}
 </script>
 </html>
