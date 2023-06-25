@@ -104,4 +104,10 @@
         <changefreq>always</changefreq>
         <priority>0.5</priority>
     </url>
+        <url>
+        <loc>https://titanc3.github.io/Unity/CrappyClicker/crappyclicker.html</loc>
+        <lastmod>2023-06-25</lastmod>
+        <changefreq>always</changefreq>
+        <priority>0.5</priority>
+    </url>
 </urlset>
