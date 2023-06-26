@@ -93,6 +93,12 @@
         <priority>0.5</priority>
     </url>
     <url>
+        <loc>https://titanc3.github.io/blogs/Jun_25_2023</loc>
+        <lastmod>2023-06-25</lastmod>
+        <changefreq>always</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
         <loc>https://titanc3.github.io/blogs/Jun_13_2023</loc>
         <lastmod>2023-06-15</lastmod>
         <changefreq>always</changefreq>
