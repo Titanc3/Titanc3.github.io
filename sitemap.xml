@@ -93,6 +93,18 @@
         <priority>0.5</priority>
     </url>
     <url>
+        <loc>https://titanc3.github.io/Unity/CrappyClicker/crappyclicker.html</loc>
+        <lastmod>2023-06-25</lastmod>
+        <changefreq>always</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>https://titanc3.github.io/blogs/Jul_3_2023</loc>
+        <lastmod>2023-07-3</lastmod>
+        <changefreq>always</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
         <loc>https://titanc3.github.io/blogs/Jun_25_2023</loc>
         <lastmod>2023-06-25</lastmod>
         <changefreq>always</changefreq>
@@ -107,12 +119,6 @@
     <url>
         <loc>https://titanc3.github.io/blogs/Jun_5_2023</loc>
         <lastmod>2023-06-15</lastmod>
-        <changefreq>always</changefreq>
-        <priority>0.5</priority>
-    </url>
-        <url>
-        <loc>https://titanc3.github.io/Unity/CrappyClicker/crappyclicker.html</loc>
-        <lastmod>2023-06-25</lastmod>
         <changefreq>always</changefreq>
         <priority>0.5</priority>
     </url>
