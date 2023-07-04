@@ -15,12 +15,6 @@
         <priority>0.5</priority>
     </url>
     <url>
-        <loc>https://titanc3.github.io/games/GameLoader?game=https%3A%2F%2Fwww.crazygames.com%2Fembed%2Fshellshockersio</loc>
-        <lastmod>2023-06-15</lastmod>
-        <changefreq>always</changefreq>
-        <priority>0.5</priority>
-    </url>
-    <url>
         <loc>https://titanc3.github.io/other</loc>
         <lastmod>2023-06-15</lastmod>
         <changefreq>always</changefreq>
