@@ -13,7 +13,7 @@ layout: /_config
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="The Titanc3 homepage">
-  <meta name="keywords" content="Titanc3">
+  <meta name="keywords" content="Homepage, Website, Webpage, Internet, titanc3, github, io">
   <meta name="language" content="en">
   <meta name="google-site-verification" content="gJKDTSOYe2uI9fyQHIbghaneqogQvzIP5F3g2eYr-dk" />
 </head>
@@ -43,22 +43,23 @@ layout: /_config
         <a href="https://titanc3.github.io" style="text-decoration: none;"><img src="https://raw.githubusercontent.com/Titanc3/Titanc3.github.io/main/_includes/NewTitle.png" alt="Titanc3" style="width:200px;height:33px;"></a>
         <h2>Titanc3's Homepage</h2>
         <section id="Sites/Pages">
-          <a href="https://github.com/Titanc3" class="btn btn-github"><span class="icon"></span>My Github</a>
+          <a href="https://github.com/Titanc3" target="_blank" class="btn btn-github"><span class="icon"></span>My Github</a>
+          <a href="https://bmc.link/titanc3" target="_blank" class="btn">Donate</a>
           <a href="https://titanc3.github.io/games" class="btn">Games</a>
           <a href="https://titanc3.github.io/other" id="tutorialNextLink" class="btn">Other</a>
           <a href="https://titanc3.github.io/blog" class="btn">Blog</a>
-          <a href="https://titanc3.github.io/settings" class="btn">⚙</a>
           <a href="#" class="btn" onclick="document.getElementById('overlay').style.display = 'block';">🔗</a>
+          <a href="https://titanc3.github.io/settings" class="btn">⚙</a>
         </section>
       </div>
   </header>
   <div class="container">
-    <h2 style="text-align:center">Titanc3:</h2>
+    <h2 style="text-align:center">Titanc3</h2>
     <p style="text-align:center">Recent Github developer, started learning python early 2021. Currently learning how to program in java, js, and c#.
        Likes programming on Raspberry Pis. (Thonny is mid :p)</p>
 
     <h2 style="text-align:center">Updates</h2>
-    <p style="text-align:center"><a href="https://titanc3.github.io/blog" class="btn">Blog</a> creation!!, and<br>New games every sunday! <a href="https://titanc3.github.io/games">Click Here!</a></p>
+    <p style="text-align:center">Titanc3 devs out on summer break, we'll be back early September.<a href="https://titanc3.github.io/blogs/Jul_3_2023" style="text-decoration: none;width:18px;height:18px;"><img src="https://raw.githubusercontent.com/Titanc3/Titanc3.github.io/main/_includes/i.png" alt="Blue Information Icon" style="width:18px;height:18px;"></a></p>
 
     <h2 style="text-align:center">Helpful Quick Links</h2>
     <a href="https://titanc3.github.io/other/time_period/urlcreatorpage" class="btn">URL Creator</a> A way for students to view their schedule and the time till their school periods.<br><br>
@@ -68,9 +69,48 @@ layout: /_config
     <p style="text-align:center"><a href="https://github.com/Titanc3/Titanc3.github.io" target="_blank" class="btn">Titanc3.github.io</a> This website and all of its code.<br><br>
     <a href="https://github.com/Titanc3/RaspiGUI" target="_blank" class="btn">RaspiGUI</a> A Raspberry Pi interactive interface.</p>
   </div>
-  <div style="margin-top:100%;background-color:#010409;position: absolute;bottom: 0px;height:45px;width:100%;">
-    <p style="text-align:center;">Contact Us: titanc3.business@gmail.com  | Titanc3 Est. Feb 2023</p>
-  </div>
 </body>
+
+<script>
+window.onload = function() {
+  function ReadCookie(cookieKey) {
+     var allcookies = document.cookie.split("; ")
+     // split str into list str="key=value; key=value; ..." list="key=value", "key=value", ...
+
+     for (let i = 0; i < allcookies.length; i++) {
+        let pair = allcookies[i].split("=");
+        if (pair[0] == cookieKey) {
+          return pair[1]; //pair[0] = key | pair[1] = value
+        }
+     }
+    return null
+  }
+  function code() {
+    let d = new Date();
+
+    if (ReadCookie("tutorial") == null) {
+      if (confirm("This seems to be your first time on Titanc3\nWant to do the tutorial? (You can retry this in settings, ~3 mins) ") == false) {
+        document.cookie = `tutorial=finished; expires=Thu, 26 Jan ${d.getFullYear()+1} 12:00:00 UTC; path=/`;
+      }
+      else {
+        document.cookie = `tutorial=/; expires=Thu, 26 Jan ${d.getFullYear()+1} 12:00:00 UTC; path=/`;
+      }
+    }
+
+    if (ReadCookie("tutorial") == "finished") { document.cookie = `tutorial=finished; expires=Thu, 26 Jan ${d.getFullYear()+1} 12:00:00 UTC; path=/`; }
+
+    else if ("https://titanc3.github.io"+ReadCookie("tutorial") == window.location.href) {
+      alert("Welcome to the tutorial\nTitanc3 is a website created for students, created by a student\nThis is the homepage\nThe next buttons will be highlighted in yellow");
+      document.getElementById("tutorialNextLink").style.border = "2px solid yellow";
+      document.cookie = `tutorial=/other; expires=Thu, 26 Jan ${d.getFullYear()+1} 12:00:00 UTC; path=/`; 
+    }
+    else {
+      if (confirm("Can you finish the tutorial before browsing around?") == true) { window.location.href="https://titanc3.github.io"+ReadCookie("tutorial"); }
+      else { document.cookie = `tutorial=finished; expires=Thu, 26 Jan ${d.getFullYear()+1} 12:00:00 UTC; path=/`; }
+    }
+  }
+  const myTimeout = setTimeout(code, 1000);
+};
+</script>
 
 </html>
