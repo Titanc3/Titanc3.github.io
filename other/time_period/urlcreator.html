@@ -8,7 +8,6 @@ layout: /_config
   <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/Titanc3/Titanc3.github.io/main/_includes/triangle.jpg">
   <link rel="stylesheet" type="text/css" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
   <link rel="stylesheet" type="text/css" href="https://titanc3.github.io/linkfolder/link.css">
-  <link rel="stylesheet" type="text/css" href="https://titanc3.github.io/css/video.css">
   <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/Titanc3/Titanc3.github.io/main/_includes/MediumDefImage.png">
   <meta charset='utf-8'>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,25 +16,9 @@ layout: /_config
   <meta name="keywords" content="Students, School, Schedule, Tracker, titanc3, github, io">
   <meta name="language" content="en">
 </head>
-
-<style>
-  #videoOverlay {
-  position: fixed; /* Sit on top of the page content */
-  display: none; /* Hidden by default */
-  width: 100%; /* Full width (cover the whole page) */
-  height: 100%; /* Full height (cover the whole page) */
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0,0,0,0.5); /* Black background with opacity */
-  z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
-  cursor: pointer; /* Add a pointer on hover */
-}
-</style>  
   
-<div id="videoOverlay" onclick="document.getElementById('videoOverlay').style.display = 'none';">
-  <div id="icons">
+<div id="videoOverlay" class="overlay" onclick="document.getElementById('videoOverlay').style.display = 'none';">
+  <div class="icons">
     <video width="960" height="580" controls>
       <source src="https://titanc3.github.io/other/General_Time.mp4" type="video/mp4">
       Your browser does not support the video tag.
@@ -43,14 +26,14 @@ layout: /_config
   </div>
 </div>  
   
-<div id="overlay" onclick="document.getElementById('overlay').style.display = 'none';">
-  <div id="icons">
+<div id="overlay" class="overlay" onclick="document.getElementById('overlay').style.display = 'none';">
+  <div class="icons">
     <br><br><br><a id="Facebook" href="#" target="_blank"><img src="https://raw.githubusercontent.com/Titanc3/Titanc3.github.io/main/_includes/social/Facebook.png"></a>
     <a id="Pinterest" href="#" target="_blank"><img src="https://raw.githubusercontent.com/Titanc3/Titanc3.github.io/main/_includes/social/Pinterest.png"></a>
     <a id="Twitter" href="#" target="_blank"><img src="https://raw.githubusercontent.com/Titanc3/Titanc3.github.io/main/_includes/social/Twitter.png"></a>
     <a id="Discord" href="#" target="_blank"><img src="https://raw.githubusercontent.com/Titanc3/Titanc3.github.io/main/_includes/social/Discord.png"></a>
   </div>
-  <div id="icons">
+  <div class="icons">
     <a id="Email" href="#" target="_blank"><img src="https://raw.githubusercontent.com/Titanc3/Titanc3.github.io/main/_includes/social/Email.png"></a>
     <a href="sms:"><img src="https://raw.githubusercontent.com/Titanc3/Titanc3.github.io/main/_includes/social/Msg.png"></a>
     <a onclick="link()" href="#"><img src="https://raw.githubusercontent.com/Titanc3/Titanc3.github.io/main/_includes/social/Link.png"></a>
