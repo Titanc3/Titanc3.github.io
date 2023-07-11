@@ -16,13 +16,15 @@ layout: /_config
   <meta name="language" content="en">
   <meta name="google-site-verification" content="gJKDTSOYe2uI9fyQHIbghaneqogQvzIP5F3g2eYr-dk">
   <style>
-  @media only screen and (min-width: 686px) {
-    /* put this into a style sheet later*** */
+  @media only screen and (max-width: 686px) {
+    /* For mobile phones:  put this into a style sheet later*** */
     .menubutton {
-      display: none;"
+      display: inline-block;
+      width: 60px;
+      height: 60px;
     }
     #Sites-Pages {
-      display: block;
+      display: none;
     }
   }
   </style>
@@ -50,14 +52,14 @@ layout: /_config
 
   <header>
       <div class="container">
-        <div class="menubutton" style="height: 60px;width: 60px;background-color: black;color: white;vertical-align: top;display: inline-block;">
+        <div class="menubutton" style="height: 60px;width: 60px;background-color: black;color: white;vertical-align: top;display: none;">
           menu
         </div>
         <div style="display:inline-block;">
         <a href="https://titanc3.github.io" style="text-decoration: none;"><img src="https://raw.githubusercontent.com/Titanc3/Titanc3.github.io/main/_includes/NewTitle.png" alt="Titanc3" style="width:200px;height:33px;"></a>
         <h2>Titanc3's Homepage</h2>
         </div>
-        <section id="Sites-Pages" style="display:none">
+        <section id="Sites-Pages">
           <a href="https://github.com/Titanc3" target="_blank" class="btn btn-github"><span class="icon"></span>My Github</a>
           <a href="https://bmc.link/titanc3" target="_blank" class="btn">Donate</a>
           <a href="https://titanc3.github.io/games" class="btn">Games</a>
@@ -127,6 +129,10 @@ window.onload = function() {
   const myTimeout = setTimeout(code, 1000);
 };
 </script>
+
+
+</body>
+</html>
 
 
 
