@@ -19,8 +19,17 @@ layout: /_config
   #Menu-Button {
     display: none;
   }
+  .mobile {
+    display: none;
+  }
   @media only screen and (max-width: 686px) {
     /* For mobile phones:  put this into a style sheet later*** */
+    .mobile {
+      display: initial;
+    }
+    .pc {
+      display: none;
+    }
     #Menu-Button {
       display: inline-block;
     }
@@ -33,13 +42,13 @@ layout: /_config
 
 <div id="overlay" class="overlay" onclick="document.getElementById('overlay').style.display = 'none';">
   <div class="icons">
-    <br><br><br><a id="Facebook" href="#" target="_blank"><img src="https://raw.githubusercontent.com/Titanc3/Titanc3.github.io/main/_includes/social/Facebook.png"></a>
-    <a id="Pinterest" href="#" target="_blank"><img src="https://raw.githubusercontent.com/Titanc3/Titanc3.github.io/main/_includes/social/Pinterest.png"></a>
-    <a id="Twitter" href="#" target="_blank"><img src="https://raw.githubusercontent.com/Titanc3/Titanc3.github.io/main/_includes/social/Twitter.png"></a>
-    <a id="Discord" href="#" target="_blank"><img src="https://raw.githubusercontent.com/Titanc3/Titanc3.github.io/main/_includes/social/Discord.png"></a>
-  </div>
-  <div class="icons">
-    <a id="Email" href="#" target="_blank"><img src="https://raw.githubusercontent.com/Titanc3/Titanc3.github.io/main/_includes/social/Email.png"></a>
+    <a id="Facebook" href="https://www.facebook.com/dialog/send?link=https://titanc3.github.io/test&amp;redirect_uri=https://titanc3.github.io/test&amp;message=Interesting%20Website&amp;body=I%20found%20an%20interesting%20website%20with%20games%20and%20stuff,%20check%20it%20out!%20https://titanc3.github.io/test" target="_blank"><img src="https://raw.githubusercontent.com/Titanc3/Titanc3.github.io/main/_includes/social/Facebook.png"></a>
+    <a id="Pinterest" href="https://pinterest.com/pin-builder/?url=github.com/Titanc3/Titanc3.github.io" target="_blank"><img src="https://raw.githubusercontent.com/Titanc3/Titanc3.github.io/main/_includes/social/Pinterest.png"></a>
+<br class="mobile">
+    <a id="Twitter" href="https://twitter.com/intent/tweet?text=Interesting%20github%20website%20for%20students,%20https://titanc3.github.io/test" target="_blank"><img src="https://raw.githubusercontent.com/Titanc3/Titanc3.github.io/main/_includes/social/Twitter.png"></a>
+<br class="pc">
+    <a id="Email" href="mailto:?subject=Interesting%20Website&amp;body=I%20found%20an%20interesting%20website%20with%20games%20and%20stuff,%20check%20it%20out!%20https://titanc3.github.io/test" target="_blank"><img src="https://raw.githubusercontent.com/Titanc3/Titanc3.github.io/main/_includes/social/Email.png"></a>
+<br class='mobile">
     <a href="sms:"><img src="https://raw.githubusercontent.com/Titanc3/Titanc3.github.io/main/_includes/social/Msg.png"></a>
     <a onclick="link()" href="#"><img src="https://raw.githubusercontent.com/Titanc3/Titanc3.github.io/main/_includes/social/Link.png"></a>
   </div>
