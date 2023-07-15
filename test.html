@@ -19,8 +19,17 @@ layout: /_config
   #Menu-Button {
     display: none;
   }
+  .mobile {
+    display: none;
+  }
   @media only screen and (max-width: 686px) {
     /* For mobile phones:  put this into a style sheet later*** */
+    .mobile {
+      display: initial;
+    }
+    .pc {
+      display: none;
+    }
     #Menu-Button {
       display: inline-block;
     }
@@ -31,21 +40,21 @@ layout: /_config
   </style>
 </head>
 
-<div id="overlay" class="overlay" onclick="document.getElementById('overlay').style.display = 'none';">
+<body><div id="overlay" class="overlay" onclick="document.getElementById('overlay').style.display = 'none';" style="display: block;">
   <div class="icons">
-    <br><br><br><a id="Facebook" href="#" target="_blank"><img src="https://raw.githubusercontent.com/Titanc3/Titanc3.github.io/main/_includes/social/Facebook.png"></a>
-    <a id="Pinterest" href="#" target="_blank"><img src="https://raw.githubusercontent.com/Titanc3/Titanc3.github.io/main/_includes/social/Pinterest.png"></a>
-    <a id="Twitter" href="#" target="_blank"><img src="https://raw.githubusercontent.com/Titanc3/Titanc3.github.io/main/_includes/social/Twitter.png"></a>
-    <a id="Discord" href="#" target="_blank"><img src="https://raw.githubusercontent.com/Titanc3/Titanc3.github.io/main/_includes/social/Discord.png"></a>
-  </div>
-  <div class="icons">
-    <a id="Email" href="#" target="_blank"><img src="https://raw.githubusercontent.com/Titanc3/Titanc3.github.io/main/_includes/social/Email.png"></a>
+    <a id="Facebook" href="https://www.facebook.com/dialog/send?link=https://titanc3.github.io/test&amp;redirect_uri=https://titanc3.github.io/test&amp;message=Interesting%20Website&amp;body=I%20found%20an%20interesting%20website%20with%20games%20and%20stuff,%20check%20it%20out!%20https://titanc3.github.io/test" target="_blank"><img src="https://raw.githubusercontent.com/Titanc3/Titanc3.github.io/main/_includes/social/Facebook.png"></a>
+    <a id="Pinterest" href="https://pinterest.com/pin-builder/?url=github.com/Titanc3/Titanc3.github.io" target="_blank"><img src="https://raw.githubusercontent.com/Titanc3/Titanc3.github.io/main/_includes/social/Pinterest.png"></a>
+<br class="mobile">
+    <a id="Twitter" href="https://twitter.com/intent/tweet?text=Interesting%20github%20website%20for%20students,%20https://titanc3.github.io/test" target="_blank"><img src="https://raw.githubusercontent.com/Titanc3/Titanc3.github.io/main/_includes/social/Twitter.png"></a>
+<br class="pc">
+    <a id="Email" href="mailto:?subject=Interesting%20Website&amp;body=I%20found%20an%20interesting%20website%20with%20games%20and%20stuff,%20check%20it%20out!%20https://titanc3.github.io/test" target="_blank"><img src="https://raw.githubusercontent.com/Titanc3/Titanc3.github.io/main/_includes/social/Email.png"></a>
+<br class="mobile">
     <a href="sms:"><img src="https://raw.githubusercontent.com/Titanc3/Titanc3.github.io/main/_includes/social/Msg.png"></a>
     <a onclick="link()" href="#"><img src="https://raw.githubusercontent.com/Titanc3/Titanc3.github.io/main/_includes/social/Link.png"></a>
   </div>
 </div>
   
-<div id="menu-overlay" class="overlay" onclick="document.getElementById('menu-overlay').style.display = 'none';" style="display: none; text-align: center; ">
+<div id="menu-overlay" class="overlay" onclick="document.getElementById('menu-overlay').style.display = 'none';" style="display: none; text-align: center;">
     <br><br>
     <h1 style="border-bottom: 2px solid #ac1616; color: #46b4eb;">Menu</h1>
     <br><br>
@@ -67,7 +76,7 @@ layout: /_config
 <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-4N3KQ6NGRD"></script>
 <script src="https://titanc3.github.io/TrackingScript.js"></script>
 
-<body>
+
   <header>
       <div class="container">
         <div id="Menu-Button" onclick="document.getElementById('menu-overlay').style.display = 'block';" style="height: 60px;width: 60px;background-color: black;color: white;vertical-align: top;background: url(https://raw.githubusercontent.com/Titanc3/Titanc3.github.io/main/_includes/Menu-Icon.png);"></div>
@@ -145,6 +154,7 @@ window.onload = function() {
   const myTimeout = setTimeout(code, 1000);
 };
 </script>
+
 
 
 </body>
