@@ -20,7 +20,6 @@
 <script src="https://titanc3.github.io/linkfolder/link.js"></script>
 
   <body>
-    <div class="container" style="text-align:center;">
     <br><br>
     <div style="text-align:center;">
       <a href="https://titanc3.github.io"style="text-decoration: none;"><img src="https://raw.githubusercontent.com/Titanc3/Titanc3.github.io/main/_includes/NewTitle.png" alt="Titanc3" style="width:200px;height:33px;"></a>
@@ -35,8 +34,8 @@
       <a href="#" class="btn" onclick="document.getElementById('overlay').style.display = 'block';">🔗</a>
       <a href="https://titanc3.github.io/settings" class="btn">⚙</a>
     </section>
-    <div id="unity-container" class="unity-desktop" style="position: relative; top: 20vh; width: 50vw">
-      <canvas id="game-frame" src="#" style="width: 50vw; height: 50vh; position" frameborder="0" allow="gamepad *;"></canvas>
+    <div id="unity-container" class="unity-desktop">
+      <canvas id="unity-canvas" width=960 height=600></canvas>
       <div id="unity-loading-bar">
         <div id="unity-logo"></div>
         <div id="unity-progress-bar-empty">
@@ -120,8 +119,8 @@
       } else {
         // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
 
-        canvas.style.width = "50vw";
-        canvas.style.height = "50vh";
+        canvas.style.width = "960px";
+        canvas.style.height = "600px";
       }
 
       loadingBar.style.display = "block";
@@ -142,6 +141,5 @@
       };
       document.body.appendChild(script);
     </script>
-    </div>
   </body>
 </html>
