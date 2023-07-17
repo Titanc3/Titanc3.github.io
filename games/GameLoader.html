@@ -65,14 +65,18 @@
     return decodeURIComponent(results[2].replace(/\+/g, ' '));
   }
  
+  
   let game_url = getParameterByName("game");
-  let game_name = window.location.href.split("/")[window.location.href.split("/").length-1].replace(/-/g, " ").split(" ");
+  let game_name = game_url.toLowerCase().split("/")[4].replace("io", "").split("-");
   let end_name = "";
+  
   if (game_url != "") {document.getElementById("unity-canvas").src = game_url;}
   else {alert("No game has been chosen, returning to game hub"); window.location.href = "https://titanc3.github.io/games";}
-  for (let i; i <= game_name.length; i++) {
-    end_name = capitalizeFirstCharacter(game_name[i])+" ";
+
+  for (let i = 0; i < game_name.length; i++) {
+      end_name += capitalizeFirstCharacter(game_name[i])+" ";
   }
+  
   document.getElementById("unity-build-title").innerHTML = end_name;
   document.getElementById("game-title").innerHTML = end_name;
 </script>
