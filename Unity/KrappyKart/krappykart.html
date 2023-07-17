@@ -10,10 +10,11 @@
   <meta charset='utf-8'>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Crappy Bird, a Flappy Bird ripoff">
+  <meta name="description" content="Krappy Kart, a game which prioritizes pain and suffering">
   <meta name="keywords" content="Game, Crappy, Krappy, Cart, Kart, Driving, titanc3, github, io">
   <meta name="language" content="en">
 </head>
+
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-4N3KQ6NGRD"></script>
 <script src="https://titanc3.github.io/TrackingScript.js"></script>
@@ -34,8 +35,8 @@
       <a href="#" class="btn" onclick="document.getElementById('overlay').style.display = 'block';">🔗</a>
       <a href="https://titanc3.github.io/settings" class="btn">⚙</a>
     </section>
-    <div id="unity-container" class="unity-desktop">
-      <canvas id="unity-canvas" width=960 height=600></canvas>
+    <div id="unity-container" class="unity-desktop" style="width: 50vw; position: relative; top: 25vh;">
+      <canvas id="unity-canvas" width=50vw height=50vh style="width: 50vw; height: 50vh;"></canvas>
       <div id="unity-loading-bar">
         <div id="unity-logo"></div>
         <div id="unity-progress-bar-empty">
@@ -44,7 +45,6 @@
       </div>
       <div id="unity-warning"> </div>
       <div id="unity-footer">
-        <div id="unity-webgl-logo"></div>
         <div id="unity-fullscreen-button"></div>
         <div id="unity-build-title">Krappy Kart</div>
       </div>
@@ -100,28 +100,11 @@
       // happening inside the engine, and you would instead like to size up
       // the canvas DOM size and WebGL render target sizes yourself.
       // config.matchWebGLToCanvasSize = false;
+      
+      // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
 
-      if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
-        // Mobile device style: fill the whole browser client area with the game canvas:
-
-        var meta = document.createElement('meta');
-        meta.name = 'viewport';
-        meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
-        document.getElementsByTagName('head')[0].appendChild(meta);
-        container.className = "unity-mobile";
-        canvas.className = "unity-mobile";
-
-        // To lower canvas resolution on mobile devices to gain some
-        // performance, uncomment the following line:
-        // config.devicePixelRatio = 1;
-
-        unityShowBanner('This game is not compatible on ANY mobile devices.');
-      } else {
-        // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
-
-        canvas.style.width = "960px";
-        canvas.style.height = "600px";
-      }
+      canvas.style.width = "50vw";
+      canvas.style.height = "50vh";
 
       loadingBar.style.display = "block";
 
