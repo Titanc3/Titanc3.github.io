@@ -20,7 +20,6 @@
   transform: translate(-50%,-50%);
   -ms-transform: translate(-50%,-50%);
 }
-header {border-color:#46b4eb;}
 .highlight {
     color: #d0d0d0
 }
@@ -139,7 +138,7 @@ li {
 header {
     background: rgba(0,0,0,0.1);
     width: 100%;
-    border-bottom: 1px dashed #b5e853;
+    border-bottom: 1px dashed #46b4eb;
     padding: 20px 0;
     margin: 0 0 40px 0
 }
@@ -150,7 +149,7 @@ header h1 {
     margin: 0 0 0 -40px;
     font-weight: bold;
     font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;
-    color: #b5e853;
+    color: #46b4eb;
     text-shadow: 0 1px 1px rgba(0,0,0,0.1),0 0 5px rgba(181,232,83,0.1),0 0 10px rgba(181,232,83,0.1);
     letter-spacing: -1px;
     -webkit-font-smoothing: antialiased
