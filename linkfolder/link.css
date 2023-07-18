@@ -1,3 +1,55 @@
+  #Menu-Button {
+    display: none;
+  }
+  .mobile {
+    display: none;
+  }
+  #Twitter img{
+    content:url("https://raw.githubusercontent.com/Titanc3/Titanc3.github.io/main/_includes/social/red/Twitter.png");
+  }
+  #Facebook img{
+    content:url("https://raw.githubusercontent.com/Titanc3/Titanc3.github.io/main/_includes/social/red/Facebook.png");
+  }
+  #Link img{
+    content:url("https://raw.githubusercontent.com/Titanc3/Titanc3.github.io/main/_includes/social/blue/Link.png");
+  }
+  @media only screen and (max-width: 686px) {
+    /* For mobile phones:  put this into a style sheet later*** */
+    .mobile {
+      display: initial;
+    }
+    .pc {
+      display: none;
+    }
+    #Menu-Button {
+      display: inline-block;
+    }
+    #Sites-Pages {
+      display: none;
+    }
+    #Twitter img{
+      content:url("https://raw.githubusercontent.com/Titanc3/Titanc3.github.io/main/_includes/social/blue/Twitter.png");
+    }
+    #Facebook img{
+      content:url("https://raw.githubusercontent.com/Titanc3/Titanc3.github.io/main/_includes/social/blue/Facebook.png");
+    }
+    #Link img{
+      content:url("https://raw.githubusercontent.com/Titanc3/Titanc3.github.io/main/_includes/social/red/Link.png");
+    }
+    #menu-overlay a {
+      width: 30vw;
+      height: 8vh;
+    }
+    #menu-overlay img {
+      width: 107px;
+      height: 33px;
+    }
+    #menu-overlay a span {
+      float: none;
+      margin: 0px;
+      vertical-align: text-bottom;
+    }
+  }
 .overlay {
   position: fixed; /* Sit on top of the page content */
   display: none; /* Hidden by default */
