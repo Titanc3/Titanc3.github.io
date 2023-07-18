@@ -36,6 +36,19 @@
     #Link img{
       content:url("https://raw.githubusercontent.com/Titanc3/Titanc3.github.io/main/_includes/social/red/Link.png");
     }
+    #menu-overlay a {
+      width: 30vw;
+      height: 8vh;
+    }
+    #menu-overlay img {
+      width: 107px;
+      height: 33px;
+    }
+    #menu-overlay a span {
+      float: none;
+      margin: 0px;
+      vertical-align: text-bottom;
+    }
   }
 .overlay {
   position: fixed; /* Sit on top of the page content */
