@@ -50,35 +50,33 @@ layout: /_config
 <script src="https://titanc3.github.io/TrackingScript.js"></script>
 <script src="https://titanc3.github.io/linkfolder/link.js"></script>
   
-<head>
-  <body>
+<body>
   <header>
-      <div class="container">
-        <div id="Menu-Button" onclick="document.getElementById('menu-overlay').style.display = 'block';" style="height: 60px;width: 60px;background-color: black;color: white;vertical-align: top;background: url(https://raw.githubusercontent.com/Titanc3/Titanc3.github.io/main/_includes/Menu-Icon.png);"></div>
-        <div style="display:inline-block;">
-        <a href="https://titanc3.github.io" style="text-decoration: none;"><img src="https://raw.githubusercontent.com/Titanc3/Titanc3.github.io/main/_includes/NewTitle.png" alt="Titanc3" style="width:200px;height:33px;"></a>
-        <h2>Time Period Checker</h2>
-        </div>
-        <section id="Sites-Pages">
-          <a href="https://github.com/Titanc3" target="_blank" class="btn btn-github"><span class="icon"></span>My Github</a>
-          <a href="https://bmc.link/titanc3" target="_blank" class="btn">Donate</a>
-          <a href="https://titanc3.github.io/games" class="btn">Games</a>
-          <a href="https://titanc3.github.io/other" class="btn">Other</a> 
-          <a href="https://titanc3.github.io/blog" class="btn">Blog</a>
-          <a href="#" class="btn" onclick="document.getElementById('overlay').style.display = 'block';">🔗</a>
-          <a href="https://titanc3.github.io/settings" class="btn">⚙</a>
-        </section>
-      </div>
-    </header>
     <div class="container">
-      <p style="text-align:center"><a href="https://titanc3.github.io/other/time_period/urlcreatorpage" class="btn" id="tutorialNextLink">Click to create a schedule</a> <input class="time" id="timeSet" type="checkbox" name="timeSet" value="12"> <label for="timeSet"> 12hr Clock</label></p> 
-      <h2 style="text-align:center" id="title"></h2>
-      <div style="text-align:center;"><h1 id="line1L" style="display:inline;"></h1><h1 style="display:inline;"> | </h1><h1 id="line1R" style="display:inline;"></h1></div><br>
-      <div style="text-align:center;"><h1 id="line2L" style="display:inline;"></h1><h1 style="display:inline;"> | </h1><h1 id="line2R" style="display:inline;"></h1></div><br>
-      <h3 style="text-align:left;font-size:20px;" id="schedule"></h3>
+      <div id="Menu-Button" onclick="document.getElementById('menu-overlay').style.display = 'block';" style="height: 60px;width: 60px;background-color: black;color: white;vertical-align: top;background: url(https://raw.githubusercontent.com/Titanc3/Titanc3.github.io/main/_includes/Menu-Icon.png);"></div>
+      <div style="display:inline-block;">
+      <a href="https://titanc3.github.io" style="text-decoration: none;"><img src="https://raw.githubusercontent.com/Titanc3/Titanc3.github.io/main/_includes/NewTitle.png" alt="Titanc3" style="width:200px;height:33px;"></a>
+      <h2>Time Period Checker</h2>
     </div>
-  </body>
-</head>
+    <section id="Sites-Pages">
+      <a href="https://github.com/Titanc3" target="_blank" class="btn btn-github"><span class="icon"></span>My Github</a>
+      <a href="https://bmc.link/titanc3" target="_blank" class="btn">Donate</a>
+      <a href="https://titanc3.github.io/games" class="btn">Games</a>
+      <a href="https://titanc3.github.io/other" class="btn">Other</a> 
+      <a href="https://titanc3.github.io/blog" class="btn">Blog</a>
+      <a href="#" class="btn" onclick="document.getElementById('overlay').style.display = 'block';">🔗</a>
+      <a href="https://titanc3.github.io/settings" class="btn">⚙</a>
+    </section>
+    </div>
+  </header>
+  <div class="container">
+    <p style="text-align:center"><a href="https://titanc3.github.io/other/time_period/urlcreatorpage" class="btn" id="tutorialNextLink">Click to create a schedule</a> <input class="time" id="timeSet" type="checkbox" name="timeSet" value="12"> <label for="timeSet"> 12hr Clock</label></p> 
+    <h2 style="text-align:center" id="title"></h2>
+    <div style="text-align:center;"><h1 id="line1L" style="display:inline;"></h1><h1 style="display:inline;"> | </h1><h1 id="line1R" style="display:inline;"></h1></div><br>
+    <div style="text-align:center;"><h1 id="line2L" style="display:inline;"></h1><h1 style="display:inline;"> | </h1><h1 id="line2R" style="display:inline;"></h1></div><br>
+    <h3 style="text-align:left;font-size:20px;" id="schedule"></h3>
+  </div>
+</body>
 
 <script>
   const fullList = [];
