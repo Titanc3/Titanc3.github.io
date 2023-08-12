@@ -40,7 +40,7 @@ layout: /_config
     <a href="https://titanc3.github.io/games" class="btn">🎮 Games 🎮</a>
     <a style="display: inline-block;" href="https://titanc3.github.io/other" class="btn">❓Other❓</a>
     <br><br>
-    <a href="https://titanc3.github.io/blog" class="btn">💬 Blog 💬</a>
+    <a id="tutorialNextLink2" href="https://titanc3.github.io/blog" class="btn">💬 Blog 💬</a>
     <a style="display: inline-block;" href="#" class="btn" onclick="document.getElementById('overlay').style.display = 'block';">🔗 Link 🔗</a>
     <br><br>
     <a style="width: 60vw;" href="https://titanc3.github.io/settings" class="btn">⚙ Settings ⚙</a>
@@ -100,7 +100,37 @@ layout: /_config
   </body>
 </head>
 
-<script src="https://titanc3.github.io/other/tutorial.js"></script>
+<script>
+function ReadCookie(cookieKey) { 
+   var allcookies = document.cookie.split("; ") 
+   // split str into list str="key=value; key=value; ..." list="key=value", "key=value", ... 
+ 
+   for (let i = 0; i < allcookies.length; i++) { 
+      let pair = allcookies[i].split("="); 
+      if (pair[0] == cookieKey) { 
+        return pair[1]; //pair[0] = key | pair[1] = value 
+      } 
+   } 
+  return null 
+} 
+function tutorialCookie(message, urlPath) { 
+  let d = new Date;
+  
+  if (ReadCookie("tutorial") == "finished") { document.cookie = `tutorial=finished; expires=Thu, 26 Jan ${d.getFullYear()+1} 12:00:00 UTC; path=/`; } 
+   
+  else if ("https://titanc3.github.io"+ReadCookie("tutorial") == window.location.href) { 
+    alert(`${message}`); 
+      document.getElementById("Menu-Button").style.border = "2px solid yellow";
+      document.getElementById("tutorialNextLink").style.border = "2px solid yellow";
+      document.getElementById("tutorialNextLink2").style.border = "2px solid yellow";
+    document.cookie = `tutorial=${urlPath}; expires=Thu, 26 Jan ${d.getFullYear()+1} 12:00:00 UTC; path=/`; 
+  } 
+  else if (ReadCookie("tutorial") != null) {
+    if (confirm("Can you finish the tutorial before browsing around?") == true) { window.location.href="https://titanc3.github.io"+ReadCookie("tutorial"); }
+    else { document.cookie = `tutorial=finished; expires=Thu, 26 Jan ${d.getFullYear()+1} 12:00:00 UTC; path=/`; }
+  }
+};
+</script>
 <script> window.onload = function() { tutorialCookie("This is the Games page\nThis page has unblocked games\nThere are also some games I made myself\n(crappy is in the name for a reason)", "/blog"); };</script>
 
 </html>
