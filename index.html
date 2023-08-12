@@ -62,7 +62,7 @@ layout: /_config
           <a href="https://github.com/Titanc3" target="_blank" class="btn btn-github"><span class="icon"></span>My Github</a>
           <a href="https://bmc.link/titanc3" target="_blank" class="btn">Donate</a>
           <a href="https://titanc3.github.io/games" class="btn">Games</a>
-          <a href="https://titanc3.github.io/other" id="tutorialNextLink" class="btn">Other</a>
+          <a href="https://titanc3.github.io/other" id="tutorialNextLink2" class="btn">Other</a>
           <a href="https://titanc3.github.io/blog" class="btn">Blog</a>
           <a href="#" class="btn" onclick="document.getElementById('overlay').style.display = 'block';">🔗</a>
           <a href="https://titanc3.github.io/settings" class="btn">⚙</a>
@@ -121,7 +121,9 @@ window.onload = function() {
 
     else if ("https://titanc3.github.io"+ReadCookie("tutorial") == window.location.href) {
       alert("Welcome to the tutorial\nTitanc3 is a website created for students, created by a student\nThis is the homepage\nThe next buttons will be highlighted in yellow");
+      document.getElementById("Menu-Button").style.border = "2px solid yellow";
       document.getElementById("tutorialNextLink").style.border = "2px solid yellow";
+      document.getElementById("tutorialNextLink2").style.border = "2px solid yellow";
       document.cookie = `tutorial=/other; expires=Thu, 26 Jan ${d.getFullYear()+1} 12:00:00 UTC; path=/`; 
     }
     else {
