@@ -147,14 +147,14 @@ function tutorialCookie(message) {
   else if ("https://titanc3.github.io"+ReadCookie("tutorial") == window.location.href) { 
     alert(`${message}`); 
     document.getElementById("tutorialNextLink").style.border = "2px solid yellow"; 
-    document.cookie = `tutorial=finished expires=Thu, 26 Jan ${d.getFullYear()+1} 12:00:00 UTC; path=/`; 
+    document.cookie = `tutorial=finished; expires=Thu, 26 Jan ${d.getFullYear()+1} 12:00:00 UTC; path=/`; 
   } 
   else if (ReadCookie("tutorial") != null) {
     if (confirm("Can you finish the tutorial before browsing around?") == true) { window.location.href="https://titanc3.github.io"+ReadCookie("tutorial"); }
-    else { document.cookie = `tutorial=finished expires=Thu, 26 Jan ${d.getFullYear()+1} 12:00:00 UTC; path=/`; }
+    else { document.cookie = `tutorial=finished; expires=Thu, 26 Jan ${d.getFullYear()+1} 12:00:00 UTC; path=/`; }
   }
 };
 </script>
-<script> window.onload = function() { alert(ReadCookie("tutorial")); tutorialCookie("This is the last stop on the tutorial\nThis page holds all the blogs that i've created\nI hope it was a fun or interesting journey"); };</script>
+<script> window.onload = function() { tutorialCookie("This is the last stop on the tutorial\nThis page holds all the blogs that i've created\nI hope it was a fun or interesting journey"); };</script>
   
 </html>
