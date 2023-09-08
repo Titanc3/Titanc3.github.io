@@ -131,9 +131,9 @@ layout: /_config
         let b = miniList[1][1];
         if (a.toString().length == 1) { a="0"+a.toString() }
         if (b.toString().length == 1) { b="0"+b.toString() }
-        if (miniList[0][0] >= 12) { newHour = `${miniList[0][0]-12} PM`.split(" ") }
+        if (miniList[0][0] >= 12) { newHour = `${miniList[0][0]-11} PM`.split(" ") }
         else { newHour = `${miniList[0][0]} AM`.split(" ") }
-        if (miniList[1][0] >= 12) { newHour2 = `${miniList[1][0]-12} PM`.split(" ") }
+        if (miniList[1][0] >= 12) { newHour2 = `${miniList[1][0]-11} PM`.split(" ") }
         else { newHour2 = `${miniList[1][0]} AM`.split(" ") }
         document.getElementById("schedule").innerHTML += `<br>   ${miniList[2]}<br>${newHour[0]}:${a} ${newHour[1]} - ${newHour2[0]}:${b} ${newHour2[1]}<br>`;
       }
