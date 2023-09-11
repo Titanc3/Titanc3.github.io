@@ -2,62 +2,37 @@
 layout: /_config
 ---
 <!DOCTYPE html>
-<html lang="en"><head>
-  <title>Titanc3's Homepage</title>
+<html lang="en">
+<head>
+  <title>Titanc3's Support Form</title>
   <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/Titanc3/Titanc3.github.io/main/_includes/triangle.jpg">
   <link rel="stylesheet" type="text/css" href="https://titanc3.github.io/linkfolder/link.css">
   <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/Titanc3/Titanc3.github.io/main/_includes/MediumDefImage.png">
-  <meta charset="utf-8">
+  <meta charset='utf-8'>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="The Titanc3 homepage">
-  <meta name="keywords" content="Homepage, Website, Webpage, Internet, titanc3, github, io">
+  <meta name="description" content="Titanc3's official support form">
+  <meta name="keywords" content="Help, Support, Form, titanc3, github, io">
   <meta name="language" content="en">
-  <meta name="google-site-verification" content="gJKDTSOYe2uI9fyQHIbghaneqogQvzIP5F3g2eYr-dk">
-  <style>
-  #Menu-Button {
-    display: none;
-  }
-  .mobile {
-    display: none;
-  }
-  #Twitter img{
-    content:url("https://raw.githubusercontent.com/Titanc3/Titanc3.github.io/main/_includes/social/red/Twitter.png");
-  }
-  #Facebook img{
-    content:url("https://raw.githubusercontent.com/Titanc3/Titanc3.github.io/main/_includes/social/red/Facebook.png");
-  }
-  #Link img{
-    content:url("https://raw.githubusercontent.com/Titanc3/Titanc3.github.io/main/_includes/social/blue/Link.png");
-  }
-  @media only screen and (max-width: 686px) {
-    /* For mobile phones:  put this into a style sheet later*** */
-    .mobile {
-      display: initial;
-    }
-    .pc {
-      display: none;
-    }
-    #Menu-Button {
-      display: inline-block;
-    }
-    #Sites-Pages {
-      display: none;
-    }
-    #Twitter img{
-      content:url("https://raw.githubusercontent.com/Titanc3/Titanc3.github.io/main/_includes/social/blue/Twitter.png");
-    }
-    #Facebook img{
-      content:url("https://raw.githubusercontent.com/Titanc3/Titanc3.github.io/main/_includes/social/blue/Facebook.png");
-    }
-    #Link img{
-      content:url("https://raw.githubusercontent.com/Titanc3/Titanc3.github.io/main/_includes/social/red/Link.png");
-    }
-  }
-  </style>
 </head>
 
-<body><div id="overlay" class="overlay" onclick="document.getElementById('overlay').style.display = 'none';" style="display: none;">
+<style>
+      #menu-overlay a {
+      width: 30vw;
+      height: 8vh;
+    }
+    #menu-overlay img {
+      width: 107px;
+      height: 33px;
+    }
+    #menu-overlay a span {
+      float: none;
+      margin: 0px;
+      vertical-align: text-bottom;
+    }
+</style>
+
+<div id="overlay" class="overlay" onclick="document.getElementById('overlay').style.display = 'none';" style="display: none;">
   <div class="icons">
     <a href="sms:"><img src="https://raw.githubusercontent.com/Titanc3/Titanc3.github.io/main/_includes/social/red/Msg.png"></a>
     <a id="Link" onclick="link()" href="#"><img></a>
@@ -73,106 +48,33 @@ layout: /_config
   
 <div id="menu-overlay" class="overlay" onclick="document.getElementById('menu-overlay').style.display = 'none';" style="display: none; text-align: center;">
     <br><br>
-    <img src="https://raw.githubusercontent.com/Titanc3/Titanc3.github.io/main/_includes/Menu.png" alt="Menu" style="width:107px;height:33px;"></h1>
+    <img src="https://raw.githubusercontent.com/Titanc3/Titanc3.github.io/main/_includes/Menu.png" alt="Menu"></h1>
     <br><br>
-    <a style="width: 30vw; height: 8vh;" href="https://github.com/Titanc3" target="_blank" class="btn btn-github"><span class="icon" style="float:none; margin: 0px; vertical-align: text-bottom;"></span> My Github <span class="icon" style="float:none; margin: 0px; vertical-align: text-bottom;"></span></a>
-    <a class="btn" target="_blank" href="https://bmc.link/titanc3" style="width: 30vw; height: 8vh; display: inline-block;">💲Donate💲</a>
+    <a href="https://github.com/Titanc3" target="_blank" class="btn btn-github"><span class="icon"></span> My Github <span class="icon"></span></a>
+    <a style="display: inline-block;" class="btn" target="_blank" href="https://bmc.link/titanc3">💲Donate💲</a>
     <br><br>
-    <a style="width: 30vw; height: 8vh;" href="https://titanc3.github.io/games" class="btn">🎮 Games 🎮</a>
-    <a style="width: 30vw; height: 8vh; display: inline-block;" href="https://titanc3.github.io/other" id="tutorialNextLink" class="btn">❓Other❓</a>
+    <a href="https://titanc3.github.io/games" class="btn">🎮 Games 🎮</a>
+    <a style="display: inline-block;" href="https://titanc3.github.io/other" class="btn">❓Other❓</a>
     <br><br>
-    <a style="width: 30vw; height: 8vh;" href="https://titanc3.github.io/blog" class="btn">💬 Blog 💬</a>
-    <a style="width: 30vw; height: 8vh; display: inline-block;" href="#" class="btn" onclick="document.getElementById('overlay').style.display = 'block';">🔗 Link 🔗</a>
+    <a href="https://titanc3.github.io/blog" class="btn">💬 Blog 💬</a>
+    <a style="display: inline-block;" href="#" class="btn" onclick="document.getElementById('overlay').style.display = 'block';">🔗 Link 🔗</a>
     <br><br>
-    <a style="width: 60vw; height: 8vh" href="https://titanc3.github.io/settings" class="btn">⚙ Settings ⚙</a>
+    <a style="width: 60vw;" href="https://titanc3.github.io/settings" class="btn">⚙ Settings ⚙</a>
 </div>
 
-
-
-<script src="https://titanc3.github.io/linkfolder/link.js"></script>
-<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-4N3KQ6NGRD"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4N3KQ6NGRD"></script>
 <script src="https://titanc3.github.io/TrackingScript.js"></script>
-
-
-  <header>
-      <div class="container">
-        <div id="Menu-Button" onclick="document.getElementById('menu-overlay').style.display = 'block';" style="height: 60px;width: 60px;background-color: black;color: white;vertical-align: top;background: url(https://raw.githubusercontent.com/Titanc3/Titanc3.github.io/main/_includes/Menu-Icon.png);"></div>
-        <div style="display:inline-block;">
-        <a href="https://titanc3.github.io" style="text-decoration: none;"><img src="https://raw.githubusercontent.com/Titanc3/Titanc3.github.io/main/_includes/NewTitle.png" alt="Titanc3" style="width:200px;height:33px;"></a>
-        <h2>Titanc3's Homepage</h2>
-        </div>
-        <section id="Sites-Pages">
-          <a href="https://github.com/Titanc3" target="_blank" class="btn btn-github"><span class="icon"></span>My Github</a>
-          <a href="https://bmc.link/titanc3" target="_blank" class="btn">Donate</a>
-          <a href="https://titanc3.github.io/games" class="btn">Games</a>
-          <a href="https://titanc3.github.io/other" id="tutorialNextLink" class="btn">Other</a>
-          <a href="https://titanc3.github.io/blog" class="btn">Blog</a>
-          <a href="#" class="btn" onclick="document.getElementById('overlay').style.display = 'block';">🔗</a>
-          <a href="https://titanc3.github.io/settings" class="btn">⚙</a>
-        </section>
-      </div>
-  </header>
-  <div class="container">
-    <h2 style="text-align:center">About</h2>
-    <p style="text-align:center">
-      This homepage contains updates about the website, the browsing menu is at the top of the page. 
-      This website is dedicated to creating tools and entertainment for students. 
-      Currently the site has a school time period checker (Other), a blog (Blog), and games (Games) for students to enjoy. 
-      Thank you for visiting the site, have fun!
-    </p>
-
-    <h2 style="text-align:center">Updates</h2>
-    <p style="text-align:center">Titanc3 devs out on summer break, we'll be back early September.<a href="https://titanc3.github.io/blogs/Jul_3_2023" style="text-decoration: none;width:18px;height:18px;"><img src="https://raw.githubusercontent.com/Titanc3/Titanc3.github.io/main/_includes/i.png" alt="Blue Information Icon" style="width:18px;height:18px;"></a></p>
-
-    <h2 style="text-align:center">Helpful Quick Links</h2>
-    <a href="https://titanc3.github.io/other/time_period/urlcreatorpage" class="btn">URL Creator</a> A way for students to view their schedule and the time till their school periods.<br><br>
-    <a href="https://titanc3.github.io/other/Q_A" class="btn">Support Form</a> Quickly notify the dev of any problems or helpful/cool changes.<p></p>
+<script src="https://titanc3.github.io/linkfolder/link.js"></script>
+  
+  <div style="text-align:center">
+    <div style="text-align:center">
+    <div onclick="document.getElementById('menu-overlay').style.display = 'block';" style="height: 60px;width: 60px;background-color: black;color: white;vertical-align: top;background: url(https://raw.githubusercontent.com/Titanc3/Titanc3.github.io/main/_includes/Menu-Icon.png); display: inline-block;"></div>
+    <div style="display:inline-block">
+    <a class="btn" href="https://titanc3.github.io" style="height: 11px; width: 120px;">Back to Home</a>
+    <br><a target="_blank" class="btn" href="mailto:titanc3.business@gmail.com" style="height: 11px; width: 120px;">Support Email</a><br>
+    </div>
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfGcBKyEzKd-vCczN87YvxNwFewaef7jbzIVupcj0oNHjLeQA/viewform?embedded=true" width="90vw" height="1500" style="width: 90vw;" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
   </div>
+  
 
-
-<script>
-window.onload = function() {
-  function ReadCookie(cookieKey) {
-     var allcookies = document.cookie.split("; ")
-     // split str into list str="key=value; key=value; ..." list="key=value", "key=value", ...
-
-     for (let i = 0; i < allcookies.length; i++) {
-        let pair = allcookies[i].split("=");
-        if (pair[0] == cookieKey) {
-          return pair[1]; //pair[0] = key | pair[1] = value
-        }
-     }
-    return null
-  }
-  function code() {
-    let d = new Date();
-
-    if (ReadCookie("tutorial") == null) {
-      if (confirm("This seems to be your first time on Titanc3\nWant to do the tutorial? (You can retry this in settings, ~3 mins) ") == false) {
-        document.cookie = `tutorial=finished; expires=Thu, 26 Jan ${d.getFullYear()+1} 12:00:00 UTC; path=/`;
-      }
-      else {
-        document.cookie = `tutorial=/; expires=Thu, 26 Jan ${d.getFullYear()+1} 12:00:00 UTC; path=/`;
-      }
-    }
-
-    if (ReadCookie("tutorial") == "finished") { document.cookie = `tutorial=finished; expires=Thu, 26 Jan ${d.getFullYear()+1} 12:00:00 UTC; path=/`; }
-
-    else if ("https://titanc3.github.io"+ReadCookie("tutorial") == window.location.href) {
-      alert("Welcome to the tutorial\nTitanc3 is a website created for students, created by a student\nThis is the homepage\nThe next buttons will be highlighted in yellow");
-      document.getElementById("tutorialNextLink").style.border = "2px solid yellow";
-      document.cookie = `tutorial=/other; expires=Thu, 26 Jan ${d.getFullYear()+1} 12:00:00 UTC; path=/`; 
-    }
-    else {
-      if (confirm("Can you finish the tutorial before browsing around?") == true) { window.location.href="https://titanc3.github.io"+ReadCookie("tutorial"); }
-      else { document.cookie = `tutorial=finished; expires=Thu, 26 Jan ${d.getFullYear()+1} 12:00:00 UTC; path=/`; }
-    }
-  }
-  const myTimeout = setTimeout(code, 1000);
-};
-</script>
-
-
-
-</body>
 </html>
