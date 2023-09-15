@@ -1,6 +1,3 @@
----
-layout: /_config
----
 <!DOCTYPE html>
 <html lang="en">
 <head> 
@@ -20,11 +17,11 @@ layout: /_config
 <script>
   
   function btn1() {
-      getElementById("shape").setAttribute("src") = "https://raw.githubusercontent.com/Titanc3/Titanc3.github.io/main/_includes/geometry/triangle/Equilateral.png"
+      document.getElementById("shape").setAttribute("src", "https://raw.githubusercontent.com/Titanc3/Titanc3.github.io/main/_includes/geometry/triangle/Equilateral.png")
   }
   
   function btn2() {
-      getElementById("shape").setAttribute("src") = "https://raw.githubusercontent.com/Titanc3/Titanc3.github.io/main/_includes/geometry/triangle/Right.png"
+      document.getElementById("shape").setAttribute("src", "https://raw.githubusercontent.com/Titanc3/Titanc3.github.io/main/_includes/geometry/triangle/Right.png")
   }
 </script>
 
@@ -84,8 +81,8 @@ layout: /_config
   <div style="text-align: center; width: 50vw; float: left; display: inline-block;">
 <img id="shape" src="https://raw.githubusercontent.com/Titanc3/Titanc3.github.io/main/_includes/geometry/triangle/Equilateral.png" width="400px" height="400px" style="height:400px; width:400px;">
 <br>
-<a id="1" onclick="btn1()" class="btn">Equilateral</a>
-<a id="2" onclick="btn2()" href="#" class="btn">Right Angle</a>
+<a id="1" class="btn" onclick="btn1()">Equilateral</a>
+<a id="2" class="btn" onclick="btn2()">Right Angle</a>
 
   </div>
   <div style="text-align: center; width: 50vw; float: right;">
