@@ -11,9 +11,29 @@
   <meta name="description" content="The Titanc3 Geometry Calculator">
   <meta name="keywords" content="geometry, calculator, triangle, square, rectangle, pentagon, hexagon, heptagon, octagon, nonagon, decagon, prism, shape, side, 3d, 2d, titanc3, github, io">
   <meta name="language" content="en">
-  <meta name="google-site-verification" content="gJKDTSOYe2uI9fyQHIbghaneqogQvzIP5F3g2eYr-dk" />
 </head>
 
+
+<style>
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #000000;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+</style>
 <script>
   
   function btn1() {
@@ -83,7 +103,7 @@
 <br>
 <a id="1" class="btn" onclick="btn1()">Equilateral</a>
 <a id="2" class="btn" onclick="btn2()">Right Angle</a>
-
+<div class="dropdown">abc<div class="dropdown-content">def</div></div>
   </div>
   <div style="text-align: center; width: 50vw; float: right;">
 <h2>How to use:</h2>
