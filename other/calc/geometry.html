@@ -124,4 +124,26 @@ input {
   </div>
 </div>
 </body>
+
+<script>
+function timedUpdate() {
+	let perimeter = document.getElementById("perimeter")
+    let area = document.getElementById("area")
+    let x = document.getElementById("x")
+    let y = document.getElementById("y")
+    let z = document.getElementById("z")
+    
+    if (parseFloat(perimeter.value)) {
+    	x.value = perimeter.value/3
+        y.value = Math.sqrt((x.value*x.value)-((x.value/2)*(x.value/2)))
+    }
+    else if (parseFloat(area.value)) {  }
+    else if (parseFloat(x.value)) {  }
+    else if (parseFloat(y.value)) {  }
+    else if (parseFloat(z.value)) {  }
+}
+
+setInterval(timedUpdate, 5000);
+</script>
+
 </html>
