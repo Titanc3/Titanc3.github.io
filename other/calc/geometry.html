@@ -126,24 +126,38 @@ input {
 </body>
 
 <script>
+	perimeter = document.getElementById("perimeter")
+    area = document.getElementById("area")
+    x = document.getElementById("x")
+    y = document.getElementById("y")
+    z = document.getElementById("z")
+
 function timedUpdate() {
-	let perimeter = document.getElementById("perimeter")
-    let area = document.getElementById("area")
-    let x = document.getElementById("x")
-    let y = document.getElementById("y")
-    let z = document.getElementById("z")
-    
-    if (parseFloat(perimeter.value)) {
-    	x.value = perimeter.value/3
-        y.value = Math.sqrt((x.value*x.value)-((x.value/2)*(x.value/2)))
+
+	if (perimeter.value != document.getElementById("perimeter").value) { // checks if difference, then checks if it's a number
+    perimeter = document.getElementById("perimeter")
+    alert(1)
     }
-    else if (parseFloat(area.value)) {  }
-    else if (parseFloat(x.value)) {  }
-    else if (parseFloat(y.value)) {  }
-    else if (parseFloat(z.value)) {  }
+    
+    else if (area.value != document.getElementById("area").value && parseFloat(document.getElementById("area").value)) {
+    area = document.getElementById("area")
+    }
+    
+    else if (x.value != document.getElementById("x").value && parseFloat(document.getElementById("x").value)) {
+    x = document.getElementById("x")
+    }
+    
+    else if (y.value != document.getElementById("y").value && parseFloat(document.getElementById("y").value)) {
+    y = document.getElementById("y")
+    }
+    
+    else if (z.value != document.getElementById("z").value && parseFloat(document.getElementById("z").value)) {
+    z = document.getElementById("z")
+    }
+    
 }
 
-setInterval(timedUpdate, 5000);
+setInterval(timedUpdate, 2500);
 </script>
 
 </html>
