@@ -11,37 +11,38 @@
   <meta name="description" content="The Titanc3 Geometry Calculator">
   <meta name="keywords" content="geometry, calculator, triangle, square, rectangle, pentagon, hexagon, heptagon, octagon, nonagon, decagon, prism, shape, side, 3d, 2d, titanc3, github, io">
   <meta name="language" content="en">
-</head>
 
-
-<style>
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #000000;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  padding: 12px 16px;
-  z-index: 1;
-}
-
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-
-input {
+  <style>
+	.dropdown {
+	  position: relative;
+	  display: inline-block;
+	}
 	
-    color: white;
-    background-color: black;
-}
-</style>
+	.dropdown-content {
+	  display: none;
+	  position: absolute;
+	  background-color: #000000;
+	  min-width: 160px;
+	  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	  padding: 12px 16px;
+	  z-index: 1;
+	}
+	
+	.dropdown:hover .dropdown-content {
+	  display: block;
+	}
+	
+	input {
+		
+	    color: white;
+	    background-color: black;
+	}
+  </style>
+		
+</head>
+	
 <script>
-  
+	  
   function btn(name) {
       document.getElementById("shape").setAttribute("src", `https://raw.githubusercontent.com/Titanc3/Titanc3.github.io/main/_includes/geometry/${name.replace(" ", "_")}.png`)
   }
