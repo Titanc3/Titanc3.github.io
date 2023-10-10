@@ -38,16 +38,17 @@
 	    background-color: black;
 	}
   </style>
-		
-</head>
-	
-<script>
+
+  <script>
 	  
   function btn(name) {
       document.getElementById("shape").setAttribute("src", `https://raw.githubusercontent.com/Titanc3/Titanc3.github.io/main/_includes/geometry/${name.replace(" ", "_")}.png`)
   }
   
-</script>
+  </script>
+		
+</head>
+
 
 <div id="overlay" class="overlay" onclick="document.getElementById('overlay').style.display = 'none';" style="display: none;">
   <div class="icons">
@@ -124,8 +125,7 @@
     <p style="border-left: 2px solid #46b4eb;">lorem ipsum sumin ...<br><br><br><br><br><br>...</p>
   </div>
 </div>
-</body>
-
+	
 <script>
 	perimeter = document.getElementById("perimeter")
     area = document.getElementById("area")
@@ -161,4 +161,7 @@ function timedUpdate() {
 setInterval(timedUpdate, 2500);
 </script>
 
+	
+</body>
+	
 </html>
