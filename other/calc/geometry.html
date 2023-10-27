@@ -12,7 +12,7 @@
   <meta name="keywords" content="geometry, calculator, triangle, square, rectangle, pentagon, hexagon, heptagon, octagon, nonagon, decagon, prism, shape, side, 3d, 2d, titanc3, github, io">
   <meta name="language" content="en">
 
-  <style>
+ <style>
 	.dropdown {
 	  position: relative;
 	  display: inline-block;
@@ -37,6 +37,15 @@
 	    color: white;
 	    background-color: black;
 	}
+    #shape {height: 50vw; width: 50vw;}
+    #full-text {display: none;}
+    #box {width: 50vw;}
+    @media only screen and (max-width: 686px) {
+        #shape {height: 100vw; width: 100vw;}
+        #full-text {display: block;}
+        #half-text {display: none;}
+        #box {width: 100vw;}
+    }
   </style>
 
   <script>
@@ -103,28 +112,34 @@
       </div>
   </header>
 <div>
-  <div style="text-align: center; width: 50vw; float: left; display: inline-block;">
-<img id="shape" src="https://raw.githubusercontent.com/Titanc3/Titanc3.github.io/main/_includes/geometry/Equilateral.png" width="400px" height="400px" style="height:400px; width:400px;">
-<br>
-
-<a class="dropdown btn">Triangle
-	<div class="dropdown-content">def</div>
-</a>
-<a id="1" class="btn" onclick="btn(this.innerHTML)">Equilateral</a>
-<a id="2" class="btn" onclick="btn(this.innerHTML)">Right Angle</a>
-<br><br>
-	  
-  <input style="border-radius: 5px 5px 0px 0px;" type="text" id="perimeter" name="perimeter" placeholder="Perimeter"><br>
-  <input type="text" id="area" name="area" placeholder="Area"><br>
-  <input type="text" id="x" name="x" placeholder="X"><br>
-  <input type="text" id="y" name="y" placeholder="Y"><br>
-  <input style="border-radius: 0px 0px 5px 5px;" type="text" id="z" name="z" placeholder="Z"><br>
-  </div>
-  <div style="text-align: center; width: 50vw; float: right;">
+<div id="full-text" style="text-align: center; width: 100vw; border-bottom: 2px solid #46b4eb;">
 <h2>How to use:</h2>
-    <p style="border-left: 2px solid #46b4eb;">lorem ipsum sumin ...<br><br><br><br><br><br>...</p>
+    <p>lorem ipsum sumin ...<br><br><br><br><br><br>...</p>
+    <br>
   </div>
-</div>
+    
+  <div id="box" style="text-align: center; float: left; display: inline-block;">
+    <img id="shape" src="https://raw.githubusercontent.com/Titanc3/Titanc3.github.io/main/_includes/geometry/Equilateral.png" style="max-height:400px; max-width: 400px;">
+    <br>
+
+    <a class="dropdown btn">Triangle
+    <div class="dropdown-content">def</div>
+      </a>
+      <a id="1" class="btn" onclick="btn(this.innerHTML)">Equilateral</a>
+      <a id="2" class="btn" onclick="btn(this.innerHTML)">Right Angle</a>
+      <br><br>
+	  
+      <input style="border-radius: 5px 5px 0px 0px;" type="text" id="perimeter" name="perimeter" placeholder="Perimeter"><br>
+      <input type="text" id="area" name="area" placeholder="Area"><br>
+      <input type="text" id="x" name="x" placeholder="X"><br>
+      <input type="text" id="y" name="y" placeholder="Y"><br>
+      <input style="border-radius: 0px 0px 5px 5px;" type="text" id="z" name="z" placeholder="Z"><br>
+    </div>
+    <div id="half-text" style="text-align: center; width: 50vw; float: right;">
+      <h2>How to use:</h2>
+      <p style="border-left: 2px solid #46b4eb;">lorem ipsum sumin ...<br><br><br><br><br><br>...</p>
+    </div>
+  </div>
 	
 <script>
 	perimeter = document.getElementById("perimeter")
@@ -165,3 +180,11 @@ setInterval(timedUpdate, 2500);
 </body>
 	
 </html>
+
+  
+
+
+
+
+
+
