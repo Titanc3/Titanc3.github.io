@@ -145,7 +145,18 @@
 <script>
 
 function timedUpdate() {
-    alert(document.getElementById("shape").getAttribute("src"))
+    switch (document.getElementById("shape").getAttribute("src").split("/")[8].split(".")[0]) {
+        
+    case "Equilateral":
+      alert(1);
+		    
+    case "Right_Angle":
+      alert(2);
+
+// | end of triangles | start of rectangles | \\
+
+		    
+    }
     
 }
 
