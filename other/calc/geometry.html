@@ -155,32 +155,56 @@ function numCheck(value) {
 
 function timedUpdate() {
 
-	p = document.getElementById("perimeter")
-    a = document.getElementById("area")
-    x = document.getElementById("x")
-    y = document.getElementById("y")
-    z = document.getElementById("z")
+	let p = document.getElementById("perimeter");
+    let a = document.getElementById("area");
+    let x = document.getElementById("x");
+    let y = document.getElementById("y");
+    let z = document.getElementById("z");
+    
+    const numbers = [];
+    
+    if (numCheck(p.value)) {
+      numbers.push(["p", p.value]);
+    }
+    if (numCheck(a.value)) {
+      numbers.push(["a", a.value]);
+    }
+    if (numCheck(x.value)) {
+      numbers.push(["x", x.value]);
+    }
+    if (numCheck(y.value)) {
+      numbers.push(["y", y.value]);
+    }
+    if (numCheck(z.value)) {
+      numbers.push(["z", z.value]);
+    }
 
     switch (document.getElementById("shape").getAttribute("src").split("/")[8].split(".")[0]) {
         
     case "Equilateral":
-    	if (numCheck(p.value)) {
-    		alert("p")
-        }
-        if else (numCheck(a.value)) {
-    		alert("a")
-        }
-        if else (numCheck(x.value)) {
-    		alert("x")
-        }
-        if else (numCheck(y.value)) {
-    		alert("y")
+    
+    	document.getElementById("z").value = "none";
+        
+		for (let i = 0; i < numbers.length; i++) {
+        	switch numbers[i][0] {
+            
+            case "p":
+            	
+            case "a":
+            	
+            case "x":
+            	
+            case "y":
+            	
+
+            
+            }
         }
 
     break;
 		    
     case "Right_Angle":
-	alert(2)
+		alert(2)
 	break;
     
 // | end of triangles | start of rectangles | \\
