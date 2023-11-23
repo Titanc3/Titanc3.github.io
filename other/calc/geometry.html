@@ -143,9 +143,14 @@
   </div>
 	
 <script>
+op = document.getElementById("perimeter").value;
+oa = document.getElementById("area").value;
+ox = document.getElementById("x").value;
+oy = document.getElementById("y").value;
+oz = document.getElementById("z").value;
 
-function numCheck(value) {
-	if (!isNaN(value) && value != "") {
+function numCheck(value, oldvalue) {
+	if (!isNaN(value) && value != "" && value != oldvalue) {
     	return true;
     }
     else {
@@ -154,63 +159,37 @@ function numCheck(value) {
 }
 
 function timedUpdate() {
-
+	
+    let shape = (document.getElementById("shape").getAttribute("src").split("/")[8].split(".")[0])
+    
 	let p = document.getElementById("perimeter");
     let a = document.getElementById("area");
     let x = document.getElementById("x");
     let y = document.getElementById("y");
     let z = document.getElementById("z");
     
-    const numbers = [];
+    if (shape == "Equilateral") {
     
-    if (numCheck(p.value)) {
-      numbers.push(["p", p.value]);
+      if (numCheck(p.value, op) {
+      	alert(typeof(p.value))
+      }
+      if (numCheck(a.value, oa) {
+      }
+      if (numCheck(x.value, ox) {
+      }
+      if (numCheck(y.value, oy) {
+      }
+      if (numCheck(z.value, oz) {
+      }
+      
+      z = "none"
     }
-    if (numCheck(a.value)) {
-      numbers.push(["a", a.value]);
-    }
-    if (numCheck(x.value)) {
-      numbers.push(["x", x.value]);
-    }
-    if (numCheck(y.value)) {
-      numbers.push(["y", y.value]);
-    }
-    if (numCheck(z.value)) {
-      numbers.push(["z", z.value]);
-    }
-
-    switch (document.getElementById("shape").getAttribute("src").split("/")[8].split(".")[0]) {
-        
-    case "Equilateral":
     
-    	document.getElementById("z").value = "none";
-        
-		for (let i = 0; i < numbers.length; i++) {
-        	switch numbers[i][0] {
-            
-            case "p":
-            	
-            case "a":
-            	
-            case "x":
-            	
-            case "y":
-            	
-
-            
-            }
-        }
-
-    break;
-		    
-    case "Right_Angle":
-		alert(2)
-	break;
-    
-// | end of triangles | start of rectangles | \\
-
-		    
-    }
+    op = p.value
+    oa = a.value
+    ox = x.value
+    oy = y.value
+    oz = z.value
     
 }
 
@@ -223,9 +202,3 @@ setInterval(timedUpdate, 4000);
 </html>
 
   
-
-
-
-
-
-
