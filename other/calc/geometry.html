@@ -51,9 +51,15 @@
   <script>
 	  
   function btn(name) {
-      document.getElementById("shape").setAttribute("src", `https://raw.githubusercontent.com/Titanc3/Titanc3.github.io/main/_includes/geometry/${name.replace(" ", "_")}.png`)
+      if ((document.getElementById("shape").getAttribute("src").split("/")[8].split(".")[0]) != (name.replace(" ", "_"))) {
+        document.getElementById("perimeter").value = "";
+        document.getElementById("area").value = "";
+        document.getElementById("x").value = "";
+        document.getElementById("y").value = "";
+        document.getElementById("z").value = "";
+        document.getElementById("shape").setAttribute("src", `https://raw.githubusercontent.com/Titanc3/Titanc3.github.io/main/_includes/geometry/${name.replace(" ", "_")}.png`);
+      }
   }
-  
   </script>
 		
 </head>
@@ -149,8 +155,16 @@ ox = document.getElementById("x").value;
 oy = document.getElementById("y").value;
 oz = document.getElementById("z").value;
 
-function numCheck(value, oldvalue) {
+function numCheck(value, oldvalue) { // checks that the number is different and valid
 	if (!isNaN(value) && value != "" && value != oldvalue) {
+    	return true;
+    }
+    else {
+    	return false;
+    }
+}
+function diffCheck(value, oldvalue) { // only checks for difference, helps with clearing numbers
+	if (!isNaN(value) && value != oldvalue) {
     	return true;
     }
     else {
@@ -171,31 +185,37 @@ function timedUpdate() {
     if (shape == "Equilateral") {
     
       if (numCheck(p.value, op)) {
-        x.value = p.value/3
-        p.value = 3*x.value
-        y.value = Math.sqrt((x.value**2)-((x.value/2)**2))
-        a.value = (x.value/2)*y.value
+        x.value = p.value/3;
+        y.value = Math.sqrt((x.value**2)-((x.value/2)**2));
+        a.value = (x.value/2)*y.value;
       }
       else if (numCheck(a.value, oa)) {
-        x.value = (2/3)*(3**(3/4))*(Math.sqrt(a.value))
-        p.value = 3*x.value
-        y.value = Math.sqrt((x.value**2)-((x.value/2)**2))
-        a.value = (x.value/2)*y.value
+        x.value = (2/3)*(3**(3/4))*(Math.sqrt(a.value));
+        p.value = 3*x.value;
+        y.value = Math.sqrt((x.value**2)-((x.value/2)**2));
       }
       else if (numCheck(x.value, ox)) {
-        p.value = 3*x.value
-        y.value = Math.sqrt((x.value**2)-((x.value/2)**2))
-        a.value = (x.value/2)*y.value
+        p.value = 3*x.value;
+        y.value = Math.sqrt((x.value**2)-((x.value/2)**2));
+        a.value = (x.value/2)*y.value;
       }
       else if (numCheck(y.value, oy)) {
-        x.value = (1/Math.sqrt(0.75))*y.value
-        p.value = 3*x.value
-        y.value = Math.sqrt((x.value**2)-((x.value/2)**2))
-        a.value = (x.value/2)*y.value
+        x.value = (1/Math.sqrt(0.75))*y.value;
+        p.value = 3*x.value;
+        a.value = (x.value/2)*y.value;
+      }
+      else if (diffCheck(p.value, op) || diffCheck(a.value, oa) || diffCheck(x.value, ox) || diffCheck(y.value, oy)) {
+        p.value = "";
+        a.value = "";
+        x.value = "";
+        y.value = "";
       }
       
-		z.value = "none"
-    }
+		z.value = "none";
+    } // END OF EQUILATERAL TRIANGLES
+    
+    else if (shape == "Right_Angle") {
+    } // END OF RIGHT ANGLE TRIANGLES
     
     op = p.value;
     oa = a.value;
@@ -205,7 +225,7 @@ function timedUpdate() {
     
 }
 
-setInterval(timedUpdate, 4000);
+setInterval(timedUpdate, 10);
 </script>
 
 	
