@@ -17,7 +17,7 @@
 	  position: relative;
 	  display: inline-block;
 	}
-	 
+	
 	.dropdown-content {
 	  display: none;
 	  position: absolute;
@@ -171,25 +171,37 @@ function timedUpdate() {
     if (shape == "Equilateral") {
     
       if (numCheck(p.value, op)) {
-      	alert(typeof(p.value))
+        x.value = p.value/3
+        p.value = 3*x.value
+        y.value = Math.sqrt((x.value**2)-((x.value/2)**2))
+        a.value = (x.value/2)*y.value
       }
-      if (numCheck(a.value, oa) {
+      else if (numCheck(a.value, oa)) {
+        x.value = (2/3)*(3**(3/4))*(Math.sqrt(a.value))
+        p.value = 3*x.value
+        y.value = Math.sqrt((x.value**2)-((x.value/2)**2))
+        a.value = (x.value/2)*y.value
       }
-      if (numCheck(x.value, ox) {
+      else if (numCheck(x.value, ox)) {
+        p.value = 3*x.value
+        y.value = Math.sqrt((x.value**2)-((x.value/2)**2))
+        a.value = (x.value/2)*y.value
       }
-      if (numCheck(y.value, oy) {
-      }
-      if (numCheck(z.value, oz) {
+      else if (numCheck(y.value, oy)) {
+        x.value = (1/Math.sqrt(0.75))*y.value
+        p.value = 3*x.value
+        y.value = Math.sqrt((x.value**2)-((x.value/2)**2))
+        a.value = (x.value/2)*y.value
       }
       
-      z = "none"
+		z.value = "none"
     }
     
-    op = p.value
-    oa = a.value
-    ox = x.value
-    oy = y.value
-    oz = z.value
+    op = p.value;
+    oa = a.value;
+    ox = x.value;
+    oy = y.value;
+    oz = z.value;
     
 }
 
@@ -200,5 +212,3 @@ setInterval(timedUpdate, 4000);
 </body>
 	
 </html>
-
-  
