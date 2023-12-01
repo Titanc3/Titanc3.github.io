@@ -106,7 +106,7 @@ window.onload = function() {
     let d = new Date();
 
     if (ReadCookie("tutorial") == null) {
-      if (confirm("This seems to be your first time on Titanc3\nWant to do the tutorial? (You can retry this in settings, ~3 mins) ") == false) {
+      if (confirm("!!!IMPORTANT!!!\nThis seems to be your first time on Titanc3\nWant to do the tutorial? (You can retry this in settings, ~3 mins)\nPRESS OK TO DO TUTORIAL\nPRESS CANCEL TO SKIP TUTORIAL") == false) {
         document.cookie = `tutorial=finished; expires=Thu, 26 Jan ${d.getFullYear()+1} 12:00:00 UTC; path=/`;
       }
       else {
