@@ -96,7 +96,7 @@
  
   
   let game_url = getParameterByName("game");
-  let game_name = game_url.toLowerCase().split("/embed/")[1].replace("io", "").split("-");
+  let game_name = game_url.toLowerCase().split("/")[4].replace("io", "").split("-");
   let end_name = "";
   
   if (game_url != "") {document.getElementById("unity-canvas").src = game_url;}
@@ -108,8 +108,6 @@
   
   document.getElementById("unity-build-title").innerHTML = end_name;
   document.getElementById("game-title").innerHTML = end_name;
-
-  }
 </script>
 
 </div>
