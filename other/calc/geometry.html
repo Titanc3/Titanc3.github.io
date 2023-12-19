@@ -32,7 +32,7 @@
 	  display: block;
 	}
 	
-	input {
+	input, #label {
 		
 	    color: white;
 	    background-color: black;
@@ -135,11 +135,15 @@
       <a id="1" class="btn" onclick="btn(this.innerHTML)">Equilateral</a>
       <a id="2" class="btn" onclick="btn(this.innerHTML)">Right Angle</a>
       <br><br>
-	  
+	  <div id="label" style="border-radius: 5px;display: inline;">P</div>
       <input style="border-radius: 5px 5px 0px 0px;" type="text" id="perimeter" name="perimeter" placeholder="Perimeter"><br>
+      <div id="label" style="border-radius: 5px;display: inline;">A</div>
       <input type="text" id="area" name="area" placeholder="Area"><br>
+      <div id="label" style="border-radius: 5px;display: inline;">X</div>
       <input type="text" id="x" name="x" placeholder="X"><br>
+      <div id="label" style="border-radius: 5px;display: inline;">Y</div>
       <input type="text" id="y" name="y" placeholder="Y"><br>
+      <div id="label" style="border-radius: 5px;display: inline;">Z</div>
       <input style="border-radius: 0px 0px 5px 5px;" type="text" id="z" name="z" placeholder="Z"><br>
     </div>
     <div id="half-text" style="text-align: center; width: 50vw; float: right;">
