@@ -135,7 +135,7 @@
       Hours1 = Math.floor(diff/60/60)
       Minutes1 = Math.floor(((diff/60/60)-(Math.floor(diff/60/60)))*60)
       Seconds1 = diff-Minutes1*60-Hours1*3600
-      Finish1 = "Till the end of "+till[2]
+      Finish1 = "Till end of "+till[2]
       document.getElementById("line1L").innerHTML = `${Hours1} Hrs ${Minutes1} Mins ${Seconds1} Secs  `;
       document.getElementById("line2L").innerHTML = "Till the end of "+till[2]
     }
@@ -154,7 +154,7 @@
       Hours2 = Math.floor(diff/60/60)
       Minutes2 = Math.floor(((diff/60/60)-(Math.floor(diff/60/60)))*60)
       Seconds2 = diff-Minutes2*60-Hours2*3600
-      Finish2 = "Till the end of "+getParameterByName("title")
+      Finish2 = "Till end of "+getParameterByName("title")
       document.getElementById("line1R").innerHTML = `${Hours2} Hrs ${Minutes2} Mins ${Seconds2} Secs  `;
       document.getElementById("line2R").innerHTML = "Till the end of "+getParameterByName("title")
     }
