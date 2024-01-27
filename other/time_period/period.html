@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Titanc3's Time</title>
+  <title id="title">Titanc3's Time</title>
   <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/Titanc3/Titanc3.github.io/main/_includes/triangle.jpg">
   <link rel="stylesheet" type="text/css" href="https://titanc3.github.io/linkfolder/link.css">
   <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/Titanc3/Titanc3.github.io/main/_includes/MediumDefImage.png">
@@ -202,13 +202,13 @@
       }
     }
   if (iterations >= 40) {
-    document.title = `Titanc3's Time`
+    document.getElementById("title").innerHTML = `Titanc3's Time`
   }
   else if (iterations >= 80) {
-    document.title = `${Hours1}:${Minutes1}:${Seconds1} ${Finish1}`
+    document.getElementById("title").innerHTML = `${Hours1}:${Minutes1}:${Seconds1} ${Finish1}`
   }
   else if (iterations >= 120) {
-    document.title = `${Hours2}:${Minutes2}:${Seconds2} ${Finish2}`
+    document.getElementById("title").innerHTML = `${Hours2}:${Minutes2}:${Seconds2} ${Finish2}`
     iterations = 0
   }
   }
