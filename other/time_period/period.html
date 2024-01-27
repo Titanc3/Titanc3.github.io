@@ -76,20 +76,16 @@
 </body>
 
 <script>
+  iterations = 0;
   const fullList = [];
   const symbols =  "∆ ∇ ∎ ≡ ≣ ⊏ ⊐ ⊑ ⊒ ⊕ ⊖ ⊗ ⊘ ⊙ ⊚ ⊛ ⊜ ⊝ ⊞ ⊟ ⊠ ⊡ ⊿ ⋄ ⋐ ⋑ ⋒ ⋓ ⍁ ⍂ ⎔ □ ▢ ▣ ▤ ▥ ▦ ▧ ▨ ▩ ▪ ▫ ▬ ▭ ▮ ▯ ▰ ▱ ▲ △ ▴ ▵ ▶ ▷ ▸ ▹ ▻ ▼ ▽ ▾ ▿ ◀ ◁ ◂ ◃ ◅ ◆ ◇ ◈ ◉ ◊ ○ ◌ ◍ ◎ ● ◐ ◑ ◒ ◓ ◔ ◕ ◖ ◗ ◧ ◨ ◩ ◪ ◫ ◬ ◭ ◮ ◯ ◰ ◱ ◲ ◳ ◴ ◵ ◶".split(" ");
-
-  function short(array, hours, minutes, seconds, one, two, three, four) {
-    return (((array[one][two]*60)+array[three][four])*60)-(((hours*60)+minutes)*60+seconds);
-  }
-  
+	
   function addText1(text) {
   const para = document.createElement("h3");
   para.innerText = text;
   para.style.margin = "0px"
   document.getElementById("schedule").appendChild(para);
   }
-  
   function addText2(text) {
     const para = document.createElement("h3");
     para.innerText = text;
@@ -97,8 +93,13 @@
     para.style.color = "#666666"
     document.getElementById("schedule").appendChild(para);
   }
-  
+
+  function short(array, hours, minutes, seconds, one, two, three, four) {
+    return (((array[one][two]*60)+array[three][four])*60)-(((hours*60)+minutes)*60+seconds);
+  }
+
   function timedUpdate() {
+  	iterations += 1;
     let d = new Date();
     let sec = d.getSeconds();
     let min = d.getMinutes();
@@ -121,20 +122,40 @@
       document.getElementById("line2R").innerHTML = getParameterByName("title");
     }
     else if (short(till, hr, min, sec, 0, 0, 0, 1) == Math.abs(short(till, hr, min, sec, 0, 0, 0, 1))) {
-      document.getElementById("line1L").innerHTML = `${Math.floor(short(till, hr, min, sec, 0, 0, 0, 1)/60/60)} Hrs ${Math.floor(((short(till, hr, min, sec, 0, 0, 0, 1)/60/60)-(Math.floor(short(till, hr, min, sec, 0, 0, 0, 1)/60/60)))*60)} Mins ${Math.round(((short(till, hr, min, sec, 0, 0, 0, 1)/60)-Math.floor(short(till, hr, min, sec, 0, 0, 0, 1)/60))*60)} Secs  `;
-      document.getElementById("line2L").innerHTML = "Till "+till[2]
+      let diff = short(till, hr, min, sec, 0, 0, 0, 1)
+      Hours1 = Math.floor(diff/60/60)
+      Minutes1 = Math.floor(((diff/60/60)-(Math.floor(diff/60/60)))*60)
+      Seconds1 = diff-Minutes1*60-Hours1*3600
+      Finish1 = "Till "+till[2]
+      document.getElementById("line1L").innerHTML = `${Hours1} Hrs ${Minutes1} Mins ${Seconds1} Secs  `;
+      document.getElementById("line2L").innerHTML = Finish1
     }
     else if (short(till, hr, min, sec, 1, 0, 1, 1) == Math.abs(short(till, hr, min, sec, 1, 0, 1, 1))) {
-      document.getElementById("line1L").innerHTML = `${Math.floor(((short(till, hr, min, sec, 1, 0, 1, 1)/60/60)-(Math.floor(short(till, hr, min, sec, 1, 0, 1, 1)/60/60)))*60)} Mins ${Math.round(((short(till, hr, min, sec, 1, 0, 1, 1)/60)-Math.floor(short(till, hr, min, sec, 1, 0, 1, 1)/60))*60)} Secs  `;
+      let diff = short(till, hr, min, sec, 1, 0, 1, 1)
+      Hours1 = Math.floor(diff/60/60)
+      Minutes1 = Math.floor(((diff/60/60)-(Math.floor(diff/60/60)))*60)
+      Seconds1 = diff-Minutes1*60-Hours1*3600
+      Finish1 = "Till the end of "+till[2]
+      document.getElementById("line1L").innerHTML = `${Hours1} Hrs ${Minutes1} Mins ${Seconds1} Secs  `;
       document.getElementById("line2L").innerHTML = "Till the end of "+till[2]
     }
     if (tillEnd == 0) {}
-    else if (short(tillEnd, hr, min, sec, 0, 0, 0, 1) == Math.abs(short(tillEnd, hr, min, sec, 0, 0, 0, 1))) {
-      document.getElementById("line1R").innerHTML = `${Math.floor(short(tillEnd, hr, min, sec, 0, 0, 0, 1)/60/60)} Hrs ${Math.floor(((short(tillEnd, hr, min, sec, 0, 0, 0, 1)/60/60)-(Math.floor(short(tillEnd, hr, min, sec, 0, 0, 0, 1)/60/60)))*60)} Mins ${Math.round(((short(tillEnd, hr, min, sec, 0, 0, 0, 1)/60)-Math.floor(short(tillEnd, hr, min, sec, 0, 0, 0, 1)/60))*60)} Secs`;
+      else if (short(tillEnd, hr, min, sec, 0, 0, 0, 1) == Math.abs(short(tillEnd, hr, min, sec, 0, 0, 0, 1))) {
+      let diff = short(tillEnd, hr, min, sec, 0, 0, 0, 1)
+      Hours2 = Math.floor(diff/60/60)
+      Minutes2 = Math.floor(((diff/60/60)-(Math.floor(diff/60/60)))*60)
+      Seconds2 = diff-Minutes2*60-Hours2*3600
+      Finish2 = "Till "+getParameterByName("title")
+      document.getElementById("line1R").innerHTML = `${Hours2} Hrs ${Minutes2} Mins ${Seconds2} Secs  `;
       document.getElementById("line2R").innerHTML = "Till "+getParameterByName("title")
     }
     else if (short(tillEnd, hr, min, sec, 1, 0, 1, 1) == Math.abs(short(tillEnd, hr, min, sec, 1, 0, 1, 1))) {
-      document.getElementById("line1R").innerHTML = `${Math.floor(short(tillEnd, hr, min, sec, 1, 0, 1, 1)/60/60)} Hrs ${Math.floor(((short(tillEnd, hr, min, sec, 1, 0, 1, 1)/60/60)-(Math.floor(short(tillEnd, hr, min, sec, 1, 0, 1, 1)/60/60)))*60)} Mins ${Math.round(((short(tillEnd, hr, min, sec, 1, 0, 1, 1)/60)-Math.floor(short(tillEnd, hr, min, sec, 1, 0, 1, 1)/60))*60)} Secs`;
+      let diff = short(tillEnd, hr, min, sec, 1, 0, 1, 1)
+      Hours2 = Math.floor(diff/60/60)
+      Minutes2 = Math.floor(((diff/60/60)-(Math.floor(diff/60/60)))*60)
+      Seconds2 = diff-Minutes2*60-Hours2*3600
+      Finish2 = "Till the end of "+getParameterByName("title")
+      document.getElementById("line1R").innerHTML = `${Hours2} Hrs ${Minutes2} Mins ${Seconds2} Secs  `;
       document.getElementById("line2R").innerHTML = "Till the end of "+getParameterByName("title")
     }
     document.getElementById("schedule").innerHTML = ""
@@ -151,8 +172,8 @@
         }
           
         else {
-          if (miniList[0][0] == 0) {newHour = `12 AM`.split(" ")}
-          else {newHour = `${miniList[0][0]} AM`.split(" ")}
+          if (miniList[0][0] == 0) {newHour = `12 AM`.split(" ") }
+          else {newHour = `${miniList[0][0]} AM`.split(" ") }
         }
         
         if (miniList[1][0] >= 12) {
@@ -160,15 +181,17 @@
           else {newHour2 = `${miniList[1][0]-12} PM`.split(" ")}
         }
           
-        else {
-          if (miniList[1][0] == 0) {newHour2 = `12 AM`.split(" ")}
+        else { 
+          if (miniList[1][0] == 0) {newHour2 = `${miniList[1][0]} AM`.split(" ")}
           else {newHour2 = `${miniList[1][0]} AM`.split(" ")}
         }
         addText1(miniList[2])
    	    addText2(`${newHour[0]}:${a} ${newHour[1]}- ${newHour2[0]}:${b} ${newHour2[1]}`)
+        
       }
     }
     else {
+      
       for (const miniList of fullList) { // displaying info loop
       let a = miniList[0][1];
       let b = miniList[1][1];
@@ -178,6 +201,16 @@
       addText2(`${miniList[0][0]}:${a} - ${miniList[1][0]}:${b}`)
       }
     }
+  if (iterations >= 40) {
+    document.title = `Titanc3's Time`
+  }
+  else if (iterations >= 80) {
+    document.title = `${Hours1}:${Minutes1}:${Seconds1} ${Finish1}`
+  }
+  else if (iterations >= 120) {
+    document.title = `${Hours2}:${Minutes2}:${Seconds2} ${Finish2}`
+    iterations = 0
+  }
   }
 
   function getParameterByName(name, url = window.location.href) {
@@ -196,6 +229,7 @@
     names = getParameterByName("names").split("|");
 
     for (let i = 0; i < timesInMinutes.length; i+=2) {
+    
       fullList.push([[decrypt(i, 0), decrypt(i, 1)], [decrypt(i+1, 0), decrypt(i+1, 1)], names[i/2]]); //xtra rip reading code, format: [[hr, min](start), [hr, min](stop), name]
     }
 
@@ -203,7 +237,7 @@
 
     console.log("Hey! No snooping!");
     document.getElementById("title").innerHTML = getParameterByName("title")+" Schedule";
-    setInterval(timedUpdate, 150);
+    setInterval(timedUpdate, 125);
   }
 </script>
   
