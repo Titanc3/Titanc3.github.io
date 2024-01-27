@@ -201,13 +201,13 @@
       addText2(`${miniList[0][0]}:${a} - ${miniList[1][0]}:${b}`)
       }
     }
-  if (iterations >= 40) {
+  if (iterations <= 40) {
     document.getElementById("title").innerHTML = `Titanc3's Time`
   }
-  else if (iterations >= 80) {
+  else if (iterations <= 80) {
     document.getElementById("title").innerHTML = `${Hours1}:${Minutes1}:${Seconds1} ${Finish1}`
   }
-  else if (iterations >= 120) {
+  else if (iterations <= 120) {
     document.getElementById("title").innerHTML = `${Hours2}:${Minutes2}:${Seconds2} ${Finish2}`
     iterations = 0
   }
@@ -236,7 +236,6 @@
 // url example:   titanc3.github.io/period?m=∆≣|⊏⊐|⊙⊚|⊛⊞|⊟⊠|⊟⊛&names=poop|zoop|sloop&title=scholo
 
     console.log("Hey! No snooping!");
-    document.getElementById("title").innerHTML = getParameterByName("title")+" Schedule";
     setInterval(timedUpdate, 125);
   }
 </script>
