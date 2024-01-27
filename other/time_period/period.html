@@ -82,7 +82,22 @@
   function short(array, hours, minutes, one, two, three, four) {
     return ((array[one][two]*60)+array[three][four])-((hours*60)+minutes);
   }
-
+  
+  function addText1(text) {
+  const para = document.createElement("h3");
+  para.innerText = text;
+  para.style.margin = "0px"
+  document.getElementById("schedule").appendChild(para);
+  }
+  
+  function addText2(text) {
+    const para = document.createElement("h3");
+    para.innerText = text;
+    para.style.margin = "0px 0px 25px"
+    para.style.color = "#666666"
+    document.getElementById("schedule").appendChild(para);
+  }
+  
   function timedUpdate() {
     let d = new Date();
     let min = d.getMinutes();
@@ -148,7 +163,8 @@
           if (miniList[1][0] == 0) {newHour2 = `12 AM`.split(" ")}
           else {newHour2 = `${miniList[1][0]} AM`.split(" ")}
         }
-        document.getElementById("schedule").innerHTML += `<br>   ${miniList[2]}<br>${newHour[0]}:${a} ${newHour[1]} - ${newHour2[0]}:${b} ${newHour2[1]}<br>`;
+        addText1(miniList[2])
+   	    addText2(`${newHour[0]}:${a} ${newHour[1]}- ${newHour2[0]}:${b} ${newHour2[1]}`)
       }
     }
     else {
@@ -157,7 +173,8 @@
       let b = miniList[1][1];
       if (a.toString().length == 1) { a="0"+a.toString() }
       if (b.toString().length == 1) { b="0"+b.toString() }
-      document.getElementById("schedule").innerHTML += `<br>   ${miniList[2]}<br>${miniList[0][0]}:${a} - ${miniList[1][0]}:${b}<br>`;
+      addText1(miniList[2])
+      addText2(`${miniList[0][0]}:${a} - ${miniList[1][0]}:${b}`)
       }
     }
   }
