@@ -201,13 +201,19 @@
       addText2(`${miniList[0][0]}:${a} - ${miniList[1][0]}:${b}`)
       }
     }
-  if (iterations <= 40) {
+  if (iterations <= 30) {
     document.getElementById("title").innerHTML = `Titanc3's Time`
   }
-  else if (iterations <= 80) {
+  else if (iterations <= 70) {
+    if (Hours1.toString().length == 1) {Hours1 = "0"+Hours1.toString()}
+    if (Minutes1.toString().length == 1) {Minutes1 = "0"+Minutes1.toString()}
+    if (Seconds1.toString().length == 1) {Seconds1 = "0"+Seconds1.toString()}
     document.getElementById("title").innerHTML = `${Hours1}:${Minutes1}:${Seconds1} ${Finish1}`
   }
-  else if (iterations <= 120) {
+  else if (iterations <= 110) {
+    if (Hours2.toString().length == 1) {Hours2 = "0"+Hours1.toString()}
+    if (Minutes2.toString().length == 1) {Minutes2 = "0"+Minutes1.toString()}
+    if (Seconds2.toString().length == 1) {Seconds2 = "0"+Seconds1.toString()}
     document.getElementById("title").innerHTML = `${Hours2}:${Minutes2}:${Seconds2} ${Finish2}`
   }
   else {
