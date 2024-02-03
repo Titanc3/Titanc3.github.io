@@ -76,15 +76,11 @@
 </body>
 
 <script>
-  iterations = 0;
-  const fullList = [];
-  const symbols =  "∆ ∇ ∎ ≡ ≣ ⊏ ⊐ ⊑ ⊒ ⊕ ⊖ ⊗ ⊘ ⊙ ⊚ ⊛ ⊜ ⊝ ⊞ ⊟ ⊠ ⊡ ⊿ ⋄ ⋐ ⋑ ⋒ ⋓ ⍁ ⍂ ⎔ □ ▢ ▣ ▤ ▥ ▦ ▧ ▨ ▩ ▪ ▫ ▬ ▭ ▮ ▯ ▰ ▱ ▲ △ ▴ ▵ ▶ ▷ ▸ ▹ ▻ ▼ ▽ ▾ ▿ ◀ ◁ ◂ ◃ ◅ ◆ ◇ ◈ ◉ ◊ ○ ◌ ◍ ◎ ● ◐ ◑ ◒ ◓ ◔ ◕ ◖ ◗ ◧ ◨ ◩ ◪ ◫ ◬ ◭ ◮ ◯ ◰ ◱ ◲ ◳ ◴ ◵ ◶".split(" ");
-	
   function addText1(text) {
-  const para = document.createElement("h3");
-  para.innerText = text;
-  para.style.margin = "0px"
-  document.getElementById("schedule").appendChild(para);
+    const para = document.createElement("h3");
+    para.innerText = text;
+    para.style.margin = "0px"
+    document.getElementById("schedule").appendChild(para);
   }
   function addText2(text) {
     const para = document.createElement("h3");
@@ -99,7 +95,7 @@
   }
 
   function timedUpdate() {
-  	iterations += 1;
+    iterations += 1;
     let d = new Date();
     let sec = d.getSeconds();
     let min = d.getMinutes();
@@ -117,9 +113,9 @@
     }
     if (till == 0) { 
       document.getElementById("line1L").innerHTML = "End of"; 
-      document.getElementById("line2L").innerHTML = getParameterByName("title");
+      document.getElementById("line2L").innerHTML = title;
       document.getElementById("line1R").innerHTML = "End of"; 
-      document.getElementById("line2R").innerHTML = getParameterByName("title");
+      document.getElementById("line2R").innerHTML = title;
     }
     else if (short(till, hr, min, sec, 0, 0, 0, 1) == Math.abs(short(till, hr, min, sec, 0, 0, 0, 1))) {
       let diff = short(till, hr, min, sec, 0, 0, 0, 1)
@@ -145,18 +141,18 @@
       Hours2 = Math.floor(diff/60/60)
       Minutes2 = Math.floor(((diff/60/60)-(Math.floor(diff/60/60)))*60)
       Seconds2 = diff-Minutes2*60-Hours2*3600
-      Finish2 = "Till "+getParameterByName("title")
+      Finish2 = "Till "+title
       document.getElementById("line1R").innerHTML = `${Hours2} Hrs ${Minutes2} Mins ${Seconds2} Secs  `;
-      document.getElementById("line2R").innerHTML = "Till "+getParameterByName("title")
+      document.getElementById("line2R").innerHTML = "Till "+title
     }
     else if (short(tillEnd, hr, min, sec, 1, 0, 1, 1) == Math.abs(short(tillEnd, hr, min, sec, 1, 0, 1, 1))) {
       let diff = short(tillEnd, hr, min, sec, 1, 0, 1, 1)
       Hours2 = Math.floor(diff/60/60)
       Minutes2 = Math.floor(((diff/60/60)-(Math.floor(diff/60/60)))*60)
       Seconds2 = diff-Minutes2*60-Hours2*3600
-      Finish2 = "Till end of "+getParameterByName("title")
+      Finish2 = "Till end of "+title
       document.getElementById("line1R").innerHTML = `${Hours2} Hrs ${Minutes2} Mins ${Seconds2} Secs  `;
-      document.getElementById("line2R").innerHTML = "Till the end of "+getParameterByName("title")
+      document.getElementById("line2R").innerHTML = "Till the end of "+title
     }
     document.getElementById("schedule").innerHTML = ""
     if (document.querySelector('.time:checked') != null) {
@@ -232,9 +228,18 @@
 
   function decrypt(index, index2) { return symbols.indexOf(timesInMinutes[index][index2]); }
 
-  if (getParameterByName("m") != null && getParameterByName("names") != null && getParameterByName("title") != null) {
-    timesInMinutes = getParameterByName("m").split("|"); // query variables
-    names = getParameterByName("names").split("|");
+  iterations = 0;
+  const fullList = [];
+  const symbols =  "∆ ∇ ∎ ≡ ≣ ⊏ ⊐ ⊑ ⊒ ⊕ ⊖ ⊗ ⊘ ⊙ ⊚ ⊛ ⊜ ⊝ ⊞ ⊟ ⊠ ⊡ ⊿ ⋄ ⋐ ⋑ ⋒ ⋓ ⍁ ⍂ ⎔ □ ▢ ▣ ▤ ▥ ▦ ▧ ▨ ▩ ▪ ▫ ▬ ▭ ▮ ▯ ▰ ▱ ▲ △ ▴ ▵ ▶ ▷ ▸ ▹ ▻ ▼ ▽ ▾ ▿ ◀ ◁ ◂ ◃ ◅ ◆ ◇ ◈ ◉ ◊ ○ ◌ ◍ ◎ ● ◐ ◑ ◒ ◓ ◔ ◕ ◖ ◗ ◧ ◨ ◩ ◪ ◫ ◬ ◭ ◮ ◯ ◰ ◱ ◲ ◳ ◴ ◵ ◶".split(" ");
+  m = getParameterByName("m");
+  names = getParameterByName("names");
+  title = getParameterByName("title");
+	
+
+
+  if (m != null && names != null && title != null) {
+    timesInMinutes = m.split("|"); // query variables
+    names = names.split("|");
 
     for (let i = 0; i < timesInMinutes.length; i+=2) {
     
