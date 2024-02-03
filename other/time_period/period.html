@@ -197,7 +197,10 @@
       addText2(`${miniList[0][0]}:${a} - ${miniList[1][0]}:${b}`)
       }
     }
-  if (iterations <= 30) {
+  if (typeof Hours1 == "undefined" || parseInt(Hours1+Hours2+Minutes1+Minutes2) == 0 && parseInt(Seconds1)+parseInt(Seconds2) == 2) {
+    document.getElementById("title").innerHTML = `End of ${title}`
+  }
+  else if (iterations <= 30) {
     document.getElementById("title").innerHTML = `Titanc3's Time`
   }
   else if (iterations <= 70) {
