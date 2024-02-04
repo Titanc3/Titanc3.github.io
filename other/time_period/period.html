@@ -13,6 +13,53 @@
   <meta name="language" content="en">
 </head>
 
+<script>
+  symbols = "∆ ∇ ∎ ≡ ≣ ⊏ ⊐ ⊑ ⊒ ⊕ ⊖ ⊗ ⊘ ⊙ ⊚ ⊛ ⊜ ⊝ ⊞ ⊟ ⊠ ⊡ ⊿ ⋄ ⋐ ⋑ ⋒ ⋓ ⍁ ⍂ ⎔ □ ▢ ▣ ▤ ▥ ▦ ▧ ▨ ▩ ▪ ▫ ▬ ▭ ▮ ▯ ▰ ▱ ▲ △ ▴ ▵ ▶ ▷ ▸ ▹ ▻ ▼ ▽ ▾ ▿ ◀ ◁ ◂ ◃ ◅ ◆ ◇ ◈ ◉ ◊ ○ ◌ ◍ ◎ ● ◐ ◑ ◒ ◓ ◔ ◕ ◖ ◗ ◧ ◨ ◩ ◪ ◫ ◬ ◭ ◮ ◯ ◰ ◱ ◲ ◳ ◴ ◵ ◶".split(" ");
+function getParameterByName(name, url = window.location.href) {
+    name = name.replace(/[\[\]]/g, '\\$&');
+    var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, ' '));
+  }
+names = getParameterByName("names")
+title = getParameterByName("title")
+m = getParameterByName("m")
+  function openScheduleValues() {
+    document.getElementById("schedule-overlay").style.display = 'block';
+    document.getElementById("title2").setAttribute("value", title);
+    document.getElementById("names").setAttribute("value", names.join(" "));
+    let timeList = m.split("|");
+    let startList = "";
+    let endList = "";
+    for (let i = 0; i < timeList.length; i+=2) {
+      startList += symbols.indexOf(timeList[i][0]) + ":" + symbols.indexOf(timeList[i][1]).toString().padStart(2, "0") + " "
+      endList += symbols.indexOf(timeList[i+1][0]) + ":" + symbols.indexOf(timeList[i+1][1]).toString().padStart(2, "0") + " "
+    }
+    document.getElementById("startTime").setAttribute("value", startList.trim())
+    document.getElementById("endTime").setAttribute("value", endList.trim())
+  }
+  function submit() {
+    let names = document.getElementById("names").value.split(" ");
+    let startTime = document.getElementById("startTime").value.split(" ");
+    let endTime = document.getElementById("endTime").value.split(" ");
+    let url = `https://titanc3.github.io/other/time_period/period?title=${document.getElementById("title2").value}&names=${names.join("|")}&m=`;
+
+    if (startTime.length != endTime.length) { alert("Your start times and end times don't match"); }
+    else {
+      for (let i = 0; i < startTime.length; i++) {
+        let startList = startTime[i].split(":");
+        let endList = endTime[i].split(":");
+        if (i == 0) { url += symbols[parseInt(startList[0])] + symbols[parseInt(startList[1])] + "|" + symbols[parseInt(endList[0])] + symbols[parseInt(endList[1])]; }
+        else { url += "|" + symbols[parseInt(startList[0])] + symbols[parseInt(startList[1])] + "|" + symbols[parseInt(endList[0])] + symbols[parseInt(endList[1])]; }
+      }
+      document.getElementById("submitButton").innerHTML = "Click to view your personalized page";
+      document.getElementById("submitButton").setAttribute("href", url)
+    }
+  }
+</script>
+
 <div id="overlay" class="overlay" onclick="document.getElementById('overlay').style.display = 'none';" style="display: none;">
   <div class="icons">
     <a href="sms:"><img src="https://raw.githubusercontent.com/Titanc3/Titanc3.github.io/main/_includes/social/red/Msg.png"></a>
@@ -43,6 +90,17 @@
     <a style="width: 60vw;" href="https://titanc3.github.io/settings" class="btn">⚙ Settings ⚙</a>
 </div>
 
+<div id="schedule-overlay" class="overlay" style="text-align:center;">
+      <br><br><br><br>
+      <form>
+        <p><input type="text" id="title2" name="title" value="School"> Schedule</p><br>
+        <p><input type="text" id="names" name="names"> Type the names of each period separated by a space</p>
+        <p><a>Use millitary time in the form of 0-23:0-59</a></p>
+        <p><input type="text" id="startTime" name="startTime"> Type the starting time of each period separated by a space</p>
+        <p><input type="text" id="endTime" name="endTime"> Type the end time of each period separated by a space</p>
+        <a id="submitButton" class="btn" onclick="submit()" href="#">Submit</a> <a class="btn" onclick="document.getElementById('schedule-overlay').style.display = 'none';" >Exit</a>
+</div>
+
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-4N3KQ6NGRD"></script>
 <script src="https://titanc3.github.io/TrackingScript.js"></script>
 <script src="https://titanc3.github.io/linkfolder/link.js"></script>
@@ -67,7 +125,7 @@
     </div>
   </header>
   <div class="container">
-    <p style="text-align:center"><a href="https://titanc3.github.io/other/time_period/urlcreatorpage" class="btn" id="tutorialNextLink">Click to create a schedule</a> <input class="time" id="timeSet" type="checkbox" name="timeSet" value="12"> <label for="timeSet"> 12hr Clock</label></p> 
+    <p style="text-align:center"><a href="https://titanc3.github.io/other/time_period/urlcreatorpage" class="btn" id="tutorialNextLink">Create a schedule</a> <a class="btn" onclick="openScheduleValues()">Edit schedule</a> <input class="time" id="timeSet" type="checkbox" name="timeSet" value="12"> <label for="timeSet"> 12hr Clock</label></p> 
     <h2 style="text-align:center;color:#666666;" id="title"></h2>
     <div style="text-align:center;"><h1 id="line1L" style="display:inline;"></h1><h1 style="display:inline;color:#666666;"> | </h1><h1 id="line1R" style="display:inline;color:#ac1616;"></h1></div><br>
     <div style="text-align:center;"><h1 id="line2L" style="display:inline;"></h1><h1 style="display:inline;color:#666666;"> | </h1><h1 id="line2R" style="display:inline;color:#ac1616;"></h1></div><br>
@@ -157,10 +215,8 @@
     document.getElementById("schedule").innerHTML = ""
     if (document.querySelector('.time:checked') != null) {
       for (const miniList of fullList) { // displaying info loop
-        let a = miniList[0][1];
-        let b = miniList[1][1];
-        if (a.toString().length == 1) { a="0"+a.toString() }
-        if (b.toString().length == 1) { b="0"+b.toString() }
+        let a = miniList[0][1].toString().padStart(2, "0");
+        let b = miniList[1][1].toString().padStart(2, "0");
         
         if (miniList[0][0] >= 12) {
           if (miniList[0][0] == 12) {newHour = `${miniList[0][0]} PM`.split(" ")}
@@ -189,14 +245,21 @@
     else {
       
       for (const miniList of fullList) { // displaying info loop
-      let a = miniList[0][1];
-      let b = miniList[1][1];
-      if (a.toString().length == 1) { a="0"+a.toString() }
-      if (b.toString().length == 1) { b="0"+b.toString() }
+      let a = miniList[0][1].toString().padStart(2, "0");
+      let b = miniList[1][1].toString().padStart(2, "0");
       addText1(miniList[2])
       addText2(`${miniList[0][0]}:${a} - ${miniList[1][0]}:${b}`)
       }
     }
+  if (typeof Hours1 == "undefined" || parseInt(Hours1+Hours2+Minutes1+Minutes2) == 0 && parseInt(Seconds1)+parseInt(Seconds2) == 2) {}
+  else {
+  Hours1 = Hours1.toString().padStart(2, "0");
+  Minutes1 = Minutes1.toString().padStart(2, "0");
+  Seconds1 = Seconds1.toString().padStart(2, "0");
+  Hours2 = Hours2.toString().padStart(2, "0");
+  Minutes2 = Minutes2.toString().padStart(2, "0");
+  Seconds2 = Seconds2.toString().padStart(2, "0");
+  }
   if (typeof Hours1 == "undefined" || parseInt(Hours1+Hours2+Minutes1+Minutes2) == 0 && parseInt(Seconds1)+parseInt(Seconds2) == 2) {
     document.getElementById("title").innerHTML = `End of ${title}`
   }
@@ -204,15 +267,9 @@
     document.getElementById("title").innerHTML = `Titanc3's Time`
   }
   else if (iterations <= 70) {
-    if (Hours1.toString().length == 1) {Hours1 = "0"+Hours1.toString()}
-    if (Minutes1.toString().length == 1) {Minutes1 = "0"+Minutes1.toString()}
-    if (Seconds1.toString().length == 1) {Seconds1 = "0"+Seconds1.toString()}
     document.getElementById("title").innerHTML = `${Hours1}:${Minutes1}:${Seconds1} ${Finish1}`
   }
   else if (iterations <= 110) {
-    if (Hours2.toString().length == 1) {Hours2 = "0"+Hours2.toString()}
-    if (Minutes2.toString().length == 1) {Minutes2 = "0"+Minutes2.toString()}
-    if (Seconds2.toString().length == 1) {Seconds2 = "0"+Seconds2.toString()}
     document.getElementById("title").innerHTML = `${Hours2}:${Minutes2}:${Seconds2} ${Finish2}`
   }
   else {
@@ -220,25 +277,10 @@
   }
   }
 
-  function getParameterByName(name, url = window.location.href) {
-    name = name.replace(/[\[\]]/g, '\\$&');
-    var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
-        results = regex.exec(url);
-    if (!results) return null;
-    if (!results[2]) return '';
-    return decodeURIComponent(results[2].replace(/\+/g, ' '));
-  }
-
   function decrypt(index, index2) { return symbols.indexOf(timesInMinutes[index][index2]); }
 
   iterations = 0;
   const fullList = [];
-  const symbols =  "∆ ∇ ∎ ≡ ≣ ⊏ ⊐ ⊑ ⊒ ⊕ ⊖ ⊗ ⊘ ⊙ ⊚ ⊛ ⊜ ⊝ ⊞ ⊟ ⊠ ⊡ ⊿ ⋄ ⋐ ⋑ ⋒ ⋓ ⍁ ⍂ ⎔ □ ▢ ▣ ▤ ▥ ▦ ▧ ▨ ▩ ▪ ▫ ▬ ▭ ▮ ▯ ▰ ▱ ▲ △ ▴ ▵ ▶ ▷ ▸ ▹ ▻ ▼ ▽ ▾ ▿ ◀ ◁ ◂ ◃ ◅ ◆ ◇ ◈ ◉ ◊ ○ ◌ ◍ ◎ ● ◐ ◑ ◒ ◓ ◔ ◕ ◖ ◗ ◧ ◨ ◩ ◪ ◫ ◬ ◭ ◮ ◯ ◰ ◱ ◲ ◳ ◴ ◵ ◶".split(" ");
-  m = getParameterByName("m");
-  names = getParameterByName("names");
-  title = getParameterByName("title");
-	
-
 
   if (m != null && names != null && title != null) {
     timesInMinutes = m.split("|"); // query variables
