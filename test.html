@@ -250,7 +250,8 @@ m = getParameterByName("m")
       addText2(`${miniList[0][0]}:${a} - ${miniList[1][0]}:${b}`)
       }
     }
-  if (typeof Hours1 != "undefined" && parseInt(Hours1+Hours2+Minutes1+Minutes2) != 0 && parseInt(Seconds1)+parseInt(Seconds2) != 2) {
+  if (typeof Hours1 == "undefined" || parseInt(Hours1+Hours2+Minutes1+Minutes2) == 0 && parseInt(Seconds1)+parseInt(Seconds2) == 2) {}
+  else {
   Hours1 = Hours1.toString().padStart(2, "0");
   Minutes1 = Minutes1.toString().padStart(2, "0");
   Seconds1 = Seconds1.toString().padStart(2, "0");
