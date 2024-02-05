@@ -125,7 +125,7 @@ m = getParameterByName("m")
     </div>
   </header>
   <div class="container">
-    <p style="text-align:center"><a href="https://titanc3.github.io/other/time_period/urlcreatorpage" class="btn" id="tutorialNextLink">Create a schedule</a> <a class="btn" onclick="openScheduleValues()">Edit schedule</a> <input class="time" id="timeSet" type="checkbox" name="timeSet" value="12"> <label for="timeSet"> 12hr Clock</label></p> 
+    <p style="text-align:center"><a href="https://titanc3.github.io/other/time_period/urlcreatorpage" class="btn" id="tutorialNextLink">Create a schedule</a> <a class="btn" onclick="openScheduleValues()">Edit schedule</a> <input class="time" id="timeSet" type="checkbox" name="timeSet" value="12" checked> <label for="timeSet"> 12hr Clock</label></p> 
     <h2 style="text-align:center;color:#666666;" id="title"></h2>
     <div style="text-align:center;"><h1 id="line1L" style="display:inline;"></h1><h1 style="display:inline;color:#666666;"> | </h1><h1 id="line1R" style="display:inline;color:#ac1616;"></h1></div><br>
     <div style="text-align:center;"><h1 id="line2L" style="display:inline;"></h1><h1 style="display:inline;color:#666666;"> | </h1><h1 id="line2R" style="display:inline;color:#ac1616;"></h1></div><br>
@@ -238,7 +238,7 @@ m = getParameterByName("m")
           else {newHour2 = `${miniList[1][0]} AM`.split(" ")}
         }
         addText1(miniList[2])
-   	    addText2(`${newHour[0]}:${a} ${newHour[1]}- ${newHour2[0]}:${b} ${newHour2[1]}`)
+   	    addText2(`${newHour[0]}:${a} ${newHour[1]} - ${newHour2[0]}:${b} ${newHour2[1]}`)
         
       }
     }
