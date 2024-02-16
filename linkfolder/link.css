@@ -13,6 +13,11 @@
   #Link img{
     content:url("https://raw.githubusercontent.com/Titanc3/Titanc3.github.io/main/_includes/social/blue/Link.png");
   }
+  #share{
+    height: 38px;
+    width: 38px;
+    content:url("https://raw.githubusercontent.com/Titanc3/Titanc3.github.io/main/_includes/social/Share.png");
+  }
   @media only screen and (max-width: 686px) {
     /* For mobile phones:  put this into a style sheet later*** */
     .mobile {
