@@ -14,8 +14,9 @@
     content:url("https://raw.githubusercontent.com/Titanc3/Titanc3.github.io/main/_includes/social/blue/Link.png");
   }
   .share {
-    height: 38px;
-    width: 38px;
+    height: 19.5px;
+    width: 19.5px;
+    vertical-align: top;
     content:url("https://raw.githubusercontent.com/Titanc3/Titanc3.github.io/main/_includes/social/Share.png");
   }
   @media only screen and (max-width: 686px) {
