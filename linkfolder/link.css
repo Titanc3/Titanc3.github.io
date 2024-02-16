@@ -13,7 +13,7 @@
   #Link img{
     content:url("https://raw.githubusercontent.com/Titanc3/Titanc3.github.io/main/_includes/social/blue/Link.png");
   }
-  #share{
+  .share {
     height: 38px;
     width: 38px;
     content:url("https://raw.githubusercontent.com/Titanc3/Titanc3.github.io/main/_includes/social/Share.png");
