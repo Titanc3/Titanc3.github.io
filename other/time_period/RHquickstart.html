@@ -124,10 +124,10 @@
         <p><input type="radio" name="lunch" id="shslunch2" value="2" onclick="lunchval(this.value)"> I have Lunch 2</p>
         <p><input type="radio" name="lunch" id="shslunch3" value="3" onclick="lunchval(this.value)"> I have Lunch 3</p>
         <p><input type="text" id="names" name="names"> Type the <u>9</u> names of each period separated by a space ([1st_Period] ... [Lunch] ... [8th_Period])</p>
-        <a onclick="document.getElementById('videoOverlay').style.display = 'block';" class="btn">Help</a><a id="submitButton" class="btn" onclick="submit()" href="#">Submit</a>
+        <a onclick="document.getElementById('videoOverlay').style.display = 'block';" class="btn">Help</a><a id="shssubmitButton" class="btn" onclick="shssubmit()" href="#">Submit</a>
         <script>
         function lunchval(value) { lunch = value; }
-        function submit() {
+        function shssubmit() {
           let Start1 = "7:35 8:22 9:09 9:56";
           let End1 = "8:17 9:04 9:51 10:38";
           let Start2 = "12:46 13:33";
@@ -157,8 +157,8 @@
             if (i == 0) { url += symbols[parseInt(startList[0])] + symbols[parseInt(startList[1])] + "|" + symbols[parseInt(endList[0])] + symbols[parseInt(endList[1])]; }
             else { url += "|" + symbols[parseInt(startList[0])] + symbols[parseInt(startList[1])] + "|" + symbols[parseInt(endList[0])] + symbols[parseInt(endList[1])]; }
           }
-          document.getElementById("submitButton").innerHTML = "Click to view your personalized page";
-          document.getElementById("submitButton").setAttribute("href", url)
+          document.getElementById("shssubmitButton").innerHTML = "Click to view your personalized page";
+          document.getElementById("shssubmitButton").setAttribute("href", url)
         }
         </script>
       </form>
