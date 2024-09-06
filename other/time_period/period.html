@@ -161,6 +161,7 @@ m = getParameterByName("m")
         break;
       }
     }
+    document.getElementById("endOfClass").html = item
     let tillEnd = 0;
     if ((fullList[fullList.length-1][1][0]*60)+fullList[fullList.length-1][1][1] > (hr*60)+min) {
       tillEnd = [fullList[0][0],fullList[fullList.length-1][1],fullList[fullList.length-1][2]];
