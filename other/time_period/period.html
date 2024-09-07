@@ -162,10 +162,10 @@ m = getParameterByName("m")
       }
     }
     let nextPeriod = item
-    if (item[0] >= 13) {nextPeriod[0] -= 12}
-    if (item[2] >= 13) {nextPeriod[1] -= 12}
+    if (item[0][0] >= 13) {nextPeriod[0][0] -= 12}
+    if (item[1][0] >= 13) {nextPeriod[1][0] -= 12}
     
-    document.getElementById("endOfClass").innerHTML = nextPeriod[4]+" ends at "+nextPeriod[2]+":"+nextPeriod[3]
+    document.getElementById("endOfClass").innerHTML = nextPeriod[2]+" ends at "+nextPeriod[1][0]+":"+nextPeriod[1][1]
     let tillEnd = 0;
     if ((fullList[fullList.length-1][1][0]*60)+fullList[fullList.length-1][1][1] > (hr*60)+min) {
       tillEnd = [fullList[0][0],fullList[fullList.length-1][1],fullList[fullList.length-1][2]];
