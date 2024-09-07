@@ -87,15 +87,15 @@ m = getParameterByName("m")
     <a style="width: 60vw;" href="#" class="btn" onclick="document.getElementById('overlay').style.display = 'block';"><img class="share"> Share <img class="share"></a>
 </div>
 
-<div id="schedule-overlay" class="overlay" style="text-align:center;">
+<div id="-overlay" class="overlay" style="text-align:center;">
       <br><br><br><br>
       <form>
-        <p><input type="text" id="title2" name="title" value="School"> Schedule</p><br>
+        <p><input type="text" id="title2" name="title" value="School"> </p><br>
         <p><input type="text" id="names" name="names"> Type the names of each period separated by a space</p>
         <p><a>Use millitary time in the form of 0-23:0-59</a></p>
         <p><input type="text" id="startTime" name="startTime"> Type the starting time of each period separated by a space</p>
         <p><input type="text" id="endTime" name="endTime"> Type the end time of each period separated by a space</p>
-        <a id="submitButton" class="btn" onclick="submit()" href="#">Submit</a> <a class="btn" onclick="document.getElementById('schedule-overlay').style.display = 'none';" >Exit</a>
+        <a id="submitButton" class="btn" onclick="submit()" href="#">Submit</a> <a class="btn" onclick="document.getElementById('-overlay').style.display = 'none';" >Exit</a>
 </div>
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-4N3KQ6NGRD"></script>
@@ -108,7 +108,7 @@ m = getParameterByName("m")
       <div id="Menu-Button" onclick="document.getElementById('menu-overlay').style.display = 'block';" style="height: 60px;width: 60px;background-color: black;color: white;vertical-align: top;background: url(https://raw.githubusercontent.com/Titanc3/Titanc3.github.io/main/_includes/Menu-Icon.png);"></div>
       <div style="display:inline-block;">
       <a href="https://titanc3.github.io" style="text-decoration: none;"><img src="https://raw.githubusercontent.com/Titanc3/Titanc3.github.io/main/_includes/NewTitle.png" alt="Titanc3" style="width:200px;height:33px;"></a>
-      <h2 style="display:inline;float:bottom;"><br>Schedule Tracker</h2> <h4 style="display:inline;color:#666;font-size:14px;">Remember to bookmark!</h4>
+      <h2 style="display:inline;float:bottom;"><br> Tracker</h2> <h4 style="display:inline;color:#666;font-size:14px;">Remember to bookmark!</h4>
     </div>
       <section id="Sites-Pages">
         <a href="https://titanc3.github.io/other/Q_A" class="btn">Suggest Update</a>
@@ -120,7 +120,7 @@ m = getParameterByName("m")
     </div>
   </header>
   <div class="container">
-    <p style="text-align:center"><a href="https://titanc3.github.io/other/time_period/urlcreatorpage" class="btn" id="tutorialNextLink">Create a schedule</a> <a class="btn" onclick="openScheduleValues()">Edit schedule</a> <input class="time" id="timeSet" type="checkbox" name="timeSet" value="12" checked> <label for="timeSet"> 12hr Clock</label></p> 
+    <p style="text-align:center"><a href="https://titanc3.github.io/other/time_period/urlcreatorpage" class="btn" id="tutorialNextLink">Create a </a> <a class="btn" onclick="openValues()">Edit </a> <input class="time" id="timeSet" type="checkbox" name="timeSet" value="12" checked> <label for="timeSet"> 12hr Clock</label></p> 
     <h2 style="text-align:center;color:#666666;" id="title"></h2>
     <div style="text-align:center;"><h1 id="line1L" style="display:inline;"></h1><h1 style="display:inline;color:#666666;"> | </h1><h1 id="line1R" style="display:inline;color:#ac1616;"></h1></div><br>
     <div style="text-align:center;"><h1 id="line2L" style="display:inline;"></h1><h1 style="display:inline;color:#666666;"> | </h1><h1 id="line2R" style="display:inline;color:#ac1616;"></h1></div><br>
@@ -165,8 +165,8 @@ m = getParameterByName("m")
     let nextPeriod = structuredClone(item)
     if (item[0][0] >= 13) {nextPeriod[0][0] -= 12}
     if (item[1][0] >= 13) {nextPeriod[1][0] -= 12}
-    document.getElementById("startOfClass").innerHTML = nextPeriod[2]+" starts at "+nextPeriod[0][0]+":"+nextPeriod[0][1]
-    document.getElementById("endOfClass").innerHTML = nextPeriod[2]+" ends at "+nextPeriod[1][0]+":"+nextPeriod[1][1]
+    document.getElementById("startOfClass").innerHTML = nextPeriod[2]+" starts at "+nextPeriod[0][0]+":"+nextPeriod[0][1]+" "
+    document.getElementById("startOfClass").innerHTML += nextPeriod[2]+" ends at "+nextPeriod[1][0]+":"+nextPeriod[1][1]
     let tillEnd = 0;
     if ((fullList[fullList.length-1][1][0]*60)+fullList[fullList.length-1][1][1] > (hr*60)+min) {
       tillEnd = [fullList[0][0],fullList[fullList.length-1][1],fullList[fullList.length-1][2]];
