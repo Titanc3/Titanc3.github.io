@@ -26,7 +26,7 @@ function getParameterByName(name, url = window.location.href) {
 names = getParameterByName("names")
 title = getParameterByName("title")
 m = getParameterByName("m")
-if (getParameterByName("room") == null) {room = []}
+if (getParameterByName("room") == null || getParameterByName("room") == "") {room = []}
 else {room = getParameterByName("room").split("|")}
   function openScheduleValues() {
     document.getElementById("schedule-overlay").style.display = 'block';
