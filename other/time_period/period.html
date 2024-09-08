@@ -31,7 +31,8 @@ else {room = getParameterByName("room").split("|")}
   function openScheduleValues() {
     document.getElementById("schedule-overlay").style.display = 'block';
     document.getElementById("title2").setAttribute("value", title);
-    document.getElementById("names").setAttribute("value", names.join(" "));
+    document.getElementById("names").setAttribute("value", names.join(" ")); // pre-fill the text boxes
+    document.getElementById("room").setAttribute("value", room.join(" "));
     let timeList = m.split("|");
     let startList = "";
     let endList = "";
@@ -98,7 +99,7 @@ else {room = getParameterByName("room").split("|")}
         <p><a>Use millitary time in the form of 0-23:0-59</a></p>
         <p><input type="text" id="startTime" name="startTime"> Type the starting time of each class separated by a space</p>
         <p><input type="text" id="endTime" name="endTime"> Type the end time of each class separated by a space</p>
-        <p><input type="text" id="classRoom" name="endTime"> Type the room of each class separated by a space</p>
+        <p><input type="text" id="classRoom" name="classRoom"> Type the room of each class separated by a space</p>
         <a id="submitButton" class="btn" onclick="submit()" href="#">Submit</a> <a class="btn" onclick="document.getElementById('schedule-overlay').style.display = 'none';" >Exit</a>
 </div>
 
@@ -166,7 +167,7 @@ else {room = getParameterByName("room").split("|")}
         break;
       }
     }
-    let nextPeriod = structuredClone(item)
+    let nextPeriod = structuredClone(item) //makes sure there isn't any variable intertwining screwery (modern browsers only)
     if (item[0][0] >= 13) {nextPeriod[0][0] -= 12}
     if (item[1][0] >= 13) {nextPeriod[1][0] -= 12}
     let tillEnd = 0;
