@@ -26,7 +26,7 @@ function getParameterByName(name, url = window.location.href) {
 names = getParameterByName("names")
 title = getParameterByName("title")
 m = getParameterByName("m")
-room = getParameterByName("room")
+room = getParameterByName("room").split("|")
   function openScheduleValues() {
     document.getElementById("schedule-overlay").style.display = 'block';
     document.getElementById("title2").setAttribute("value", title);
@@ -259,7 +259,7 @@ room = getParameterByName("room")
       let a = miniList[0][1].toString().padStart(2, "0");
       let b = miniList[1][1].toString().padStart(2, "0");
       addText1(miniList[2])
-      addText2(`${miniList[0][0]}:${a} - ${miniList[1][0]}:${b}`)
+      addText2(`${miniList[0][0]}:${a} - ${miniList[1][0]}:${b}\nRoom: ${room[fullList.IndexOf(miniList)]}`)
       }
     }
   if (typeof Hours1 == "undefined" || parseInt(Hours1+Hours2+Minutes1+Minutes2) == 0 && parseInt(Seconds1)+parseInt(Seconds2) == 2) {}
