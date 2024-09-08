@@ -250,7 +250,7 @@ else {room = getParameterByName("room").split("|")}
           else {newHour2 = `${miniList[1][0]} AM`.split(" ")}
         }
         addText1(miniList[2])
-   	    addText2(`${newHour[0]}:${a} ${newHour[1]} - ${newHour2[0]}:${b} ${newHour2[1]}`)
+   	    addText2(`${newHour[0]}:${a} ${newHour[1]} - ${newHour2[0]}:${b} ${newHour2[1]}\nRoom: ${room[fullList.indexOf(miniList)]}`)
         
       }
     }
@@ -260,7 +260,7 @@ else {room = getParameterByName("room").split("|")}
       let a = miniList[0][1].toString().padStart(2, "0");
       let b = miniList[1][1].toString().padStart(2, "0");
       addText1(miniList[2])
-      addText2(`${miniList[0][0]}:${a} - ${miniList[1][0]}:${b}<br>Room: ${room[fullList.indexOf(miniList)]}`)
+      addText2(`${miniList[0][0]}:${a} - ${miniList[1][0]}:${b}\nRoom: ${room[fullList.indexOf(miniList)]}`)
       }
     }
   if (typeof Hours1 == "undefined" || parseInt(Hours1+Hours2+Minutes1+Minutes2) == 0 && parseInt(Seconds1)+parseInt(Seconds2) == 2) {}
