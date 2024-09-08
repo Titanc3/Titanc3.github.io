@@ -26,6 +26,7 @@ function getParameterByName(name, url = window.location.href) {
 names = getParameterByName("names")
 title = getParameterByName("title")
 m = getParameterByName("m")
+room = getParameterByName("room")
   function openScheduleValues() {
     document.getElementById("schedule-overlay").style.display = 'block';
     document.getElementById("title2").setAttribute("value", title);
@@ -44,7 +45,8 @@ m = getParameterByName("m")
     let names = document.getElementById("names").value.split(" ");
     let startTime = document.getElementById("startTime").value.split(" ");
     let endTime = document.getElementById("endTime").value.split(" ");
-    let url = `https://titanc3.github.io/other/time_period/period?title=${document.getElementById("title2").value}&names=${names.join("|")}&m=`;
+    let classRoom = document.getElementById("classRoom").value.split(" ");
+    let url = `https://titanc3.github.io/other/time_period/period?title=${document.getElementById("title2").value}&names=${names.join("|")}&room=${classRoom.join("|")}&m=`;
 
     if (startTime.length != endTime.length) { alert("Your start times and end times don't match"); }
     else {
@@ -93,8 +95,9 @@ m = getParameterByName("m")
         <p><input type="text" id="title2" name="title" value="School"> </p><br>
         <p><input type="text" id="names" name="names"> Type the names of each period separated by a space</p>
         <p><a>Use millitary time in the form of 0-23:0-59</a></p>
-        <p><input type="text" id="startTime" name="startTime"> Type the starting time of each period separated by a space</p>
-        <p><input type="text" id="endTime" name="endTime"> Type the end time of each period separated by a space</p>
+        <p><input type="text" id="startTime" name="startTime"> Type the starting time of each class separated by a space</p>
+        <p><input type="text" id="endTime" name="endTime"> Type the end time of each class separated by a space</p>
+        <p><input type="text" id="classRoom" name="endTime"> Type the room of each class separated by a space</p>
         <a id="submitButton" class="btn" onclick="submit()" href="#">Submit</a> <a class="btn" onclick="document.getElementById('-overlay').style.display = 'none';" >Exit</a>
 </div>
 
@@ -124,8 +127,8 @@ m = getParameterByName("m")
     <h2 style="text-align:center;color:#666666;" id="title"></h2>
     <div style="text-align:center;"><h1 id="line1L" style="display:inline;"></h1><h1 style="display:inline;color:#666666;"> | </h1><h1 id="line1R" style="display:inline;color:#ac1616;"></h1></div><br>
     <div style="text-align:center;"><h1 id="line2L" style="display:inline;"></h1><h1 style="display:inline;color:#666666;"> | </h1><h1 id="line2R" style="display:inline;color:#ac1616;"></h1></div><br>
-    <h2 style="text-align:center;color:#666666;margin:0px;" id="startOfClass" ></h2><br>
-    <h2 style="text-align:center;color:#666666;" id="endOfClass" ></h2><br>
+    <h2 style="text-align:center;color:#666666;margin:0px;" id="timeOfClass" ></h2><br>
+    <h2 style="text-align:center;color:#666666;" id="roomOfClass" ></h2><br>
     <h3 style="text-align:left;font-size:20px;" id="schedule"></h3>
   </div>
 </body>
@@ -174,8 +177,8 @@ m = getParameterByName("m")
       document.getElementById("line2L").innerHTML = title;
       document.getElementById("line1R").innerHTML = "End of"; 
       document.getElementById("line2R").innerHTML = title;
-      document.getElementById("startOfClass").innerHTML = ""
-      document.getElementById("endOfClass").innerHTML = ""
+      document.getElementById("timeOfClass").innerHTML = ""
+      document.getElementById("roomOfClass").innerHTML = ""
     }
     else if (short(till, hr, min, sec, 0, 0, 0, 1) == Math.abs(short(till, hr, min, sec, 0, 0, 0, 1))) {
       let diff = short(till, hr, min, sec, 0, 0, 0, 1)
@@ -185,8 +188,8 @@ m = getParameterByName("m")
       Finish1 = "Till "+till[2] //used for title shifting, actually somewhat important
       document.getElementById("line1L").innerHTML = `${Hours1} Hrs ${Minutes1} Mins ${Seconds1} Secs  `;
       document.getElementById("line2L").innerHTML = Finish1
-      document.getElementById("startOfClass").innerHTML = nextPeriod[2]+" starts at "+nextPeriod[0][0]+":"+nextPeriod[0][1]+" "
-      document.getElementById("startOfClass").innerHTML += "and ends at "+nextPeriod[1][0]+":"+nextPeriod[1][1]
+      document.getElementById("timeOfClass").innerHTML = nextPeriod[2]+" starts at "+nextPeriod[0][0]+":"+nextPeriod[0][1]+" "
+      document.getElementById("timeOfClass").innerHTML += "and ends at "+nextPeriod[1][0]+":"+nextPeriod[1][1]
     }
     else if (short(till, hr, min, sec, 1, 0, 1, 1) == Math.abs(short(till, hr, min, sec, 1, 0, 1, 1))) {
       let diff = short(till, hr, min, sec, 1, 0, 1, 1)
@@ -196,7 +199,7 @@ m = getParameterByName("m")
       Finish1 = "Till end of "+till[2] //diff bc title max text amount
       document.getElementById("line1L").innerHTML = `${Hours1} Hrs ${Minutes1} Mins ${Seconds1} Secs  `;
       document.getElementById("line2L").innerHTML = "Till the end of "+till[2]
-      document.getElementById("startOfClass").innerHTML = nextPeriod[2]+" ends at "+nextPeriod[1][0]+":"+nextPeriod[1][1]
+      document.getElementById("timeOfClass").innerHTML = nextPeriod[2]+" ends at "+nextPeriod[1][0]+":"+nextPeriod[1][1]
     }
     if (tillEnd == 0) {}
       else if (short(tillEnd, hr, min, sec, 0, 0, 0, 1) == Math.abs(short(tillEnd, hr, min, sec, 0, 0, 0, 1))) {
@@ -207,8 +210,8 @@ m = getParameterByName("m")
       Finish2 = "Till "+title
       document.getElementById("line1R").innerHTML = `${Hours2} Hrs ${Minutes2} Mins ${Seconds2} Secs  `;
       document.getElementById("line2R").innerHTML = "Till "+title
-      document.getElementById("startOfClass").innerHTML = nextPeriod[2]+" starts at "+nextPeriod[0][0]+":"+nextPeriod[0][1]+" "
-      document.getElementById("startOfClass").innerHTML += "and ends at "+nextPeriod[1][0]+":"+nextPeriod[1][1]
+      document.getElementById("timeOfClass").innerHTML = nextPeriod[2]+" starts at "+nextPeriod[0][0]+":"+nextPeriod[0][1]+" "
+      document.getElementById("timeOfClass").innerHTML += "and ends at "+nextPeriod[1][0]+":"+nextPeriod[1][1]
     }
     else if (short(tillEnd, hr, min, sec, 1, 0, 1, 1) == Math.abs(short(tillEnd, hr, min, sec, 1, 0, 1, 1))) {
       let diff = short(tillEnd, hr, min, sec, 1, 0, 1, 1)
@@ -218,7 +221,7 @@ m = getParameterByName("m")
       Finish2 = "Till end of "+title
       document.getElementById("line1R").innerHTML = `${Hours2} Hrs ${Minutes2} Mins ${Seconds2} Secs  `;
       document.getElementById("line2R").innerHTML = "Till the end of "+title
-      document.getElementById("startOfClass").innerHTML = nextPeriod[2]+" ends at "+nextPeriod[1][0]+":"+nextPeriod[1][1]
+      document.getElementById("timeOfClass").innerHTML = nextPeriod[2]+" ends at "+nextPeriod[1][0]+":"+nextPeriod[1][1]
     }
     document.getElementById("schedule").innerHTML = ""
     if (document.querySelector('.time:checked') != null) {
@@ -296,12 +299,13 @@ m = getParameterByName("m")
 
     for (let i = 0; i < timesInMinutes.length; i+=2) {
     
-      fullList.push([[decrypt(i, 0), decrypt(i, 1)], [decrypt(i+1, 0), decrypt(i+1, 1)], names[i/2]]); //xtra rip reading code, format: [[hr, min](start), [hr, min](stop), name]
+      fullList.push([[decrypt(i, 0), decrypt(i, 1)], [decrypt(i+1, 0), decrypt(i+1, 1)], names[i/2]); //xtra rip reading code, format: [[hr, min](start), [hr, min](stop), name]
     }
 
 // url example:   titanc3.github.io/period?m=∆≣|⊏⊐|⊙⊚|⊛⊞|⊟⊠|⊟⊛&names=poop|zoop|sloop&title=scholo
 
     console.log("Hey! No snooping!");
+    console.log(room)
     setInterval(timedUpdate, 125);
   }
 </script>
