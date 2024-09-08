@@ -75,10 +75,11 @@
       <form>
         <h2>School Schedule</h2><br>
         <h3>Burger Jr. Highschool</h3>
-        <p><input type="radio" name="lunch" id="lunch1" value="1" onclick="lunchval(this.value) unchecked"> I have Lunch 1</p>
-        <p><input type="radio" name="lunch" id="lunch2" value="2" onclick="lunchval(this.value) unchecked"> I have Lunch 2</p>
-        <p><input type="radio" name="lunch" id="lunch3" value="3" onclick="lunchval(this.value) unchecked"> I have Lunch 3</p>
-        <p><input type="text" id="names" name="names"> Type the <u>9</u> names of each period separated by a space ([1st_Period] ... [Lunch] ... [8th_Period])</p>
+        <p><input type="radio" name="lunch" id="lunch1" value="1" onclick="lunchval(this.value)"> I have Lunch 1</p>
+        <p><input type="radio" name="lunch" id="lunch2" value="2" onclick="lunchval(this.value)"> I have Lunch 2</p>
+        <p><input type="radio" name="lunch" id="lunch3" value="3" onclick="lunchval(this.value)"> I have Lunch 3</p>
+        <p><input type="text" id="names" name="names"> Type the <u>9</u> names of each period separated by a space (include lunch as if it was a class) ([1st_Period] ... [Lunch] ... [8th_Period])</p>
+        <p><input type="text" id="room" name="room"> Type the <u>9</u> rooms of each period separated by a space ([1st_Period] ... [Lunch] ... [8th_Period])</p>
         <a onclick="document.getElementById('videoOverlay').style.display = 'block';" class="btn">Help</a><a id="submitButton" class="btn" onclick="submit()" href="#">Submit</a>
         <script>
         function lunchval(value) { lunch = value; }
@@ -104,7 +105,8 @@
           }
           
           let names = document.getElementById("names").value.split(" ");
-          let url = `https://titanc3.github.io/other/time_period/period?title=School&names=${names.join("|")}&m=`;
+          let room = document.getElementById("room").value.split(" ");
+          let url = `https://titanc3.github.io/other/time_period/period?title=School&names=${names.join("|")}&room=${room.join("|")}&m=`;
 
           for (let i = 0; i < startTime.length; i++) {
             let startList = startTime[i].split(":");
@@ -114,6 +116,52 @@
           }
           document.getElementById("submitButton").innerHTML = "Click to view your personalized page";
           document.getElementById("submitButton").setAttribute("href", url)
+        }
+        </script>
+      </form>
+      <form>
+        <h2>School Schedule</h2><br>
+        <h3>Sperry Sr. Highschool</h3>
+        <p><input type="radio" name="shslunch" id="shslunch1" value="1" onclick="shslunchval(this.value)"> I have Lunch 1</p>
+        <p><input type="radio" name="shslunch" id="shslunch2" value="2" onclick="shslunchval(this.value)"> I have Lunch 2</p>
+        <p><input type="radio" name="shslunch" id="shslunch3" value="3" onclick="shslunchval(this.value)"> I have Lunch 3</p>
+        <p><input type="text" id="names" name="names"> Type the <u>9</u> names of each period separated by a space (include lunch as if it was a class) ([1st_Period] ... [Lunch] ... [8th_Period])</p>
+        <p><input type="text" id="room" name="room"> Type the <u>9</u> rooms of each period separated by a space ([1st_Period] ... [Lunch] ... [8th_Period])</p>
+        <a onclick="document.getElementById('videoOverlay').style.display = 'block';" class="btn">Help</a><a id="shssubmitButton" class="btn" onclick="shssubmit()" href="#">Submit</a>
+        <script>
+        function shslunchval(value) { shslunch = value; console.log(value)}
+        function shssubmit() {
+          let Start1 = "7:35 8:22 9:09 9:56"; // start of START TIMES
+          let End1 = "12:46 13:33"; // end of START TIMES
+          let Start2 = "8:17 9:04 9:51 10:38"; // start of END TIMES
+          let End2 = "13:28 14:15"; // end of END TIMES (heavy emphasis so you don't lose several hours for no reason)
+          let startTime = "", endTime = []
+          let symbols = "∆ ∇ ∎ ≡ ≣ ⊏ ⊐ ⊑ ⊒ ⊕ ⊖ ⊗ ⊘ ⊙ ⊚ ⊛ ⊜ ⊝ ⊞ ⊟ ⊠ ⊡ ⊿ ⋄ ⋐ ⋑ ⋒ ⋓ ⍁ ⍂ ⎔ □ ▢ ▣ ▤ ▥ ▦ ▧ ▨ ▩ ▪ ▫ ▬ ▭ ▮ ▯ ▰ ▱ ▲ △ ▴ ▵ ▶ ▷ ▸ ▹ ▻ ▼ ▽ ▾ ▿ ◀ ◁ ◂ ◃ ◅ ◆ ◇ ◈ ◉ ◊ ○ ◌ ◍ ◎ ● ◐ ◑ ◒ ◓ ◔ ◕ ◖ ◗ ◧ ◨ ◩ ◪ ◫ ◬ ◭ ◮ ◯ ◰ ◱ ◲ ◳ ◴ ◵ ◶".split(" ");
+          if (isNaN(shslunch)) { alert("Please select an option"); }
+          else if (shslunch == "1") {
+            startTime = (Start1 + " 10:39 11:12 11:59" + End1).split(" ");
+            endTime = (Start2 + " 11:09 11:54 12:41 " + End2).split(" ");
+          }
+          else if (shslunch == "2") {
+            startTime = (Start1 + " 10:43 11:26 11:59 " + End1).split(" ");
+            endTime = (Start2 + " 11:25 11:56 12:41 " + End2).split(" ");
+          }
+          else if (shslunch == "3") {
+            startTime = (Start1 + " 10:43 11:30 12:13 " + End1).split(" ");
+            endTime = (Start2 + " 11:25 12:12 12:43 " + End2).split(" ");
+          }
+          let names = document.getElementById("names").value.split(" ");
+          let room = document.getElementById("room").value.split(" ");
+          let url = `https://titanc3.github.io/other/time_period/period?title=School&names=${names.join("|")}&room=${room.join("|")}&m=`;
+
+          for (let i = 0; i < startTime.length; i++) {
+            let startList = startTime[i].split(":");
+            let endList = endTime[i].split(":");
+            if (i == 0) { url += symbols[parseInt(startList[0])] + symbols[parseInt(startList[1])] + "|" + symbols[parseInt(endList[0])] + symbols[parseInt(endList[1])]; }
+            else { url += "|" + symbols[parseInt(startList[0])] + symbols[parseInt(startList[1])] + "|" + symbols[parseInt(endList[0])] + symbols[parseInt(endList[1])]; }
+          }
+          document.getElementById("shssubmitButton").innerHTML = "Click to view your personalized page";
+          document.getElementById("shssubmitButton").setAttribute("href", url)
         }
         </script>
       </form>
