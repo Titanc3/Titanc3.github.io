@@ -182,7 +182,7 @@ else {room = getParameterByName("room").split("|")}
       document.getElementById("timeOfClass").innerHTML = ""
       document.getElementById("roomOfClass").innerHTML = ""
     }
-    else if (short(till, hr, min, sec, 0, 0, 0, 1) == Math.abs(short(till, hr, min, sec, 0, 0, 0, 1))) {
+    else if (short(till, hr, min, sec, 0, 0, 0, 1) == Math.abs(short(till, hr, min, sec, 0, 0, 0, 1))) { //class not started
       let diff = short(till, hr, min, sec, 0, 0, 0, 1)
       Hours1 = Math.floor(diff/60/60)
       Minutes1 = Math.floor(((diff/60/60)-(Math.floor(diff/60/60)))*60)
@@ -193,7 +193,7 @@ else {room = getParameterByName("room").split("|")}
       document.getElementById("timeOfClass").innerHTML = nextPeriod[2]+" starts at "+nextPeriod[0][0]+":"+nextPeriod[0][1]+" "
       document.getElementById("timeOfClass").innerHTML += "and ends at "+nextPeriod[1][0]+":"+nextPeriod[1][1]
     }
-    else if (short(till, hr, min, sec, 1, 0, 1, 1) == Math.abs(short(till, hr, min, sec, 1, 0, 1, 1))) {
+    else if (short(till, hr, min, sec, 1, 0, 1, 1) == Math.abs(short(till, hr, min, sec, 1, 0, 1, 1))) { //class started
       let diff = short(till, hr, min, sec, 1, 0, 1, 1)
       Hours1 = Math.floor(diff/60/60)
       Minutes1 = Math.floor(((diff/60/60)-(Math.floor(diff/60/60)))*60)
@@ -204,7 +204,7 @@ else {room = getParameterByName("room").split("|")}
       document.getElementById("timeOfClass").innerHTML = nextPeriod[2]+" ends at "+nextPeriod[1][0]+":"+nextPeriod[1][1]
     }
     if (tillEnd == 0) {}
-      else if (short(tillEnd, hr, min, sec, 0, 0, 0, 1) == Math.abs(short(tillEnd, hr, min, sec, 0, 0, 0, 1))) {
+      else if (short(tillEnd, hr, min, sec, 0, 0, 0, 1) == Math.abs(short(tillEnd, hr, min, sec, 0, 0, 0, 1))) { //school not started
       let diff = short(tillEnd, hr, min, sec, 0, 0, 0, 1)
       Hours2 = Math.floor(diff/60/60)
       Minutes2 = Math.floor(((diff/60/60)-(Math.floor(diff/60/60)))*60)
@@ -212,10 +212,8 @@ else {room = getParameterByName("room").split("|")}
       Finish2 = "Till "+title
       document.getElementById("line1R").innerHTML = `${Hours2} Hrs ${Minutes2} Mins ${Seconds2} Secs  `;
       document.getElementById("line2R").innerHTML = "Till "+title
-      document.getElementById("timeOfClass").innerHTML = nextPeriod[2]+" starts at "+nextPeriod[0][0]+":"+nextPeriod[0][1]+" "
-      document.getElementById("timeOfClass").innerHTML += "and ends at "+nextPeriod[1][0]+":"+nextPeriod[1][1]
     }
-    else if (short(tillEnd, hr, min, sec, 1, 0, 1, 1) == Math.abs(short(tillEnd, hr, min, sec, 1, 0, 1, 1))) {
+    else if (short(tillEnd, hr, min, sec, 1, 0, 1, 1) == Math.abs(short(tillEnd, hr, min, sec, 1, 0, 1, 1))) { //school started
       let diff = short(tillEnd, hr, min, sec, 1, 0, 1, 1)
       Hours2 = Math.floor(diff/60/60)
       Minutes2 = Math.floor(((diff/60/60)-(Math.floor(diff/60/60)))*60)
@@ -223,7 +221,6 @@ else {room = getParameterByName("room").split("|")}
       Finish2 = "Till end of "+title
       document.getElementById("line1R").innerHTML = `${Hours2} Hrs ${Minutes2} Mins ${Seconds2} Secs  `;
       document.getElementById("line2R").innerHTML = "Till the end of "+title
-      document.getElementById("timeOfClass").innerHTML = nextPeriod[2]+" ends at "+nextPeriod[1][0]+":"+nextPeriod[1][1]
     }
     document.getElementById("schedule").innerHTML = ""
     if (document.querySelector('.time:checked') != null) {
