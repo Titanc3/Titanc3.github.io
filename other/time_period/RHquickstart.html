@@ -79,7 +79,7 @@
         <p><input type="radio" name="lunch" id="lunch2" value="2" onclick="lunchval(this.value)"> I have Lunch 2</p>
         <p><input type="radio" name="lunch" id="lunch3" value="3" onclick="lunchval(this.value)"> I have Lunch 3</p>
         <p><input type="text" id="names" name="names"> Type the <u>9</u> names of each period separated by a space (include lunch as if it was a class) ([1st_Period] ... [Lunch] ... [8th_Period])</p>
-        <p><input type="text" id="room" name="room"> Type the <u>9</u> rooms of each period separated by a space ([1st_Period] ... [Lunch] ... [8th_Period])</p>
+        <p><input type="text" id="room" name="room"> (Optional) Type the <u>9</u> rooms of each period separated by a space ([1st_Period] ... [Lunch] ... [8th_Period])</p>
         <a onclick="document.getElementById('videoOverlay').style.display = 'block';" class="btn">Help</a><a id="submitButton" class="btn" onclick="submit()" href="#">Submit</a>
         <script>
         function lunchval(value) { lunch = value; }
@@ -126,7 +126,7 @@
         <p><input type="radio" name="shslunch" id="shslunch2" value="2" onclick="shslunchval(this.value)"> I have Lunch 2</p>
         <p><input type="radio" name="shslunch" id="shslunch3" value="3" onclick="shslunchval(this.value)"> I have Lunch 3</p>
         <p><input type="text" id="shsnames" name="names"> Type the <u>9</u> names of each period separated by a space (include lunch as if it was a class) ([1st_Period] ... [Lunch] ... [8th_Period])</p>
-        <p><input type="text" id="shsroom" name="room"> Type the <u>9</u> rooms of each period separated by a space ([1st_Period] ... [Lunch] ... [8th_Period])</p>
+        <p><input type="text" id="shsroom" name="room"> (Optional) Type the <u>9</u> rooms of each period separated by a space ([1st_Period] ... [Lunch] ... [8th_Period])</p>
         <a onclick="document.getElementById('videoOverlay').style.display = 'block';" class="btn">Help</a><a id="shssubmitButton" class="btn" onclick="shssubmit()" href="#">Submit</a>
         <script>
         function shslunchval(value) { shslunch = value; console.log(value)}
