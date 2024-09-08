@@ -125,8 +125,8 @@
         <p><input type="radio" name="shslunch" id="shslunch1" value="1" onclick="shslunchval(this.value)"> I have Lunch 1</p>
         <p><input type="radio" name="shslunch" id="shslunch2" value="2" onclick="shslunchval(this.value)"> I have Lunch 2</p>
         <p><input type="radio" name="shslunch" id="shslunch3" value="3" onclick="shslunchval(this.value)"> I have Lunch 3</p>
-        <p><input type="text" id="names" name="names"> Type the <u>9</u> names of each period separated by a space (include lunch as if it was a class) ([1st_Period] ... [Lunch] ... [8th_Period])</p>
-        <p><input type="text" id="room" name="room"> Type the <u>9</u> rooms of each period separated by a space ([1st_Period] ... [Lunch] ... [8th_Period])</p>
+        <p><input type="text" id="shsnames" name="names"> Type the <u>9</u> names of each period separated by a space (include lunch as if it was a class) ([1st_Period] ... [Lunch] ... [8th_Period])</p>
+        <p><input type="text" id="shsroom" name="room"> Type the <u>9</u> rooms of each period separated by a space ([1st_Period] ... [Lunch] ... [8th_Period])</p>
         <a onclick="document.getElementById('videoOverlay').style.display = 'block';" class="btn">Help</a><a id="shssubmitButton" class="btn" onclick="shssubmit()" href="#">Submit</a>
         <script>
         function shslunchval(value) { shslunch = value; console.log(value)}
@@ -150,8 +150,8 @@
             startTime = (Start1 + " 10:43 11:30 12:13 " + End1).split(" ");
             endTime = (Start2 + " 11:25 12:12 12:43 " + End2).split(" ");
           }
-          let names = document.getElementById("names").value.split(" ");
-          let room = document.getElementById("room").value.split(" ");
+          let names = document.getElementById("shsnames").value.split(" ");
+          let room = document.getElementById("shsroom").value.split(" ");
           let url = `https://titanc3.github.io/other/time_period/period?title=School&names=${names.join("|")}&room=${room.join("|")}&m=`;
 
           for (let i = 0; i < startTime.length; i++) {
