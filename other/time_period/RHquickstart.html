@@ -87,20 +87,20 @@
           let End1 = "12:10 12:59 13:48";
           let Start2 = "8:16 9:06 9:56";
           let End2 = "12:55 13:44 14:37";
-          let startTime = "", endTime = "";
+          let startTime = "", shsendTime = "";
           let symbols = "∆ ∇ ∎ ≡ ≣ ⊏ ⊐ ⊑ ⊒ ⊕ ⊖ ⊗ ⊘ ⊙ ⊚ ⊛ ⊜ ⊝ ⊞ ⊟ ⊠ ⊡ ⊿ ⋄ ⋐ ⋑ ⋒ ⋓ ⍁ ⍂ ⎔ □ ▢ ▣ ▤ ▥ ▦ ▧ ▨ ▩ ▪ ▫ ▬ ▭ ▮ ▯ ▰ ▱ ▲ △ ▴ ▵ ▶ ▷ ▸ ▹ ▻ ▼ ▽ ▾ ▿ ◀ ◁ ◂ ◃ ◅ ◆ ◇ ◈ ◉ ◊ ○ ◌ ◍ ◎ ● ◐ ◑ ◒ ◓ ◔ ◕ ◖ ◗ ◧ ◨ ◩ ◪ ◫ ◬ ◭ ◮ ◯ ◰ ◱ ◲ ◳ ◴ ◵ ◶".split(" ");
           if (isNaN(lunch)) { alert("Please select an option"); }
           else if (lunch == "1") {
             startTime = (Start1 + " 10:32 11:21 " + End1).split(" ");
-            endTime = (Start2 + " 10:30 11:17 12:06 " + End2).split(" ");
+            shsendTime = (Start2 + " 10:30 11:17 12:06 " + End2).split(" ");
           }
           else if (lunch == "2") {
             startTime = (Start1 + " 10:49 11:21 " + End1).split(" ");
-            endTime = (Start2 + " 10:45 11:19 12:06 " + End2).split(" ");
+            shsendTime = (Start2 + " 10:45 11:19 12:06 " + End2).split(" ");
           }
           else if (lunch == "3") {
             startTime = (Start1 + " 10:49 11:38 " + End1).split(" ");
-            endTime = (Start2 + " 10:45 11:34 12:08 " + End2).split(" ");
+            shsendTime = (Start2 + " 10:45 11:34 12:08 " + End2).split(" ");
           }
           
           let names = document.getElementById("names").value.split(" ");
@@ -108,7 +108,7 @@
 
           for (let i = 0; i < startTime.length; i++) {
             let startList = startTime[i].split(":");
-            let endList = endTime[i].split(":");
+            let endList = shsendTime[i].split(":");
             if (i == 0) { url += symbols[parseInt(startList[0])] + symbols[parseInt(startList[1])] + "|" + symbols[parseInt(endList[0])] + symbols[parseInt(endList[1])]; }
             else { url += "|" + symbols[parseInt(startList[0])] + symbols[parseInt(startList[1])] + "|" + symbols[parseInt(endList[0])] + symbols[parseInt(endList[1])]; }
           }
