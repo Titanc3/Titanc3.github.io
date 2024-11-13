@@ -207,7 +207,7 @@ else {room = getParameterByName("room").split("|")}
       Finish1 = "Till end of "+till[2] //diff bc title max text amount
       if (vw <= 686) {document.getElementById("line1L").innerHTML = `${Hours1}:${Minutes1}:${Seconds1}`;}
       else {document.getElementById("line1L").innerHTML = `${Hours1} Hrs ${Minutes1} Mins ${Seconds1} Secs  `;}
-      document.getElementById("line2L").innerHTML = "Till the end of "+till[2]
+      document.getElementById("line2L").innerHTML = "Till "+till[2]+" ends"
       document.getElementById("timeOfClass").innerHTML = nextPeriod[2]+" ends at "+nextPeriod[1][0]+":"+String(nextPeriod[1][1]).padStart(2, "0")
       document.getElementById("roomOfClass").innerHTML = `Room: ${room[fullList.indexOf(item)]}`
     }
@@ -230,7 +230,7 @@ else {room = getParameterByName("room").split("|")}
       Finish2 = "Till end of "+title
       if (vw <= 686) {document.getElementById("line1R").innerHTML = `${Hours2}:${Minutes2}:${Seconds2}`;}
       else {document.getElementById("line1R").innerHTML = `${Hours2} Hrs ${Minutes2} Mins ${Seconds2} Secs  `;}
-      document.getElementById("line2R").innerHTML = "Till the end of "+title
+      document.getElementById("line2R").innerHTML = "Till "+title+" ends"
     }
     document.getElementById("schedule").innerHTML = ""
     if (document.querySelector('.time:checked') != null) {
