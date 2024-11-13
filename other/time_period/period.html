@@ -173,6 +173,8 @@ else {room = getParameterByName("room").split("|")}
     if (item[0][0] >= 13) {nextPeriod[0][0] -= 12}
     if (item[1][0] >= 13) {nextPeriod[1][0] -= 12}
     let tillEnd = 0;
+    let vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
+	let vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0)
     if ((fullList[fullList.length-1][1][0]*60)+fullList[fullList.length-1][1][1] > (hr*60)+min) {
       tillEnd = [fullList[0][0],fullList[fullList.length-1][1],fullList[fullList.length-1][2]];
     }
@@ -190,7 +192,8 @@ else {room = getParameterByName("room").split("|")}
       Minutes1 = Math.floor(((diff/60/60)-(Math.floor(diff/60/60)))*60)
       Seconds1 = diff-Minutes1*60-Hours1*3600
       Finish1 = "Till "+till[2] //used for title shifting, actually somewhat important
-      document.getElementById("line1L").innerHTML = `${Hours1} Hrs ${Minutes1} Mins ${Seconds1} Secs  `;
+      if (vw <= 686) {document.getElementById("line1L").innerHTML = `${Hours1}:${Minutes1}:${Seconds1}`;}
+      else {document.getElementById("line1L").innerHTML = `${Hours1} Hrs ${Minutes1} Mins ${Seconds1} Secs  `;}
       document.getElementById("line2L").innerHTML = Finish1
       document.getElementById("timeOfClass").innerHTML = nextPeriod[2]+" starts at "+nextPeriod[0][0]+":"+nextPeriod[0][1]+" "
       document.getElementById("timeOfClass").innerHTML += "and ends at "+nextPeriod[1][0]+":"+String(nextPeriod[1][1]).padStart(2, "0")
@@ -202,7 +205,8 @@ else {room = getParameterByName("room").split("|")}
       Minutes1 = Math.floor(((diff/60/60)-(Math.floor(diff/60/60)))*60)
       Seconds1 = diff-Minutes1*60-Hours1*3600
       Finish1 = "Till end of "+till[2] //diff bc title max text amount
-      document.getElementById("line1L").innerHTML = `${Hours1} Hrs ${Minutes1} Mins ${Seconds1} Secs  `;
+      if (vw <= 686) {document.getElementById("line1L").innerHTML = `${Hours1}:${Minutes1}:${Seconds1}`;}
+      else {document.getElementById("line1L").innerHTML = `${Hours1} Hrs ${Minutes1} Mins ${Seconds1} Secs  `;}
       document.getElementById("line2L").innerHTML = "Till the end of "+till[2]
       document.getElementById("timeOfClass").innerHTML = nextPeriod[2]+" ends at "+nextPeriod[1][0]+":"+String(nextPeriod[1][1]).padStart(2, "0")
       document.getElementById("roomOfClass").innerHTML = `Room: ${room[fullList.indexOf(item)]}`
@@ -214,7 +218,8 @@ else {room = getParameterByName("room").split("|")}
       Minutes2 = Math.floor(((diff/60/60)-(Math.floor(diff/60/60)))*60)
       Seconds2 = diff-Minutes2*60-Hours2*3600
       Finish2 = "Till "+title
-      document.getElementById("line1R").innerHTML = `${Hours2} Hrs ${Minutes2} Mins ${Seconds2} Secs  `;
+      if (vw <= 686) {document.getElementById("line1R").innerHTML = `${Hours2}:${Minutes2}:${Seconds2}`;}
+      else {document.getElementById("line1R").innerHTML = `${Hours2} Hrs ${Minutes2} Mins ${Seconds2} Secs  `;}
       document.getElementById("line2R").innerHTML = "Till "+title
     }
     else if (short(tillEnd, hr, min, sec, 1, 0, 1, 1) == Math.abs(short(tillEnd, hr, min, sec, 1, 0, 1, 1))) { //school started
@@ -223,7 +228,8 @@ else {room = getParameterByName("room").split("|")}
       Minutes2 = Math.floor(((diff/60/60)-(Math.floor(diff/60/60)))*60)
       Seconds2 = diff-Minutes2*60-Hours2*3600
       Finish2 = "Till end of "+title
-      document.getElementById("line1R").innerHTML = `${Hours2} Hrs ${Minutes2} Mins ${Seconds2} Secs  `;
+      if (vw <= 686) {document.getElementById("line1R").innerHTML = `${Hours2}:${Minutes2}:${Seconds2}`;}
+      else {document.getElementById("line1R").innerHTML = `${Hours2} Hrs ${Minutes2} Mins ${Seconds2} Secs  `;}
       document.getElementById("line2R").innerHTML = "Till the end of "+title
     }
     document.getElementById("schedule").innerHTML = ""
