@@ -1,4 +1,7 @@
-  #Menu-Button {
+#hiddenm {
+  display: none;
+}
+#Menu-Button {
     display: none;
   }
   .mobile {
@@ -54,6 +57,9 @@
       float: none;
       margin: 0px;
       vertical-align: text-bottom;
+    }
+    #hiddenm {
+      display: inline;
     }
   }
 .overlay {
