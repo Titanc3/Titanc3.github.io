@@ -1,5 +1,5 @@
 #hiddenm {
-  display: none;
+  display: inline;
 }
 #Menu-Button {
     display: none;
@@ -59,7 +59,7 @@
       vertical-align: text-bottom;
     }
     #hiddenm {
-      display: inline;
+      display: none;
     }
   }
 .overlay {
