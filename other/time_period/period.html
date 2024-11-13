@@ -192,7 +192,7 @@ else {room = getParameterByName("room").split("|")}
       Minutes1 = Math.floor(((diff/60/60)-(Math.floor(diff/60/60)))*60)
       Seconds1 = diff-Minutes1*60-Hours1*3600
       Finish1 = "Till "+till[2] //used for title shifting, actually somewhat important
-      if (vw <= 686) {document.getElementById("line1L").innerHTML = `${Hours1}:${Minutes1.padStart(2, "0")}:${Seconds1.padStart(2, "0")}`;}
+      if (vw <= 686) {document.getElementById("line1L").innerHTML = `${Hours1}:${Minutes1}:${Seconds1}`;}
       else {document.getElementById("line1L").innerHTML = `${Hours1} Hrs ${Minutes1} Mins ${Seconds1} Secs  `;}
       document.getElementById("line2L").innerHTML = Finish1
       document.getElementById("timeOfClass").innerHTML = nextPeriod[2]+" starts at "+nextPeriod[0][0]+":"+nextPeriod[0][1]+" "
