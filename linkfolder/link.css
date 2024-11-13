@@ -1,3 +1,4 @@
+.visiblem {display: none}
 #hiddenm {
   display: inline;
 }
@@ -61,6 +62,7 @@
     #hiddenm {
       display: none;
     }
+    .visiblem {display: inline}
   }
 .overlay {
   position: fixed; /* Sit on top of the page content */
