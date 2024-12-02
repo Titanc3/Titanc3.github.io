@@ -174,7 +174,11 @@ else {room = getParameterByName("room").split("|")}
     if (item[1][0] >= 13) {nextPeriod[1][0] -= 12}
     let tillEnd = 0;
     let vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
-	let vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0)
+    let vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0)
+    if (typeof room[fullList.indexOf(item)] !== undefined) {
+	    currentRoom = `Room: ${room[fullList.indexOf(item)]}`
+    }
+    else {currentRoom = ""}
     if ((fullList[fullList.length-1][1][0]*60)+fullList[fullList.length-1][1][1] > (hr*60)+min) {
       tillEnd = [fullList[0][0],fullList[fullList.length-1][1],fullList[fullList.length-1][2]];
     }
@@ -197,7 +201,7 @@ else {room = getParameterByName("room").split("|")}
       document.getElementById("line2L").innerHTML = Finish1
       document.getElementById("timeOfClass").innerHTML = nextPeriod[2]+" starts at "+nextPeriod[0][0]+":"+nextPeriod[0][1]+" "
       document.getElementById("timeOfClass").innerHTML += "and ends at "+nextPeriod[1][0]+":"+String(nextPeriod[1][1]).padStart(2, "0")
-      document.getElementById("roomOfClass").innerHTML = `Room: ${room[fullList.indexOf(item)]}`
+      document.getElementById("roomOfClass").innerHTML = currentRoom
     }
     else if (short(till, hr, min, sec, 1, 0, 1, 1) == Math.abs(short(till, hr, min, sec, 1, 0, 1, 1))) { //class started
       let diff = short(till, hr, min, sec, 1, 0, 1, 1)
@@ -209,7 +213,7 @@ else {room = getParameterByName("room").split("|")}
       else {document.getElementById("line1L").innerHTML = `${Hours1} Hrs ${Minutes1} Mins ${Seconds1} Secs  `;}
       document.getElementById("line2L").innerHTML = "Till "+till[2]+" ends"
       document.getElementById("timeOfClass").innerHTML = nextPeriod[2]+" ends at "+nextPeriod[1][0]+":"+String(nextPeriod[1][1]).padStart(2, "0")
-      document.getElementById("roomOfClass").innerHTML = `Room: ${room[fullList.indexOf(item)]}`
+      document.getElementById("roomOfClass").innerHTML = currentRoom
     }
     if (tillEnd == 0) {}
       else if (short(tillEnd, hr, min, sec, 0, 0, 0, 1) == Math.abs(short(tillEnd, hr, min, sec, 0, 0, 0, 1))) { //school not started
@@ -268,7 +272,11 @@ else {room = getParameterByName("room").split("|")}
       let a = miniList[0][1].toString().padStart(2, "0");
       let b = miniList[1][1].toString().padStart(2, "0");
       addText1(miniList[2])
-      addText2(`${miniList[0][0]}:${a} - ${miniList[1][0]}:${b}\nRoom: ${room[fullList.indexOf(miniList)]}`)
+      if (typeof room[fullList.indexOf(miniList)]) !== "undefined") {
+	let room = `\nRoom: ${room[fullList.indexOf(miniList)])}`
+      }
+      else {let room = ""}
+      addText2(`${miniList[0][0]}:${a} - ${miniList[1][0]}:${b}${room}`)
       }
     }
   if (typeof Hours1 == "undefined" || parseInt(Hours1+Hours2+Minutes1+Minutes2) == 0 && parseInt(Seconds1)+parseInt(Seconds2) == 2) {}
