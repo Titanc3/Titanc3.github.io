@@ -272,7 +272,7 @@ else {room = getParameterByName("room").split("|")}
       let a = miniList[0][1].toString().padStart(2, "0");
       let b = miniList[1][1].toString().padStart(2, "0");
       addText1(miniList[2])
-      if (typeof room[fullList.indexOf(miniList)]) !== "undefined") {
+      if (typeof room[fullList.indexOf(miniList)] !== "undefined") {
 	let room = `\nRoom: ${room[fullList.indexOf(miniList)])}`
       }
       else {let room = ""}
