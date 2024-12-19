@@ -118,8 +118,9 @@ let vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight
         else {newHour2 = `${miniList[1][0]} AM`.split(" ")}
       }
       addText1(miniList[2])
-      addText2(`${newHour[0]}:${a} ${newHour[1]} - ${newHour2[0]}:${b} ${newHour2[1]}\nRoom: ${room[fullList.indexOf(miniList)]}`)
-      
+      if (typeof room[fullList.indexOf(miniList)] == "undefined") {addText2(`${newHour[0]}:${a} ${newHour[1]} - ${newHour2[0]}:${b} ${newHour2[1]}`)}
+      else {addText2(`${newHour[0]}:${a} ${newHour[1]} - ${newHour2[0]}:${b} ${newHour2[1]}\nRoom: ${room[fullList.indexOf(miniList)]}`)}
+  
     }
   }
   else {
@@ -128,9 +129,11 @@ let vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight
     let a = miniList[0][1].toString().padStart(2, "0");
     let b = miniList[1][1].toString().padStart(2, "0");
     addText1(miniList[2])
-    addText2(`${miniList[0][0]}:${a} - ${miniList[1][0]}:${b}\nRoom: ${room[fullList.indexOf(miniList)]}`)
+    if (typeof room[fullList.indexOf(miniList)] == "undefined") {addText2(`${miniList[0][0]}:${a} - ${miniList[1][0]}:${b}`)}
+    else {addText2(`${miniList[0][0]}:${a} - ${miniList[1][0]}:${b}\nRoom: ${room[fullList.indexOf(miniList)]}`)}
     }
   }
+  if (document.getElementById("roomOfClass").innerHTML == "Room: undefined") {document.getElementById("roomOfClass").innerHTML = ""}
 if (typeof Hours1 == "undefined" || parseInt(Hours1+Hours2+Minutes1+Minutes2) == 0 && parseInt(Seconds1)+parseInt(Seconds2) == 2) {}
 else {
 Hours1 = Hours1.toString().padStart(2, "0");
