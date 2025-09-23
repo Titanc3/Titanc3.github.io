@@ -91,9 +91,10 @@
  
   
   let game_url = getParameterByName("game");
+  if (game_url == "sc") {game_url = "https://www.crazygames.com/embed/shellshockersio";}
   let game_name = game_url.toLowerCase().split("/")[4].replace("io", "").split("-");
   let end_name = "";
-  if (getParameterByName("game") == "sc") {game_url = "https://www.crazygames.com/embed/shellshockersio"}
+  
   
   if (game_url != "") {document.getElementById("unity-canvas").src = game_url;}
   else {alert("No game has been chosen, returning to game hub"); window.location.href = "https://titanc3.github.io/games";}
